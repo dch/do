@@ -1,0 +1,24 @@
+# $FreeBSD: head/www/py-plone.rfc822/Makefile 376109 2015-01-03 08:41:20Z mva $
+
+PORTNAME=	plone.rfc822
+PORTVERSION=	1.1
+PORTREVISION=	1
+CATEGORIES=	www python zope
+MASTER_SITES=	CHEESESHOP
+PKGNAMEPREFIX=	${PYTHON_PKGNAMEPREFIX}
+DIST_SUBDIR=	zope
+
+MAINTAINER=	zope@FreeBSD.org
+COMMENT=	RFC822 marshalling for zope.schema fields
+
+LICENSE=	BSD3CLAUSE
+
+RUN_DEPENDS=	${PYTHON_PKGNAMEPREFIX}zope.schema>0:${PORTSDIR}/devel/py-zope.schema \
+		${PYTHON_PKGNAMEPREFIX}zope.component>0:${PORTSDIR}/devel/py-zope.component \
+		${PYTHON_PKGNAMEPREFIX}zope.interface>0:${PORTSDIR}/devel/py-zope.interface \
+		${PYTHON_PKGNAMEPREFIX}dateutil>0:${PORTSDIR}/devel/py-dateutil
+
+USES=		python zip
+USE_PYTHON=	distutils autoplist
+
+.include <bsd.port.mk>

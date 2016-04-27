@@ -1,0 +1,32 @@
+# Created by: bryan@freshdns.net
+# $FreeBSD: head/security/rainbowcrack/Makefile 390669 2015-06-26 21:34:35Z amdmi3 $
+
+PORTNAME=	rainbowcrack
+PORTVERSION=	1.2
+CATEGORIES=	security
+MASTER_SITES=	http://www.semprixd.com/shares/ports/
+
+MAINTAINER= 	ports@FreeBSD.org
+COMMENT=	Hash cracker that precomputes plaintext - ciphertext pairs in advance
+
+ONLY_FOR_ARCHS=	i386 amd64
+ONLY_FOR_ARCHS_REASON=	uses x86 assembly
+
+USES=		dos2unix
+
+OPTIONS_DEFINE=	EXAMPLES
+
+post-patch:
+	@${REINPLACE_CMD} \
+		-e 's|g++|$$(CXX) $$(CXXFLAGS)|' -e 's|-O3||' \
+		-e 's/-lssl/-lcrypto/' \
+		${WRKSRC}/${MAKEFILE}
+
+do-install:
+.for f in rcrack rtgen rtdump rtsort
+	${INSTALL_PROGRAM} ${WRKSRC}/${f} ${STAGEDIR}${PREFIX}/bin
+.endfor
+	${MKDIR} ${STAGEDIR}${EXAMPLESDIR}
+	${INSTALL_DATA} ${WRKSRC}/charset.txt ${STAGEDIR}${EXAMPLESDIR}
+
+.include <bsd.port.mk>

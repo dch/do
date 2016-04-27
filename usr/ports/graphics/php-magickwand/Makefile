@@ -1,0 +1,30 @@
+# Created by: <mark@goodstorm.com>
+# $FreeBSD: head/graphics/php-magickwand/Makefile 383293 2015-04-05 14:01:51Z antoine $
+
+PORTNAME=	magickwand
+PORTVERSION=	1.0.9
+PORTREVISION=	3
+CATEGORIES=	graphics
+MASTER_SITES=	http://www.magickwand.org/download/php/
+PKGNAMEPREFIX=	php-
+DISTNAME=	MagickWandForPHP-${PORTVERSION}
+
+MAINTAINER=	ports@FreeBSD.org
+COMMENT=	PHP extension to manipulate images
+
+BROKEN=		No public distfiles
+
+LIB_DEPENDS=	libMagickWand-6.so:${PORTSDIR}/graphics/ImageMagick
+
+USES=		pkgconfig
+USE_PHP=	yes
+USE_PHPEXT=	yes
+
+CONFIGURE_ARGS=	--with-magickwand=${LOCALBASE}
+
+pre-configure:
+	@${REINPLACE_CMD} -e 's|-lMagickWand|-lMagickWand-6|g' \
+		-e 's|-lMagickCore|-lMagickCore-6|g' \
+		${WRKSRC}/configure
+
+.include <bsd.port.mk>

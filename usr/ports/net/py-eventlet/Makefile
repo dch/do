@@ -1,0 +1,24 @@
+# Created by: Gea-Suan Lin <gslin@gslin.org>
+# $FreeBSD: head/net/py-eventlet/Makefile 378486 2015-02-05 19:59:46Z cs $
+
+PORTNAME=	eventlet
+PORTVERSION=	0.16.1
+CATEGORIES=	net python
+MASTER_SITES=	CHEESESHOP
+PKGNAMEPREFIX=	${PYTHON_PKGNAMEPREFIX}
+
+MAINTAINER=	cs@FreeBSD.org
+COMMENT=	Concurrent networking library for Python
+
+LICENSE=	MIT
+
+RUN_DEPENDS=	${PYTHON_PKGNAMEPREFIX}greenlet>=0.3:${PORTSDIR}/devel/py-greenlet
+TEST_DEPENDS=	${PYTHON_PKGNAMEPREFIX}nose>0:${PORTSDIR}/devel/py-nose
+
+USES=		python
+USE_PYTHON=	distutils autoplist
+
+regression-test: build
+	@cd ${WRKSRC} && ${PYTHON_CMD} ${PYSETUP} test
+
+.include <bsd.port.mk>

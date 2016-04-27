@@ -1,0 +1,25 @@
+# Created by: chinsan <chinsan.tw@gmail.com>
+# $FreeBSD: head/devel/pecl-expect/Makefile 379804 2015-02-24 15:23:01Z vanilla $
+
+PORTNAME=	expect
+PORTVERSION=	0.3.1
+CATEGORIES=	devel pear
+MASTER_SITES=	http://pecl.php.net/get/
+PKGNAMEPREFIX=	pecl-
+DIST_SUBDIR=	PECL
+
+MAINTAINER=	ports@FreeBSD.org
+COMMENT=	PHP extension for expect library
+
+LICENSE=	PHP301
+
+LIB_DEPENDS=	libexpect.so:${PORTSDIR}/lang/expect
+
+USES=		tar:tgz tcl:86
+USE_PHP=	yes
+USE_PHPEXT=	yes
+
+CFLAGS+=	-I${TCL_INCLUDEDIR}
+CONFIGURE_ARGS+=--with-expect=${LOCALBASE}
+
+.include <bsd.port.mk>

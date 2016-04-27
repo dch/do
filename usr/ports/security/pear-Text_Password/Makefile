@@ -1,0 +1,15 @@
+# Created by: Attila Nagy <bra@fsn.hu>
+# $FreeBSD: head/security/pear-Text_Password/Makefile 372709 2014-11-18 09:37:31Z bapt $
+
+PORTNAME=	Text_password
+PORTVERSION=	1.1.1
+CATEGORIES=	security www pear
+
+MAINTAINER=	ports@FreeBSD.org
+COMMENT=	PEAR random password creator
+
+USE_PHP=	yes
+USES=	pear
+WRKSRC=		${WRKDIR}/Text_Password-${PORTVERSION}
+
+.include <bsd.port.mk>

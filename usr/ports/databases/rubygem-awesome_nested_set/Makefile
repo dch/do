@@ -1,0 +1,21 @@
+# Created by: Steve Wills <swills@freebsd.org>
+# $FreeBSD: head/databases/rubygem-awesome_nested_set/Makefile 388761 2015-06-07 20:41:23Z sunpoet $
+
+PORTNAME=	awesome_nested_set
+PORTVERSION=	3.0.2
+CATEGORIES=	databases rubygems
+MASTER_SITES=	RG
+
+MAINTAINER=	ruby@FreeBSD.org
+COMMENT=	Nested set implementation for Active Record
+
+LICENSE=	MIT
+
+RUN_DEPENDS=	rubygem-activerecord4>=4.0.0:${PORTSDIR}/databases/rubygem-activerecord4
+
+NO_ARCH=	yes
+USE_RUBY=	yes
+USE_RUBYGEMS=	yes
+RUBYGEM_AUTOPLIST=	yes
+
+.include <bsd.port.mk>

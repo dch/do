@@ -1,0 +1,42 @@
+# Created by: Stephen Montgomery-Smith <stephen@math.missouri.edu>
+# $FreeBSD: head/textproc/hevea/Makefile 393447 2015-08-02 22:56:57Z danilo $
+
+PORTNAME=	hevea
+PORTVERSION=	2.25
+CATEGORIES=	textproc
+MASTER_SITES=	http://para.inria.fr/~maranget/hevea/distri/ \
+		ftp://ftp.inria.fr/INRIA/moscova/hevea/
+DISTFILES=	${DISTNAME}${EXTRACT_SUFX}
+EXTRACT_ONLY=	${DISTNAME}${EXTRACT_SUFX}
+
+MAINTAINER=	danilo@FreeBSD.org
+COMMENT=	Convert LaTeX to HTML
+
+BUILD_DEPENDS=	ocamlc:${PORTSDIR}/lang/ocaml
+
+OPTIONS_DEFINE=	DOCS
+
+PLIST_SUB=	HEVEAVERSION=${PORTVERSION}
+
+PORTDOCS=	*
+DOCS_DISTFILES+=	${PORTNAME}-${PORTVERSION}-manual.pdf \
+			${PORTNAME}-${PORTVERSION}-manual.tar.gz
+
+.include <bsd.port.options.mk>
+
+post-patch:
+	@${REINPLACE_CMD} -e '/^PREFIX=/s|/usr/local|${PREFIX}|' \
+	    ${WRKSRC}/Makefile
+
+post-install:
+	@${STRIP_CMD} ${STAGEDIR}${PREFIX}/bin/esponja
+	@${STRIP_CMD} ${STAGEDIR}${PREFIX}/bin/bibhva
+	@${STRIP_CMD} ${STAGEDIR}${PREFIX}/bin/hevea
+	@${STRIP_CMD} ${STAGEDIR}${PREFIX}/bin/hacha
+.if ${PORT_OPTIONS:MDOCS}
+	@${MKDIR} ${STAGEDIR}${PREFIX}/share/doc/hevea
+	${INSTALL_DATA} ${DISTDIR}/${PORTNAME}-${PORTVERSION}-manual.pdf ${STAGEDIR}${PREFIX}/share/doc/hevea
+	(cd ${STAGEDIR}${PREFIX}/share/doc/hevea; ${TAR} xvfz ${DISTDIR}/${PORTNAME}-${PORTVERSION}-manual.tar.gz)
+.endif
+
+.include <bsd.port.mk>

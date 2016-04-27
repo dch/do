@@ -1,0 +1,4 @@
+lib/fpc/%%PORTVERSION%%/units/%%BUILDNAME%%/utmp/Package.fpc
+lib/fpc/%%PORTVERSION%%/units/%%BUILDNAME%%/utmp/utmp.ppu
+lib/fpc/%%PORTVERSION%%/units/%%BUILDNAME%%/utmp/utmp.o
+lib/fpc/%%PORTVERSION%%/units/%%BUILDNAME%%/utmp/libputmp.a

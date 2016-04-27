@@ -1,0 +1,27 @@
+# Created by: Aaron Dalton <aaron@FreeBSD.org>
+# $FreeBSD: head/converters/p5-XML-WBXML/Makefile 390918 2015-06-29 15:47:44Z adamw $
+
+PORTNAME=	XML-WBXML
+PORTVERSION=	0.09
+CATEGORIES=	converters perl5
+MASTER_SITES=	CPAN
+PKGNAMEPREFIX=	p5-
+
+MAINTAINER=	perl@FreeBSD.org
+COMMENT=	Convert between XML and WBXML using libwbxml2
+
+LICENSE=	ART10 GPLv1
+LICENSE_COMB=	dual
+
+LIB_DEPENDS=	libwbxml2.so:${PORTSDIR}/textproc/wbxml2
+
+USES=		perl5
+USE_PERL5=	configure
+
+post-patch:
+	@${REINPLACE_CMD} -e 's|%%LOCALBASE%%|${LOCALBASE}|' ${WRKSRC}/Makefile.PL
+
+post-install:
+	${STRIP_CMD} ${STAGEDIR}${PREFIX}/${SITE_ARCH_REL}/auto/XML/WBXML/WBXML.so
+
+.include <bsd.port.mk>

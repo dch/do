@@ -1,0 +1,20 @@
+# Created by: Miguel Mendez <flynn@energyhq.es.eu.org>
+# $FreeBSD: head/mail/addresses/Makefile 383626 2015-04-09 07:44:41Z bapt $
+
+PORTNAME=	addresses
+PORTVERSION=	0.4.8
+PORTREVISION=	2
+CATEGORIES=	mail gnustep
+MASTER_SITES=	SAVANNAH/gap
+DISTNAME=	Addresses-${PORTVERSION}
+
+MAINTAINER=	theraven@FreeBSD.org
+COMMENT=	Versatile addressbook for GNUstep
+
+LICENSE=	LGPL21
+
+USES=		gnustep
+USE_GNUSTEP=	back build
+USE_LDCONFIG=	${GNUSTEP_LOCAL_LIBRARIES}
+
+.include <bsd.port.mk>

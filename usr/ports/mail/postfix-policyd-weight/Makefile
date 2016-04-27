@@ -1,0 +1,45 @@
+# Created by: Robert Felber <robtone@ek-muc.de>
+# $FreeBSD: head/mail/postfix-policyd-weight/Makefile 377545 2015-01-20 22:09:49Z ohauer $
+
+PORTNAME=	policyd-weight
+PORTVERSION=	0.1.15.2
+PORTREVISION=	4
+CATEGORIES=	mail
+MASTER_SITES=	http://www.policyd-weight.org/releases/ \
+		LOCAL/ohauer
+PKGNAMEPREFIX=	postfix-
+
+MAINTAINER=	ohauer@FreeBSD.org
+COMMENT=	Weighted policy daemon for postfix
+
+LICENSE=	GPLv2
+
+RUN_DEPENDS=	p5-Net-DNS>=0.72:${PORTSDIR}/dns/p5-Net-DNS \
+		p5-Net-IP>0:${PORTSDIR}/net-mgmt/p5-Net-IP
+
+SUB_FILES=	pkg-message pkg-install
+PLIST_FILES=	bin/${PORTNAME} \
+		"@sample etc/${PORTNAME}.conf.sample" \
+		man/man5/policyd-weight.conf.5.gz \
+		man/man8/policyd-weight.8.gz
+
+USERS=		polw
+GROUPS=		polw
+
+USE_RC_SUBR+=	policyd-weight
+USES=		perl5 shebangfix
+USE_PERL5=	run
+NO_BUILD=	yes
+
+SHEBANG_LANG=	perl
+perl_OLD_CMD=	${SETENV} perl
+perl_CMD=	${PERL}
+SHEBANG_FILES=	${WRKSRC}/policyd-weight
+
+do-install:
+	${INSTALL_SCRIPT} ${WRKSRC}/${PORTNAME} ${STAGEDIR}${PREFIX}/bin
+	${INSTALL_DATA} ${WRKSRC}/${PORTNAME}.conf.sample ${STAGEDIR}${PREFIX}/etc
+	${INSTALL_MAN} ${WRKSRC}/man/man5/policyd-weight.conf.5 ${STAGEDIR}${MAN5PREFIX}/man/man5
+	${INSTALL_MAN} ${WRKSRC}/man/man8/policyd-weight.8 ${STAGEDIR}${MAN8PREFIX}/man/man8
+
+.include <bsd.port.mk>

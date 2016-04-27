@@ -1,0 +1,25 @@
+# Created by: Gea-Suan Lin <gslin@gslin.org>
+# $FreeBSD: head/www/p5-Catalyst-Plugin-Authentication-OpenID/Makefile 373448 2014-11-26 13:08:24Z mat $
+
+PORTNAME=	Catalyst-Plugin-Authentication-OpenID
+PORTVERSION=	0.02
+PORTREVISION=	1
+CATEGORIES=	www security perl5
+MASTER_SITES=	CPAN
+PKGNAMEPREFIX=	p5-
+
+MAINTAINER=	sunpoet@FreeBSD.org
+COMMENT=	OpenID Authentication
+
+LICENSE=	ART10 GPLv1
+LICENSE_COMB=	dual
+
+BUILD_DEPENDS=	p5-Catalyst-Runtime>=0:${PORTSDIR}/www/p5-Catalyst-Runtime \
+		p5-LWPx-ParanoidAgent>=0:${PORTSDIR}/www/p5-LWPx-ParanoidAgent \
+		p5-Net-OpenID-Consumer>=0:${PORTSDIR}/net/p5-Net-OpenID-Consumer
+RUN_DEPENDS:=	${BUILD_DEPENDS}
+
+USE_PERL5=	configure
+USES=		perl5
+
+.include <bsd.port.mk>

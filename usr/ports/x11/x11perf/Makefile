@@ -1,0 +1,18 @@
+# $FreeBSD: head/x11/x11perf/Makefile 385729 2015-05-08 05:23:12Z amdmi3 $
+
+PORTNAME=	x11perf
+PORTVERSION=	1.5.4
+CATEGORIES=	x11
+
+MAINTAINER=	x11@FreeBSD.org
+COMMENT=	X11 server performance test program
+
+LICENSE=	MIT
+LICENSE_FILE=	${WRKSRC}/COPYING
+
+XORG_CAT=	app
+USE_XORG=	x11 xmuu xrender xft xext
+USES=		cpe
+CPE_VENDOR=	xfree86
+
+.include <bsd.port.mk>

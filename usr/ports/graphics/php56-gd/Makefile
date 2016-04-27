@@ -1,0 +1,10 @@
+# Created by: Alex Dupre <ale@FreeBSD.org>
+# $FreeBSD: head/graphics/php56-gd/Makefile 389655 2015-06-14 20:23:09Z ale $
+
+CATEGORIES=	graphics
+
+MASTERDIR=	${.CURDIR}/../../lang/php56
+
+PKGNAMESUFFIX=	-gd
+
+.include "${MASTERDIR}/Makefile"

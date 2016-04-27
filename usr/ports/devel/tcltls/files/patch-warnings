@@ -1,0 +1,138 @@
+--- tlsBIO.c	Tue Feb  3 23:02:19 2004
++++ tlsBIO.c	Mon Jun 20 10:18:45 2005
+@@ -30,4 +30,5 @@
+     BioNew,
+     BioFree,
++    NULL
+ };
+ 
+@@ -62,6 +63,6 @@
+     int ret;
+ 
+-    dprintf(stderr,"\nBioWrite(0x%x, <buf>, %d) [0x%x]",
+-	    (unsigned int) bio, bufLen, (unsigned int) chan);
++    dprintf(stderr,"\nBioWrite(%p, <buf>, %d) [%p]",
++	    (void *)bio, bufLen, (void *)chan);
+ 
+     if (channelTypeVersion == TLS_CHANNEL_VERSION_2) {
+@@ -71,6 +72,6 @@
+     }
+ 
+-    dprintf(stderr,"\n[0x%x] BioWrite(%d) -> %d [%d.%d]",
+-	    (unsigned int) chan, bufLen, ret, Tcl_Eof(chan), Tcl_GetErrno());
++    dprintf(stderr,"\n[%p] BioWrite(%d) -> %d [%d.%d]",
++	    (void *) chan, bufLen, ret, Tcl_Eof(chan), Tcl_GetErrno());
+ 
+     BIO_clear_flags(bio, BIO_FLAGS_WRITE|BIO_FLAGS_SHOULD_RETRY);
+@@ -97,6 +98,6 @@
+     int ret = 0;
+ 
+-    dprintf(stderr,"\nBioRead(0x%x, <buf>, %d) [0x%x]",
+-	    (unsigned int) bio, bufLen, (unsigned int) chan);
++    dprintf(stderr,"\nBioRead(%p, <buf>, %d) [%p]",
++	    (void *)bio, bufLen, (void *)chan);
+ 
+     if (buf == NULL) return 0;
+@@ -108,6 +109,6 @@
+     }
+ 
+-    dprintf(stderr,"\n[0x%x] BioRead(%d) -> %d [%d.%d]",
+-	    (unsigned int) chan, bufLen, ret, Tcl_Eof(chan), Tcl_GetErrno());
++    dprintf(stderr,"\n[%p] BioRead(%d) -> %d [%d.%d]",
++	    (void *) chan, bufLen, ret, Tcl_Eof(chan), Tcl_GetErrno());
+ 
+     BIO_clear_flags(bio, BIO_FLAGS_READ|BIO_FLAGS_SHOULD_RETRY);
+@@ -144,7 +145,6 @@
+     int *ip;
+ 
+-    dprintf(stderr,"\nBioCtrl(0x%x, 0x%x, 0x%x, 0x%x)",
+-	    (unsigned int) bio, (unsigned int) cmd, (unsigned int) num,
+-	    (unsigned int) ptr);
++    dprintf(stderr,"\nBioCtrl(%p, 0x%x, 0x%lx, %p)",
++	    (void *)bio, cmd, num, ptr);
+ 
+     switch (cmd) {
+--- tlsIO.c	Mon Feb  4 17:46:31 2002
++++ tlsIO.c	Mon Jun 20 10:18:45 2005
+@@ -287,5 +287,5 @@
+     State *statePtr = (State *) instanceData;
+ 
+-    dprintf(stderr,"\nTlsCloseProc(0x%x)", (unsigned int) statePtr);
++    dprintf(stderr,"\nTlsCloseProc(%p)", instanceData);
+ 
+     if (channelTypeVersion == TLS_CHANNEL_VERSION_1) {
+@@ -413,5 +413,5 @@
+     *errorCodePtr = 0;
+ 
+-    dprintf(stderr,"\nBIO_write(0x%x, %d)", (unsigned int) statePtr, toWrite);
++    dprintf(stderr,"\nBIO_write(%p, %d)", instanceData, toWrite);
+ 
+     if (!SSL_is_init_finished(statePtr->ssl)) {
+@@ -443,6 +443,6 @@
+ 	ERR_clear_error();
+ 	written = BIO_write(statePtr->bio, buf, toWrite);
+-	dprintf(stderr,"\nBIO_write(0x%x, %d) -> [%d]",
+-		(unsigned int) statePtr, toWrite, written);
++	dprintf(stderr,"\nBIO_write(%p, %d) -> [%d]",
++		instanceData, toWrite, written);
+     }
+     if (written <= 0) {
+@@ -851,5 +851,5 @@
+     int err;
+ 
+-    dprintf(stderr,"\nWaitForConnect(0x%x)", (unsigned int) statePtr);
++    dprintf(stderr,"\nWaitForConnect(%p)", (void *)statePtr);
+ 
+     for (;;) {
+ 
+--- tls.c	2014-12-08 14:10:28.000000000 -0500
++++ tls.c	2015-03-25 18:22:52.000000000 -0400
+@@ -514,5 +514,5 @@
+     };
+     enum protocol {
+-	TLS_SSL2, TLS_SSL3, TLS_TLS1, TLS_TLS1_1, TLS_TLS1_2, TLS_NONE
++	TLS_SSL2, TLS_SSL3, TLS_TLS1, TLS_TLS1_1, TLS_TLS1_2
+     };
+     Tcl_Obj *objPtr;
+@@ -1040,5 +1040,5 @@
+     Tcl_DString ds1;
+     int off = 0;
+-    const SSL_METHOD *method;
++    SSL_METHOD *method;
+ 
+     if (!proto) {
+@@ -1361,5 +1361,5 @@
+ {
+     static CONST84 char *commands [] = { "req", NULL };
+-    enum command { C_REQ, C_DUMMY };
++    enum command { C_REQ };
+     int cmd;
+ 
+@@ -1465,11 +1465,11 @@
+ 		name=X509_get_subject_name(cert);
+ 
+-		X509_NAME_add_entry_by_txt(name,"C", MBSTRING_ASC, k_C, -1, -1, 0);
+-		X509_NAME_add_entry_by_txt(name,"ST", MBSTRING_ASC, k_ST, -1, -1, 0);
+-		X509_NAME_add_entry_by_txt(name,"L", MBSTRING_ASC, k_L, -1, -1, 0);
+-		X509_NAME_add_entry_by_txt(name,"O", MBSTRING_ASC, k_O, -1, -1, 0);
+-		X509_NAME_add_entry_by_txt(name,"OU", MBSTRING_ASC, k_OU, -1, -1, 0);
+-		X509_NAME_add_entry_by_txt(name,"CN", MBSTRING_ASC, k_CN, -1, -1, 0);
+-		X509_NAME_add_entry_by_txt(name,"Email", MBSTRING_ASC, k_Email, -1, -1, 0);
++		X509_NAME_add_entry_by_txt(name,"C",     MBSTRING_ASC, (const unsigned char *)k_C, -1, -1, 0);
++		X509_NAME_add_entry_by_txt(name,"ST",    MBSTRING_ASC, (const unsigned char *)k_ST, -1, -1, 0);
++		X509_NAME_add_entry_by_txt(name,"L",     MBSTRING_ASC, (const unsigned char *)k_L, -1, -1, 0);
++		X509_NAME_add_entry_by_txt(name,"O",     MBSTRING_ASC, (const unsigned char *)k_O, -1, -1, 0);
++		X509_NAME_add_entry_by_txt(name,"OU",    MBSTRING_ASC, (const unsigned char *)k_OU, -1, -1, 0);
++		X509_NAME_add_entry_by_txt(name,"CN",    MBSTRING_ASC, (const unsigned char *)k_CN, -1, -1, 0);
++		X509_NAME_add_entry_by_txt(name,"Email", MBSTRING_ASC, (const unsigned char *)k_Email, -1, -1, 0);
+ 
+ 		X509_set_subject_name(cert,name);
+--- tlsInt.h	2014-12-08 14:10:28.000000000 -0500
++++ tlsInt.h	2015-03-25 18:29:34.000000000 -0400
+@@ -18,5 +18,5 @@
+  *
+  */
+-#ifndef _TSLINT_H
++#ifndef _TLSINT_H
+ #define _TLSINT_H
+ 

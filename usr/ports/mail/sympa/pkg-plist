@@ -1,0 +1,235 @@
+@comment copyover handled in pkg-install
+@unexec cmp -s %D/etc/sympa.conf.sample %D/etc/sympa.conf && rm -f %D/etc/sympa.conf
+etc/sympa.conf.sample
+@unexec cmp -s %D/etc/wwsympa.conf.sample %D/etc/wwsympa.conf && rm -f %D/etc/wwsympa.conf
+etc/wwsympa.conf.sample
+%%ETCDIR%%/etc_README
+@group sympa
+@sample %%ETCDIR%%/data_structure.version.sample
+libexec/sympa/Archive.pm
+libexec/sympa/Auth.pm
+libexec/sympa/Bounce.pm
+libexec/sympa/Bulk.pm
+libexec/sympa/Commands.pm
+libexec/sympa/Conf.pm
+libexec/sympa/Config_XML.pm
+libexec/sympa/Datasource.pm
+libexec/sympa/Family.pm
+libexec/sympa/Fetch.pm
+libexec/sympa/HTML/myFormatText.pm
+libexec/sympa/LDAPSource.pm
+libexec/sympa/Language.pm
+libexec/sympa/Ldap.pm
+libexec/sympa/List.pm
+libexec/sympa/Lock.pm
+libexec/sympa/Log.pm
+libexec/sympa/Marc.pm
+libexec/sympa/Marc/Search.pm
+libexec/sympa/Message.pm
+libexec/sympa/PlainDigest.pm
+libexec/sympa/Robot.pm
+libexec/sympa/SQLSource.pm
+libexec/sympa/Scenario.pm
+libexec/sympa/SharedDocument.pm
+libexec/sympa/Sympa/Constants.pm
+libexec/sympa/Sympa/Template/Compat.pm
+libexec/sympa/SympaSession.pm
+libexec/sympa/SympaTransport.pm
+libexec/sympa/Task.pm
+libexec/sympa/Upgrade.pm
+libexec/sympa/WebAgent.pm
+libexec/sympa/admin.pm
+libexec/sympa/alias_manager.pl
+libexec/sympa/arc2webarc.pl
+libexec/sympa/archived.pl
+libexec/sympa/bounced.pl
+libexec/sympa/bulk.pl
+libexec/sympa/confdef.pm
+libexec/sympa/cookielib.pm
+libexec/sympa/create_db.Oracle
+libexec/sympa/create_db.Pg
+libexec/sympa/create_db.SQLite
+libexec/sympa/create_db.Sybase
+libexec/sympa/create_db.mysql
+libexec/sympa/crypt_passwd.pl
+libexec/sympa/init_comment.pl
+libexec/sympa/ldap_alias_manager.pl
+libexec/sympa/mail.pm
+libexec/sympa/mod2html.pl
+libexec/sympa/mysql_alias_manager.pl
+libexec/sympa/p12topem.pl
+libexec/sympa/report.pm
+libexec/sympa/sympa_newaliases.pl
+libexec/sympa/sympa.pl
+libexec/sympa/sympa_soap_client.pl
+libexec/sympa/sympa_soap_server.fcgi
+libexec/sympa/sympa_wizard.pl
+libexec/sympa/sympasoap.pm
+libexec/sympa/task_manager.pl
+libexec/sympa/testldap.pl
+libexec/sympa/testlogs.pl
+libexec/sympa/time_utils.pm
+libexec/sympa/tools.pm
+libexec/sympa/tpl2tt2.pl
+libexec/sympa/tt2.pm
+libexec/sympa/wwslib.pm
+@owner sympa
+@(,,4755) libexec/sympa/bouncequeue
+@(,,4755) libexec/sympa/familyqueue
+@(,,4755) libexec/sympa/queue
+@(,,4750) libexec/sympa/sympa_newaliases-wrapper
+@(,,6755) libexec/sympa/sympa_soap_server-wrapper.fcgi
+@(,,6755) libexec/sympa/wwsympa-wrapper.fcgi
+@owner
+libexec/sympa/wwsympa.fcgi
+@group
+man/man1/sympa_newaliases.1.gz
+man/man8/alias_manager.8.gz
+man/man8/archived.8.gz
+man/man8/bounced.8.gz
+man/man8/sympa.8.gz
+%%NLS%%share/locale/ar/LC_MESSAGES/sympa.mo
+%%NLS%%share/locale/ar/LC_MESSAGES/web_help.mo
+%%NLS%%share/locale/bg/LC_MESSAGES/sympa.mo
+%%NLS%%share/locale/bg/LC_MESSAGES/web_help.mo
+%%NLS%%share/locale/br/LC_MESSAGES/sympa.mo
+%%NLS%%share/locale/br/LC_MESSAGES/web_help.mo
+%%NLS%%share/locale/ca/LC_MESSAGES/sympa.mo
+%%NLS%%share/locale/ca/LC_MESSAGES/web_help.mo
+%%NLS%%share/locale/cs/LC_MESSAGES/sympa.mo
+%%NLS%%share/locale/cs/LC_MESSAGES/web_help.mo
+%%NLS%%share/locale/de/LC_MESSAGES/sympa.mo
+%%NLS%%share/locale/de/LC_MESSAGES/web_help.mo
+%%NLS%%share/locale/el/LC_MESSAGES/sympa.mo
+%%NLS%%share/locale/el/LC_MESSAGES/web_help.mo
+%%NLS%%share/locale/en/LC_MESSAGES/sympa.mo
+%%NLS%%share/locale/en/LC_MESSAGES/web_help.mo
+%%NLS%%share/locale/es/LC_MESSAGES/sympa.mo
+%%NLS%%share/locale/es/LC_MESSAGES/web_help.mo
+%%NLS%%share/locale/et/LC_MESSAGES/sympa.mo
+%%NLS%%share/locale/et/LC_MESSAGES/web_help.mo
+%%NLS%%share/locale/eu/LC_MESSAGES/sympa.mo
+%%NLS%%share/locale/eu/LC_MESSAGES/web_help.mo
+%%NLS%%share/locale/fi/LC_MESSAGES/sympa.mo
+%%NLS%%share/locale/fi/LC_MESSAGES/web_help.mo
+%%NLS%%share/locale/fr/LC_MESSAGES/sympa.mo
+%%NLS%%share/locale/fr/LC_MESSAGES/web_help.mo
+%%NLS%%share/locale/gl/LC_MESSAGES/sympa.mo
+%%NLS%%share/locale/hu/LC_MESSAGES/sympa.mo
+%%NLS%%share/locale/hu/LC_MESSAGES/web_help.mo
+%%NLS%%share/locale/id/LC_MESSAGES/sympa.mo
+%%NLS%%share/locale/id/LC_MESSAGES/web_help.mo
+%%NLS%%share/locale/it/LC_MESSAGES/sympa.mo
+%%NLS%%share/locale/it/LC_MESSAGES/web_help.mo
+%%NLS%%share/locale/ja/LC_MESSAGES/sympa.mo
+%%NLS%%share/locale/ja/LC_MESSAGES/web_help.mo
+%%NLS%%share/locale/ko/LC_MESSAGES/sympa.mo
+%%NLS%%share/locale/la/LC_MESSAGES/sympa.mo
+%%NLS%%share/locale/ml/LC_MESSAGES/sympa.mo
+%%NLS%%share/locale/nb_NO/LC_MESSAGES/sympa.mo
+%%NLS%%share/locale/nb_NO/LC_MESSAGES/web_help.mo
+%%NLS%%share/locale/nl/LC_MESSAGES/sympa.mo
+%%NLS%%share/locale/nl/LC_MESSAGES/web_help.mo
+%%NLS%%share/locale/oc/LC_MESSAGES/sympa.mo
+%%NLS%%share/locale/oc/LC_MESSAGES/web_help.mo
+%%NLS%%share/locale/pl/LC_MESSAGES/sympa.mo
+%%NLS%%share/locale/pl/LC_MESSAGES/web_help.mo
+%%NLS%%share/locale/pt/LC_MESSAGES/sympa.mo
+%%NLS%%share/locale/pt/LC_MESSAGES/web_help.mo
+%%NLS%%share/locale/pt_BR/LC_MESSAGES/sympa.mo
+%%NLS%%share/locale/pt_BR/LC_MESSAGES/web_help.mo
+%%NLS%%share/locale/ro/LC_MESSAGES/sympa.mo
+%%NLS%%share/locale/ro/LC_MESSAGES/web_help.mo
+%%NLS%%share/locale/ru/LC_MESSAGES/sympa.mo
+%%NLS%%share/locale/ru/LC_MESSAGES/web_help.mo
+%%NLS%%share/locale/sv/LC_MESSAGES/sympa.mo
+%%NLS%%share/locale/sv/LC_MESSAGES/web_help.mo
+%%NLS%%share/locale/tr/LC_MESSAGES/sympa.mo
+%%NLS%%share/locale/tr/LC_MESSAGES/web_help.mo
+%%NLS%%share/locale/vi/LC_MESSAGES/sympa.mo
+%%NLS%%share/locale/vi/LC_MESSAGES/web_help.mo
+%%NLS%%share/locale/zh_CN/LC_MESSAGES/sympa.mo
+%%NLS%%share/locale/zh_CN/LC_MESSAGES/web_help.mo
+%%NLS%%share/locale/zh_TW/LC_MESSAGES/sympa.mo
+%%DATADIR%%/icons/back.png
+%%DATADIR%%/icons/begin.png
+%%DATADIR%%/icons/binary.png
+%%DATADIR%%/icons/crosshairs.png
+%%DATADIR%%/icons/down.png
+%%DATADIR%%/icons/end.png
+%%DATADIR%%/icons/favicon_sympa.png
+%%DATADIR%%/icons/folder.open.png
+%%DATADIR%%/icons/folder.png
+%%DATADIR%%/icons/h.png
+%%DATADIR%%/icons/image2.png
+%%DATADIR%%/icons/junk.png
+%%DATADIR%%/icons/left.png
+%%DATADIR%%/icons/link.png
+%%DATADIR%%/icons/locked.png
+%%DATADIR%%/icons/logo-s-lock.png
+%%DATADIR%%/icons/logo-s.png
+%%DATADIR%%/icons/logo_sympa.png
+%%DATADIR%%/icons/movie.png
+%%DATADIR%%/icons/position.png
+%%DATADIR%%/icons/right.png
+%%DATADIR%%/icons/sound1.png
+%%DATADIR%%/icons/sv.png
+%%DATADIR%%/icons/text.png
+%%DATADIR%%/icons/top.png
+%%DATADIR%%/icons/unknown.png
+%%NLS%%@dir share/locale/zh_TW/LC_MESSAGES
+%%NLS%%@dir share/locale/zh_TW
+%%NLS%%@dir share/locale/zh_CN/LC_MESSAGES
+%%NLS%%@dir share/locale/zh_CN
+%%NLS%%@dir share/locale/vi/LC_MESSAGES
+%%NLS%%@dir share/locale/vi
+%%NLS%%@dir share/locale/tr/LC_MESSAGES
+%%NLS%%@dir share/locale/tr
+%%NLS%%@dir share/locale/sv/LC_MESSAGES
+%%NLS%%@dir share/locale/sv
+%%NLS%%@dir share/locale/ru/LC_MESSAGES
+%%NLS%%@dir share/locale/ru
+%%NLS%%@dir share/locale/ro/LC_MESSAGES
+%%NLS%%@dir share/locale/ro
+%%NLS%%@dir share/locale/pt_BR/LC_MESSAGES
+%%NLS%%@dir share/locale/pt_BR
+%%NLS%%@dir share/locale/pt/LC_MESSAGES
+%%NLS%%@dir share/locale/pt
+%%NLS%%@dir share/locale/pl/LC_MESSAGES
+%%NLS%%@dir share/locale/pl
+%%NLS%%@dir share/locale/oc/LC_MESSAGES
+%%NLS%%@dir share/locale/oc
+%%NLS%%@dir share/locale/nl/LC_MESSAGES
+%%NLS%%@dir share/locale/nl
+%%NLS%%@dir share/locale/nb_NO/LC_MESSAGES
+%%NLS%%@dir share/locale/nb_NO
+%%NLS%%@dir share/locale/la/LC_MESSAGES
+%%NLS%%@dir share/locale/la
+%%NLS%%@dir share/locale/ko/LC_MESSAGES
+%%NLS%%@dir share/locale/ko
+%%NLS%%@dir share/locale/ja/LC_MESSAGES
+%%NLS%%@dir share/locale/ja
+%%NLS%%@dir share/locale/it/LC_MESSAGES
+%%NLS%%@dir share/locale/it
+%%NLS%%@dir share/locale/id/LC_MESSAGES
+%%NLS%%@dir share/locale/id
+%%NLS%%@dir share/locale/fr/LC_MESSAGES
+%%NLS%%@dir share/locale/fr
+%%NLS%%@dir share/locale/fi/LC_MESSAGES
+%%NLS%%@dir share/locale/fi
+%%NLS%%@dir share/locale/eu/LC_MESSAGES
+%%NLS%%@dir share/locale/eu
+%%NLS%%@dir share/locale/et/LC_MESSAGES
+%%NLS%%@dir share/locale/et
+%%NLS%%@dir share/locale/es/LC_MESSAGES
+%%NLS%%@dir share/locale/es
+%%NLS%%@dir share/locale/el/LC_MESSAGES
+%%NLS%%@dir share/locale/el
+%%NLS%%@dir share/locale/de/LC_MESSAGES
+%%NLS%%@dir share/locale/de
+%%NLS%%@dir share/locale/cs/LC_MESSAGES
+%%NLS%%@dir share/locale/cs
+%%NLS%%@dir share/locale/ca/LC_MESSAGES
+%%NLS%%@dir share/locale/ca
+%%NLS%%@dir share/locale/bg/LC_MESSAGES
+%%NLS%%@dir share/locale/bg

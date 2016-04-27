@@ -1,0 +1,18 @@
+# Created by: Brooks Davis
+# $FreeBSD: head/lang/clang-devel/Makefile 392851 2015-07-24 23:40:09Z brooks $
+
+PORTNAME=	clang
+PORTVERSION=	3.8.d20150720
+CATEGORIES=	lang devel
+PKGNAMESUFFIX=	-devel
+
+MAINTAINER=	brooks@FreeBSD.org
+COMMENT=	C, Objective-C, and C++ compiler (use devel/llvm${LLVM_SUFFIX})
+
+RUN_DEPENDS+=	clang${LLVM_SUFFIX}:${PORTSDIR}/devel/llvm-devel
+
+LLVM_SUFFIX=	-devel
+
+USES=		metaport
+
+.include <bsd.port.mk>

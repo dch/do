@@ -1,0 +1,18 @@
+# Created by: andrew@scoop.co.nz
+# $FreeBSD: head/devel/p5-Module-Reload/Makefile 377734 2015-01-23 12:36:13Z bofh $
+
+PORTNAME=	Module-Reload
+PORTVERSION=	1.08
+CATEGORIES=	devel perl5
+MASTER_SITES=	CPAN
+PKGNAMEPREFIX=	p5-
+
+MAINTAINER=	bofh@FreeBSD.org
+COMMENT=	Reload perl library files when updated on disk
+
+LICENSE=	ARTPERL10
+
+USES=		perl5
+USE_PERL5=	configure
+
+.include <bsd.port.mk>

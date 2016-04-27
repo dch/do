@@ -1,0 +1,20 @@
+# Created by: John Merryweather Cooper et al
+# $FreeBSD: head/editors/fpc-ide/Makefile 394209 2015-08-14 13:23:58Z amdmi3 $
+
+PORTREVISION=	3
+CATEGORIES=	editors lang
+PKGNAMESUFFIX=	-ide
+
+MAINTAINER=	freebsd-fpc@FreeBSD.org
+COMMENT=	Free Pascal integrated IDE/compiler
+
+USE_FPC=	chm fcl-async fcl-base fcl-xml fv gdbint graph ibase hash mysql \
+		odbc oracle pasjpeg paszlib pthreads postgres regexpr sqlite
+
+FPCDIR=		# none
+UNITPREFIX=	# none
+MASTERDIR=	${.CURDIR}/../../lang/fpc
+WRKUNITDIR=	${FPCSRCDIR}/${PKGNAMESUFFIX:S/-//}
+EXTRACTUNITDIR=	${WRKUNITDIR} ${FPCSRCDIR}/compiler ${FPCSRCDIR}/rtl ${FPCSRCDIR}/packages/fv
+
+.include "${MASTERDIR}/Makefile"

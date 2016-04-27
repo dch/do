@@ -1,0 +1,29 @@
+# $FreeBSD: head/deskutils/appwrapper/Makefile 383626 2015-04-09 07:44:41Z bapt $
+
+PORTNAME=	appwrapper
+PORTVERSION=	0.1
+PORTREVISION=	5
+CATEGORIES=	deskutils gnustep
+MASTER_SITES=	SF/${PORTNAME}/${PORTNAME}/AppWrapper%20${PORTVERSION}
+DISTNAME=	AppWrapper.${PORTVERSION}
+
+MAINTAINER=	ports@FreeBSD.org
+COMMENT=	GNUstep application wrapper
+
+LICENSE=	GPLv2
+
+USES=		gnustep
+USE_GNUSTEP=	back build
+
+WRKSRC=		${WRKDIR}/AppWrapper
+
+post-patch:
+	${RMDIR} ${WRKSRC}/AppWrapper.app/ix86/linux-gnu
+	${RMDIR} ${WRKSRC}/AppWrapper.app/ix86
+	${REINPLACE_CMD} 's|^GNUSTEP_INSTALLATION_DIR|#GNUSTEP_INSTALLATION_DIR|' \
+		${WRKSRC}/GNUmakefile
+
+post-install:
+	${STRIP_CMD} ${STAGEDIR}${PREFIX}/GNUstep/Local/Applications/AppWrapper.app/AppWrapper
+
+.include <bsd.port.mk>

@@ -1,0 +1,17 @@
+# Created by: Rong-En Fan <rafan@FreeBSD.org>
+# $FreeBSD: head/databases/pear-MDB2_Driver_pgsql/Makefile 372709 2014-11-18 09:37:31Z bapt $
+
+PORTNAME=	MDB2_Driver_pgsql
+DISTVERSION=	1.5.0b4
+CATEGORIES=	databases www pear
+
+MAINTAINER=	ports@FreeBSD.org
+COMMENT=	PEAR pgsql MDB2 driver
+
+BUILD_DEPENDS=	${PEARDIR}/MDB2.php:${PORTSDIR}/databases/pear-MDB2
+RUN_DEPENDS=	${PEARDIR}/MDB2.php:${PORTSDIR}/databases/pear-MDB2
+
+USES=		pear
+USE_PHP=	pgsql
+
+.include <bsd.port.mk>

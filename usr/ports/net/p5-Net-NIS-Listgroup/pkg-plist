@@ -1,0 +1,5 @@
+%%PERL5_MAN3%%/Net::NIS::Listgroup.3.gz
+%%SITE_PERL%%/Net/NIS/Listgroup.pm
+bin/listgroup
+bin/make_cron
+man/man1/listgroup.1.gz

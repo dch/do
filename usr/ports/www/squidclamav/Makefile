@@ -1,0 +1,34 @@
+# Created by: Martin Matuska <mm@FreeBSD.org>
+# $FreeBSD: head/www/squidclamav/Makefile 384473 2015-04-22 00:28:14Z amdmi3 $
+
+PORTNAME=	squidclamav
+PORTVERSION=	6.10
+PORTREVISION=	2
+CATEGORIES=	www security
+MASTER_SITES=	SF/${PORTNAME}/${PORTNAME}/${PORTVERSION}/
+
+MAINTAINER=	mm@FreeBSD.org
+COMMENT=	Clamav c-icap service and redirector for Squid
+
+LICENSE=	GPLv3
+
+LIB_DEPENDS+=	libicapapi.so:${PORTSDIR}/www/c-icap
+
+GNU_CONFIGURE=	yes
+CFLAGS+=	-DHAVE_STRNSTR
+USES=		cpe shebangfix libtool
+SHEBANG_FILES=	cgi-bin/clwarn.cgi*
+INSTALL_TARGET=	install-strip
+CPE_VENDOR=	darold
+
+CONFIGURE_ARGS+=	--enable-shared --enable-static \
+			--sysconfdir="${PREFIX}/etc/c-icap" \
+			--with-c-icap=${LOCALBASE}
+
+post-patch:
+	@${REINPLACE_CMD} -e 's|CFGDIR=.*|CFGDIR="${PREFIX}/etc/c-icap"|g' \
+		${WRKSRC}/configure.in ${WRKSRC}/configure
+	@${REINPLACE_CMD} -e 's|/etc/squidclamav.conf|${PREFIX}/etc/c\\-icap/squidclamav.conf|g' \
+		${WRKSRC}/doc/squidclamav.1 ${WRKSRC}/src/squidclamav.h
+
+.include <bsd.port.mk>

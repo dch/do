@@ -1,0 +1,31 @@
+# $FreeBSD: head/french/Makefile 393570 2015-08-05 07:16:08Z rm $
+#
+
+    COMMENT = French support
+
+    SUBDIR += alphabet_sounds_fr
+    SUBDIR += aspell
+    SUBDIR += aster
+    SUBDIR += belote
+    SUBDIR += calligra-l10n
+    SUBDIR += dico
+    SUBDIR += eficas
+    SUBDIR += eric4
+    SUBDIR += eric6
+    SUBDIR += fortune-mod-zarathoustra
+    SUBDIR += geonext
+    SUBDIR += gimp-help
+    SUBDIR += homard
+    SUBDIR += hunspell
+    SUBDIR += hyphen
+    SUBDIR += jdictionary-fre-hun
+    SUBDIR += kde4-l10n
+    SUBDIR += libreoffice
+    SUBDIR += med
+    SUBDIR += mythes
+    SUBDIR += php_doc
+    SUBDIR += trytond28_account_fr
+    SUBDIR += tvdownloader
+    SUBDIR += verbiste
+
+.include <bsd.port.subdir.mk>

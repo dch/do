@@ -1,0 +1,24 @@
+# Created by: Larry Rosenman <ler@lerctr.org>
+# $FreeBSD: head/textproc/pecl-xdiff/Makefile 379885 2015-02-25 07:57:28Z vanilla $
+
+PORTNAME=	xdiff
+PORTVERSION=	1.5.2
+CATEGORIES=	textproc pear
+MASTER_SITES=	http://pecl.php.net/get/
+PKGNAMEPREFIX=	pecl-
+DIST_SUBDIR=	PECL
+
+MAINTAINER=	ports@FreeBSD.org
+COMMENT=	PECL extension to create/apply binary and text patches
+
+LICENSE=	PHP301
+
+LIB_DEPENDS=	libxdiff.so:${PORTSDIR}/textproc/libxdiff
+
+USES=		tar:tgz
+USE_PHP=	yes
+USE_PHPEXT=	yes
+
+LDFLAGS+=	-L${LOCALBASE}/lib
+
+.include <bsd.port.mk>

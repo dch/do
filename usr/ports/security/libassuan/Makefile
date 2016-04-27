@@ -1,0 +1,25 @@
+# Created by: Michael Nottebrock <lofi@FreeBSD.org>
+# $FreeBSD: head/security/libassuan/Makefile 388094 2015-05-31 14:30:55Z jhale $
+
+PORTNAME=	libassuan
+PORTVERSION=	2.2.1
+CATEGORIES=	security devel
+MASTER_SITES=	GNUPG/${PORTNAME}
+
+MAINTAINER=	jhale@FreeBSD.org
+COMMENT=	IPC library used by GnuPG and gpgme
+
+LICENSE=	LGPL21
+LICENSE_FILE=	${WRKSRC}/COPYING.LIB
+
+LIB_DEPENDS=	libgpg-error.so:${PORTSDIR}/security/libgpg-error
+
+USES=		libtool tar:bzip2
+USE_LDCONFIG=	yes
+
+GNU_CONFIGURE=	yes
+INSTALL_TARGET=	install-strip
+
+INFO=		assuan
+
+.include <bsd.port.mk>

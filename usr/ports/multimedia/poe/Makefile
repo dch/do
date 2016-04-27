@@ -1,0 +1,29 @@
+# $FreeBSD: head/multimedia/poe/Makefile 383626 2015-04-09 07:44:41Z bapt $
+
+PORTNAME=	poe
+PORTVERSION=	0.5.1
+PORTREVISION=	8
+CATEGORIES=	multimedia gnustep
+MASTER_SITES=	http://www.eskimo.com/~pburns/Poe/files/
+DISTNAME=	Poe-${PORTVERSION}
+
+MAINTAINER=	ports@FreeBSD.org
+COMMENT=	Vorbis comment editor for GNUstep
+
+LICENSE=	GPLv2 # or later
+
+LIB_DEPENDS=	libvorbis.so:${PORTSDIR}/audio/libvorbis
+
+USES=		gnustep
+USE_GNUSTEP=	back build
+
+PORTSCOUT=	skipv:0.5.2
+
+post-patch:
+	${REINPLACE_CMD} -e 's|-lvorbisfile$$|-lvorbisfile -logg|' \
+		${WRKSRC}/GNUmakefile
+
+post-install:
+	${STRIP_CMD} ${STAGEDIR}${PREFIX}/GNUstep/Local/Applications/Poe.app/Poe
+
+.include <bsd.port.mk>

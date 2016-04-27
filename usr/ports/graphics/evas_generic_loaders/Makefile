@@ -1,0 +1,21 @@
+# Created by: Grzegorz Blach <gblach@FreeBSD.org>
+# $FreeBSD: head/graphics/evas_generic_loaders/Makefile 393536 2015-08-04 17:28:42Z gblach $
+
+PORTNAME=	evas_generic_loaders
+PORTVERSION=	1.15.0
+CATEGORIES=	graphics enlightenment
+
+MAINTAINER=	enlightenment@FreeBSD.org
+COMMENT=	Additional loaders for Evas (meta-port)
+
+USES=		metaport
+
+OPTIONS_DEFINE=	GST PDF PS RAW SVG XCF
+OPTIONS_DEFAULT=${OPTIONS_DEFINE}
+
+.for NODE in ${OPTIONS_DEFINE}
+${NODE}_DESC=	Install ${NODE:tl} loader
+${NODE}_RUN_DEPENDS+=	${LOCALBASE}/lib/evas/utils/evas_image_loader.${NODE:tl}:${PORTSDIR}/graphics/evas_generic_loaders-${NODE:tl}
+.endfor
+
+.include <bsd.port.mk>

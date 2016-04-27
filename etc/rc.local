@@ -1,0 +1,1 @@
+/usr/local/sbin/arping -c3 `netstat -nrf inet | grep default | awk ' { print $2 } '` > /dev/null &

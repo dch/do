@@ -1,0 +1,25 @@
+# Created by: Hung-Yi Chen <gaod@hychen.org>
+# $FreeBSD: head/www/mitmproxy/Makefile 376109 2015-01-03 08:41:20Z mva $
+
+PORTNAME=	mitmproxy
+PORTVERSION=	0.10.1
+CATEGORIES=	www python
+MASTER_SITES=	http://mitmproxy.org/download/
+
+MAINTAINER=	gaod@hychen.org
+COMMENT=	SSL-capable man-in-the-middle proxy
+
+LICENSE=	MIT
+
+RUN_DEPENDS=	${PYTHON_PKGNAMEPREFIX}asn1>0:${PORTSDIR}/devel/py-asn1 \
+		${PYTHON_PKGNAMEPREFIX}Flask>0:${PORTSDIR}/www/py-flask \
+		${PYTHON_PKGNAMEPREFIX}lxml>0:${PORTSDIR}/devel/py-lxml \
+		${PYTHON_PKGNAMEPREFIX}netlib>0:${PORTSDIR}/net/py-netlib \
+		${PYTHON_PKGNAMEPREFIX}openssl>0:${PORTSDIR}/security/py-openssl \
+		${PYTHON_PKGNAMEPREFIX}pillow>=2.3.0:${PORTSDIR}/graphics/py-pillow \
+		${PYTHON_PKGNAMEPREFIX}urwid>0:${PORTSDIR}/devel/py-urwid
+
+USES=		python
+USE_PYTHON=	distutils autoplist
+
+.include <bsd.port.mk>

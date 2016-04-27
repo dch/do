@@ -1,0 +1,10 @@
+Aug 28 19:14:05  shutdown: power-down by root: 
+Aug 28 19:14:05  sshd[53888]: Received signal 15; terminating.
+Apr 27 14:20:18 pirate sshd[751]: Server listening on :: port 22.
+Apr 27 14:20:18 pirate sshd[751]: Server listening on 0.0.0.0 port 22.
+Apr 27 14:21:20 pirate sshd[816]: Accepted publickey for freebsd from 94.136.7.161 port 59187 ssh2: ED25519 d2:68:be:39:6e:a4:19:43:43:31:5c:a3:7a:44:6a:7d
+Apr 27 14:21:23 pirate sudo:  freebsd : TTY=pts/0 ; PWD=/usr/home/freebsd ; USER=root ; COMMAND=/bin/tcsh
+Apr 27 14:22:05 pirate sshd[846]: Accepted publickey for freebsd from 94.136.7.161 port 59190 ssh2: ED25519 d2:68:be:39:6e:a4:19:43:43:31:5c:a3:7a:44:6a:7d
+Apr 27 14:22:06 pirate sshd[848]: Received disconnect from 94.136.7.161: 11: disconnected by user
+Apr 27 14:22:10 pirate sudo:  freebsd : TTY=pts/2 ; PWD=/usr/home/freebsd ; USER=root ; COMMAND=/bin/tcsh
+Apr 27 14:29:31 pirate sshd[946]: Received disconnect from 221.229.162.7: 11:  [preauth]

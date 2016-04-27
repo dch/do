@@ -1,0 +1,323 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Development &mdash; pip 8.0.2 documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="pip 8.0.2 documentation" href="index.html"/>
+        <link rel="next" title="Release Notes" href="news.html"/>
+        <link rel="prev" title="pip hash" href="reference/pip_hash.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> pip
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                8.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="quickstart.html">Quickstart</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installing.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="user_guide.html">User Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reference/index.html">Reference Guide</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="">Development</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#pull-requests">Pull Requests</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#automated-testing">Automated Testing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#running-tests">Running tests</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#getting-involved">Getting Involved</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#release-process">Release Process</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#creating-a-bugfix-release">Creating a Bugfix Release</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="news.html">Release Notes</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="index.html">pip</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="index.html">Docs</a> &raquo;</li>
+      
+    <li>Development</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="development">
+<h1>Development<a class="headerlink" href="#development" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="pull-requests">
+<h2>Pull Requests<a class="headerlink" href="#pull-requests" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>Submit Pull Requests against the <cite>develop</cite> branch.</li>
+<li>Provide a good description of what you're doing and why.</li>
+<li>Provide tests that cover your changes and try to run the tests locally first.</li>
+</ul>
+<p><strong>Example</strong>. Assuming you set up GitHub account, forked pip repository from
+<a class="reference external" href="https://github.com/pypa/pip">https://github.com/pypa/pip</a> to your own page via web interface, and your
+fork is located at <a class="reference external" href="https://github.com/yourname/pip">https://github.com/yourname/pip</a></p>
+<div class="highlight-python"><div class="highlight"><pre>$ git clone git@github.com:pypa/pip.git
+$ cd pip
+# ...
+$ git diff
+$ git add &lt;modified&gt; ...
+$ git status
+$ git commit
+</pre></div>
+</div>
+<p>You may reference relevant issues in commit messages (like #1259) to
+make GitHub link issues and commits together, and with phrase like
+&quot;fixes #1259&quot; you can even close relevant issues automatically. Now
+push the changes to your fork:</p>
+<div class="highlight-python"><div class="highlight"><pre>$ git push git@github.com:yourname/pip.git
+</pre></div>
+</div>
+<p>Open Pull Requests page at <a class="reference external" href="https://github.com/yourname/pip/pulls">https://github.com/yourname/pip/pulls</a> and
+click &quot;New pull request&quot;. That's it.</p>
+</div>
+<div class="section" id="automated-testing">
+<h2>Automated Testing<a class="headerlink" href="#automated-testing" title="Permalink to this headline">¶</a></h2>
+<p>All pull requests and merges to 'develop' branch are tested in <a class="reference external" href="https://travis-ci.org/">Travis</a>
+based on our <a class="reference external" href="https://github.com/pypa/pip/blob/develop/.travis.yml">.travis.yml file</a>.</p>
+<p>Usually, a link to your specific travis build appears in pull requests, but if not,
+you can find it on our <a class="reference external" href="https://travis-ci.org/pypa/pip/pull_requests">travis pull requests page</a></p>
+<p>The only way to trigger Travis to run again for a pull request, is to submit another change to the pull branch.</p>
+<p>We also have Jenkins CI that runs regularly for certain python versions on windows and centos.</p>
+</div>
+<div class="section" id="running-tests">
+<h2>Running tests<a class="headerlink" href="#running-tests" title="Permalink to this headline">¶</a></h2>
+<p>OS Requirements: subversion, bazaar, git, and mercurial.</p>
+<p>Python Requirements: tox or pytest, virtualenv, scripttest, and mock</p>
+<p>Ways to run the tests locally:</p>
+<div class="highlight-python"><div class="highlight"><pre>$ tox -e py33           # The preferred way to run the tests, can use pyNN to
+                        # run for a particular version or leave off the -e to
+                        # run for all versions.
+$ python setup.py test  # Using the setuptools test plugin
+$ py.test               # Using py.test directly
+$ tox                   # Using tox against pip&#39;s tox.ini
+</pre></div>
+</div>
+<p>If you are missing one of the VCS tools, you can tell <code class="docutils literal"><span class="pre">py.test</span></code> to skip it:</p>
+<div class="highlight-python"><div class="highlight"><pre>$ py.test -k &#39;not bzr&#39;
+$ py.test -k &#39;not svn&#39;
+</pre></div>
+</div>
+</div>
+<div class="section" id="getting-involved">
+<h2>Getting Involved<a class="headerlink" href="#getting-involved" title="Permalink to this headline">¶</a></h2>
+<p>The pip project welcomes help in the following ways:</p>
+<ul class="simple">
+<li>Making Pull Requests for code, tests, or docs.</li>
+<li>Commenting on open issues and pull requests.</li>
+<li>Helping to answer questions on the mailing list.</li>
+</ul>
+<p>If you want to become an official maintainer, start by helping out.</p>
+<p>Later, when you think you're ready, get in touch with one of the maintainers,
+and they will initiate a vote.</p>
+</div>
+<div class="section" id="release-process">
+<h2>Release Process<a class="headerlink" href="#release-process" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic simple">
+<li>On the current pip <code class="docutils literal"><span class="pre">develop</span></code> branch, generate a new <code class="docutils literal"><span class="pre">AUTHORS.txt</span></code> by
+running <code class="docutils literal"><span class="pre">invoke</span> <span class="pre">generate.authors</span></code> and commit the results.</li>
+<li>On the current pip <code class="docutils literal"><span class="pre">develop</span></code> branch, make a new commit which bumps the
+version in <code class="docutils literal"><span class="pre">pip/__init__.py</span></code> to the release version and adjust the
+<code class="docutils literal"><span class="pre">CHANGES.txt</span></code> file to reflect the current date.</li>
+<li>Merge the <code class="docutils literal"><span class="pre">develop</span></code> branch into the <code class="docutils literal"><span class="pre">master</span></code> branch.</li>
+<li>Create a signed tag of the <code class="docutils literal"><span class="pre">master</span></code> branch of the form <code class="docutils literal"><span class="pre">X.Y.Z</span></code> using the
+command <code class="docutils literal"><span class="pre">git</span> <span class="pre">tag</span> <span class="pre">-s</span> <span class="pre">X.Y.Z</span></code>.</li>
+<li>Checkout the tag using <code class="docutils literal"><span class="pre">git</span> <span class="pre">checkout</span> <span class="pre">X.Y.Z</span></code> and create the distribution
+files using <code class="docutils literal"><span class="pre">python</span> <span class="pre">setup.py</span> <span class="pre">sdist</span> <span class="pre">bdist_wheel</span></code>.</li>
+<li>Upload the distribution files to PyPI using twine
+(<code class="docutils literal"><span class="pre">twine</span> <span class="pre">upload</span> <span class="pre">-s</span> <span class="pre">dist/*</span></code>). The upload should include GPG signatures of
+the distribution files.</li>
+<li>Merge the <code class="docutils literal"><span class="pre">master</span></code> branch into the <code class="docutils literal"><span class="pre">develop</span></code> branch.</li>
+<li>Push all of the changes.</li>
+<li>Regenerate the <code class="docutils literal"><span class="pre">get-pip.py</span></code> script by running
+<code class="docutils literal"><span class="pre">invoke</span> <span class="pre">generate.installer</span></code> in the get-pip repository, and committing the
+results.</li>
+</ol>
+</div>
+<div class="section" id="creating-a-bugfix-release">
+<h2>Creating a Bugfix Release<a class="headerlink" href="#creating-a-bugfix-release" title="Permalink to this headline">¶</a></h2>
+<p>Sometimes we need to release a bugfix release of the form <code class="docutils literal"><span class="pre">X.Y.Z+1</span></code>. In order
+to create one of these the changes should already be merged into the
+<code class="docutils literal"><span class="pre">develop</span></code> branch.</p>
+<ol class="arabic simple">
+<li>Create a new <code class="docutils literal"><span class="pre">release/X.Y.Z+1</span></code> branch off of the <code class="docutils literal"><span class="pre">X.Y.Z</span></code> tag using the
+command <code class="docutils literal"><span class="pre">git</span> <span class="pre">checkout</span> <span class="pre">-b</span> <span class="pre">release/X.Y.Z+1</span> <span class="pre">X.Y.Z</span></code>.</li>
+<li>Cherry pick the fixed commits off of the develop branch, fixing any
+conflicts and moving any changelog entries from the development version's
+changelog section to the <code class="docutils literal"><span class="pre">X.Y.Z+1</span></code> section.</li>
+<li>Push the <code class="docutils literal"><span class="pre">release/X.Y.Z+1</span></code> branch to github and submit a PR for it against
+the <code class="docutils literal"><span class="pre">master</span></code> branch and wait for the tests to run.</li>
+<li>Once tests run, merge the <code class="docutils literal"><span class="pre">release/X.Y.Z+1</span></code> branch into master, and follow
+the above release process starting with step 4.</li>
+</ol>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="news.html" class="btn btn-neutral float-right" title="Release Notes" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="reference/pip_hash.html" class="btn btn-neutral" title="pip hash" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2008-2014, PyPA.
+      Last updated on Apr 03, 2016.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'8.0.2',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

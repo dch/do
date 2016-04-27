@@ -1,0 +1,16 @@
+# Created by: Thierry Thomas (<thierry@pompo.net>)
+# $FreeBSD: head/mail/pear-Mail_Mime/Makefile 369092 2014-09-23 16:45:35Z bapt $
+
+PORTNAME=	Mail_Mime
+PORTVERSION=	1.8.9
+PORTEPOCH=	2
+CATEGORIES=	mail www pear
+
+MAINTAINER=	joehorn@gmail.com
+COMMENT=	PEAR classes to create and decode MIME messages
+
+LICENSE=	BSD3CLAUSE
+
+USES=	pear
+
+.include <bsd.port.mk>

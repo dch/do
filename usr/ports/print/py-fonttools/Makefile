@@ -1,0 +1,36 @@
+# Created by: Joseph Koshy <jkoshy@FreeBSD.org>
+# $FreeBSD: head/print/py-fonttools/Makefile 388284 2015-06-01 20:48:03Z rm $
+
+PORTNAME=	fonttools
+PORTVERSION=	2.5
+PORTREVISION=	1
+CATEGORIES=	print python
+PKGNAMEPREFIX=	${PYTHON_PKGNAMEPREFIX}
+
+MAINTAINER=	ports@FreeBSD.org
+COMMENT=	Open source library for manipulating fonts, written in Python
+
+LICENSE=	MIT
+LICENSE_FILE=	${WRKSRC}/LICENSE.txt
+
+USE_GITHUB=	yes
+GH_ACCOUNT=	behdad
+
+USES=		python
+USE_PYTHON=	autoplist distutils
+NO_ARCH=	yes
+
+DOCSDIR=	${PREFIX}/share/doc/py-fonttools
+PORTDOCS=	*
+
+OPTIONS_DEFINE=	DOCS
+
+post-patch:
+	@${REINPLACE_CMD} -e 's|share/man/man1|man/man1|g' ${WRKSRC}/setup.py
+
+post-install:
+	@${MKDIR} ${STAGEDIR}${DOCSDIR}
+	${INSTALL_DATA} ${WRKSRC}/Doc/*.html ${STAGEDIR}${DOCSDIR}
+	${INSTALL_DATA} ${WRKSRC}/Doc/*.txt ${STAGEDIR}${DOCSDIR}
+
+.include <bsd.port.mk>

@@ -1,0 +1,30 @@
+# $FreeBSD: head/net-p2p/btpd/Makefile 388731 2015-06-07 16:17:09Z amdmi3 $
+
+PORTNAME=	btpd
+PORTVERSION=	0.16
+PORTREVISION=	2
+CATEGORIES=	net-p2p
+MASTER_SITES=	GHC
+
+MAINTAINER=	ports@FreeBSD.org
+COMMENT=	Bittorrent client consisting of a daemon and client commands
+
+LICENSE=	BSD2CLAUSE BSD3CLAUSE
+LICENSE_COMB=	multi
+
+WRKSRC=		${WRKDIR}/${DISTNAME}
+
+USE_GITHUB=	yes
+GH_ACCOUNT=	${PORTNAME}
+
+USES=		autoreconf
+USE_OPENSSL=	yes
+GNU_CONFIGURE=	yes
+
+OPTIONS_DEFINE=	DOCS
+
+post-install:
+	@${MKDIR} ${STAGEDIR}${DOCSDIR}
+	(cd ${WRKSRC} && ${INSTALL_DATA} README ${STAGEDIR}${DOCSDIR})
+
+.include <bsd.port.mk>

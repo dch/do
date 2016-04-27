@@ -1,0 +1,26 @@
+# Created by: Grzegorz Blach <gblach@FreeBSD.org>
+# $FreeBSD: head/security/please/Makefile 394423 2015-08-16 21:52:20Z gblach $
+
+PORTNAME=	please
+PORTVERSION=	2.3
+CATEGORIES=	security
+
+MAINTAINER=	gblach@FreeBSD.org
+COMMENT=	Execute a command as root
+
+LICENSE=	BSD2CLAUSE
+
+BUILD_DEPENDS=	rst2man:${PORTSDIR}/textproc/py-docutils
+
+USE_GITHUB=	yes
+GH_ACCOUNT=	MagikBSD
+
+INSTALL_TARGET=	install install-pam
+PLIST_FILES=	"@(,,6555) bin/please" etc/pam.d/please.sample man/man1/please.1.gz
+
+post-patch:
+	@${REINPLACE_CMD} -e "s,-o 0 -g 0,,g ; s,-m 6555,-m 0555,g" \
+		-e "s,\(\$${PAMDIR}/\$${BIN}\),\\1.sample," \
+		${WRKSRC}/Makefile
+
+.include <bsd.port.mk>

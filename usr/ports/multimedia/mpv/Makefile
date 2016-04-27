@@ -1,0 +1,156 @@
+# Created by: Grzegorz Blach <gblach@FreeBSD.org>
+# $FreeBSD: head/multimedia/mpv/Makefile 395413 2015-08-27 11:38:07Z amdmi3 $
+
+PORTNAME=	mpv
+PORTVERSION=	0.9.2
+DISTVERSIONPREFIX=	v
+PORTREVISION=	5
+PORTEPOCH=	1
+CATEGORIES=	multimedia audio
+MASTER_SITES=	http://ftp.waf.io/pub/release/:1 \
+		http://www.freehackers.org/~tnagy/release/:1
+DISTFILES=	${DISTNAME}${EXTRACT_SUFX} waf-${WAF_VERSION}:1
+EXTRACT_ONLY=	${DISTNAME}${EXTRACT_SUFX}
+
+MAINTAINER=	cpm@fbsd.es
+COMMENT=	Free and open-source general-purpose video player
+
+LICENSE=	GPLv2
+
+LIB_DEPENDS=	libavcodec.so:${PORTSDIR}/multimedia/ffmpeg
+BUILD_DEPENDS=	rst2man:${PORTSDIR}/textproc/py-docutils
+
+USE_GITHUB=	yes
+GH_ACCOUNT=	mpv-player
+
+WAF_VERSION=	1.8.9
+
+USES=		compiler:c11 desktop-file-utils iconv pkgconfig python:build waf
+USE_XORG=	x11 xv xxf86vm
+USE_LDCONFIG=	yes
+INSTALLS_ICONS=	yes
+
+CPPFLAGS+=	-I.. -I${LOCALBASE}/include
+LDFLAGS+=	-L${LOCALBASE}/lib
+
+CONFIGURE_ARGS=	--prefix=${PREFIX} \
+		--docdir=${EXAMPLESDIR} \
+		--mandir=${MANPREFIX}/man \
+		--disable-debug-build \
+		--disable-optimize \
+		--enable-libmpv-shared \
+		--disable-pdf
+
+OPTIONS_DEFINE=		ASS BS2B DOCS ENCA LADSPA LCMS2 \
+			LIBGUESS LUAJIT ZSH
+OPTIONS_DEFAULT=	ASS DVDREAD DVDNAV
+OPTIONS_GROUP=		IN VO AO
+OPTIONS_GROUP_IN=	CDIO DVDREAD DVDNAV LIBBLURAY V4L SMB
+OPTIONS_GROUP_VO=	CACA OPENGL VAAPI VDPAU XINERAMA
+OPTIONS_GROUP_AO=	ALSA JACK PULSEAUDIO
+OPTIONS_SUB=		yes
+
+ASS_DESC=	ASS/SSA subtitle and OSD rendering
+BS2B_DESC=	Enable Bauer Stereophonic-to-Binaural DSP support
+DVDREAD_DESC=	DVD Playback support
+DVDNAV_DESC=	DVD menu navigation
+ENCA_DESC=	Enable encoding detection support
+LIBGUESS_DESC=	Enable high-speed character set detection support
+LUAJIT_DESC=	Use LuaJIT instead of Lua
+IN_DESC=	Input
+VO_DESC=	Video Output
+AO_DESC=	Audio Output
+
+ALSA_LIB_DEPENDS=		libasound.so:${PORTSDIR}/audio/alsa-lib
+ALSA_CONFIGURE_ENABLE=		alsa
+
+ASS_LIB_DEPENDS=		libass.so:${PORTSDIR}/multimedia/libass
+ASS_CONFIGURE_ENABLE=		libass
+
+BS2B_LIB_DEPENDS=		libbs2b.so:${PORTSDIR}/audio/libbs2b
+BS2B_CONFIGURE_ENABLE=		libbs2b
+
+DVDREAD_LIB_DEPENDS=		libdvdread.so:${PORTSDIR}/multimedia/libdvdread
+DVDREAD_CONFIGURE_ENABLE=	dvdread
+
+DVDNAV_LIB_DEPENDS=		libdvdnav.so:${PORTSDIR}/multimedia/libdvdnav
+DVDNAV_CONFIGURE_ENABLE=	dvdnav
+
+ENCA_LIB_DEPENDS=		libenca.so:${PORTSDIR}/converters/enca
+ENCA_CONFIGURE_ENABLE=		enca
+
+LADSPA_BUILD_DEPENDS=		${LOCALBASE}/lib/ladspa/amp.so:${PORTSDIR}/audio/ladspa
+LADSPA_RUN_DEPENDS=		${LOCALBASE}/lib/ladspa/amp.so:${PORTSDIR}/audio/ladspa
+LADSPA_CONFIGURE_ENABLE=	ladspa
+
+LCMS2_LIB_DEPENDS=		liblcms2.so:${PORTSDIR}/graphics/lcms2
+LCMS2_CONFIGURE_ENABLE=		lcms2
+
+LIBGUESS_LIB_DEPENDS=		libguess.so:${PORTSDIR}/textproc/libguess
+LIBGUESS_CONFIGURE_ENABLE=	libguess
+
+LUAJIT_LIB_DEPENDS=		libluajit-5.1.so:${PORTSDIR}/lang/luajit
+LUAJIT_USES_OFF=		lua
+LUAJIT_CONFIGURE_ON=		--lua=luajit
+LUAJIT_CONFIGURE_OFF=		--lua=${LUA_VER_STR}fbsd
+
+ZSH_USES=			perl5
+ZSH_USE=			PERL5=build
+ZSH_CONFIGURE_ENABLE=		zsh-comp
+
+CDIO_LIB_DEPENDS=		libcdio_paranoia.so:${PORTSDIR}/sysutils/libcdio-paranoia
+CDIO_CONFIGURE_ENABLE=		cdda
+
+LIBBLURAY_LIB_DEPENDS=		libbluray.so:${PORTSDIR}/multimedia/libbluray
+LIBBLURAY_CONFIGURE_ENABLE=	libbluray
+
+V4L_BUILD_DEPENDS=		${LOCALBASE}/include/linux/videodev2.h:${PORTSDIR}/multimedia/v4l_compat
+V4L_LIB_DEPENDS=		libv4l2.so:${PORTSDIR}/multimedia/libv4l
+V4L_CONFIGURE_ENABLE=		tv-v4l2
+
+SMB_LIB_DEPENDS=		libsmbclient.so:${PORTSDIR}/net/samba-libsmbclient
+SMB_CONFIGURE_ENABLE=		libsmbclient
+
+CACA_LIB_DEPENDS=		libcaca.so:${PORTSDIR}/graphics/libcaca
+CACA_CONFIGURE_ENABLE=		caca
+
+OPENGL_USE=			GL=gl
+OPENGL_CONFIGURE_ENABLE=	gl
+
+VAAPI_LIB_DEPENDS=		libva.so:${PORTSDIR}/multimedia/libva
+VAAPI_CONFIGURE_ENABLE=		vaapi
+
+VDPAU_LIB_DEPENDS=		libvdpau.so:${PORTSDIR}/multimedia/libvdpau
+VDPAU_CONFIGURE_ENABLE=		vdpau
+
+XINERAMA_USE=			XORG=xinerama,xineramaproto
+XINERAMA_CONFIGURE_ENABLE=	xinerama
+
+JACK_LIB_DEPENDS=		libjack.so:${PORTSDIR}/audio/jack
+JACK_CONFIGURE_ENABLE=		jack
+
+PULSEAUDIO_LIB_DEPENDS=		libpulse.so:${PORTSDIR}/audio/pulseaudio
+PULSEAUDIO_CONFIGURE_ENABLE=	pulse
+
+.include <bsd.port.options.mk>
+
+# Fix crash on i386
+.if ${ARCH} == "i386"
+CFLAGS:=	${CFLAGS:N-O*} -O0
+.endif
+
+post-extract:
+	${CP} ${DISTDIR}/waf-${WAF_VERSION} ${WRKSRC}/waf
+	@${CHMOD} +x ${WRKSRC}/waf
+
+post-patch:
+	@${REINPLACE_CMD} -e 's|/pkgconfig/mpv.pc|data/pkgconfig/mpv.pc|g' \
+		${WRKSRC}/wscript_build.py
+	@${FIND} ${WRKSRC}/DOCS/man -name '*.rst' | ${XARGS} ${REINPLACE_CMD} \
+		-e 's|/usr/local|${PREFIX}|g'
+
+post-stage:
+	${STRIP_CMD} ${STAGEDIR}${PREFIX}/bin/mpv
+	${STRIP_CMD} ${STAGEDIR}${PREFIX}/lib/libmpv.so
+
+.include <bsd.port.mk>

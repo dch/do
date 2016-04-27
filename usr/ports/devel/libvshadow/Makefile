@@ -1,0 +1,25 @@
+# Created by: MANTANI Nobutaka <nobutaka@FreeBSD.org>
+# $FreeBSD: head/devel/libvshadow/Makefile 376559 2015-01-08 19:02:00Z antoine $
+
+PORTNAME=	libvshadow
+PORTVERSION=	20150106
+CATEGORIES=	devel
+MASTER_SITES=	https://github.com/libyal/libvshadow/releases/download/${PORTVERSION}/ \
+		LOCAL/antoine
+DISTNAME=	${PORTNAME}-alpha-${PORTVERSION}
+
+MAINTAINER=	nobutaka@FreeBSD.org
+COMMENT=	Library to support the Volume Service Snapshot (VSS) format
+
+LICENSE=	LGPL3
+LICENSE_FILE=	${WRKSRC}/COPYING
+
+USES=		fuse gettext iconv libtool pathfix pkgconfig python
+USE_LDCONFIG=	yes
+
+GNU_CONFIGURE=	yes
+CONFIGURE_ARGS=	--enable-python --with-libintl-prefix=${LOCALBASE} ${ICONV_CONFIGURE_ARG}
+INSTALL_TARGET=	install-strip
+WRKSRC=		${WRKDIR}/${PORTNAME}-${PORTVERSION}
+
+.include <bsd.port.mk>

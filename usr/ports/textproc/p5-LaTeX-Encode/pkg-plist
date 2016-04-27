@@ -1,0 +1,4 @@
+bin/latex-encode
+%%PERL5_MAN3%%/LaTeX::Encode.3.gz
+%%SITE_PERL%%/LaTeX/Encode.pm
+man/man1/latex-encode.1.gz

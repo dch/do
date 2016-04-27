@@ -1,0 +1,21 @@
+# $FreeBSD: head/graphics/laternamagica/Makefile 383626 2015-04-09 07:44:41Z bapt $
+
+PORTNAME=	laternamagica
+PORTVERSION=	0.4
+PORTREVISION=	3
+CATEGORIES=	graphics gnustep
+MASTER_SITES=	SAVANNAH/gap
+DISTNAME=	LaternaMagica-${PORTVERSION}
+
+MAINTAINER=	ports@FreeBSD.org
+COMMENT=	Image viewer and slideshow application
+
+LICENSE=	GPLv2 # or later
+
+USES=		gnustep
+USE_GNUSTEP=	back build
+
+post-install:
+	${STRIP_CMD} ${STAGEDIR}${PREFIX}/GNUstep/Local/Applications/LaternaMagica.app/LaternaMagica
+
+.include <bsd.port.mk>

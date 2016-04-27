@@ -1,0 +1,24 @@
+# Created by: Rui Lopes (<rgl ruilopes com>)
+# $FreeBSD: head/devel/rubygem-gem_plugin/Makefile 391169 2015-07-02 16:01:06Z pgollucci $
+
+PORTNAME=	gem_plugin
+PORTVERSION=	0.2.3
+PORTREVISION=	1
+CATEGORIES=	devel rubygems
+MASTER_SITES=	RG
+
+MAINTAINER=	ruby@FreeBSD.org
+COMMENT=	Gem Based Plugin System
+
+LICENSE=	LGPL21 RUBY
+LICENSE_COMB=	dual
+
+NO_ARCH=	yes
+
+USE_RUBY=	yes
+USE_RUBYGEMS=	yes
+RUBYGEM_AUTOPLIST=	yes
+
+PLIST_FILES=	bin/gpgen
+
+.include <bsd.port.mk>

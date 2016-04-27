@@ -1,0 +1,26 @@
+# Created by: Sunpoet Po-Chuan Hsieh <sunpoet@FreeBSD.org>
+# $FreeBSD: head/chinese/p5-cconv/Makefile 394464 2015-08-17 13:03:49Z sunpoet $
+
+PORTNAME=	cconv
+PORTVERSION=	0.6.1
+DISTVERSIONPREFIX=	perl-
+PORTREVISION=	2
+CATEGORIES=	chinese converters perl5
+MASTER_SITES=	GOOGLE_CODE
+PKGNAMEPREFIX=	p5-
+
+MAINTAINER=	sunpoet@FreeBSD.org
+COMMENT=	Perl wrapper for chinese/cconv
+
+LICENSE=	GPLv2
+
+LIB_DEPENDS=	libcconv.so:${PORTSDIR}/chinese/cconv
+
+CFLAGS+=	-I${LOCALBASE}/include
+USE_PERL5=	configure
+USES=		perl5
+
+post-install:
+	${STRIP_CMD} ${STAGEDIR}${PREFIX}/${SITE_ARCH_REL}/auto/cconv/cconv.so
+
+.include <bsd.port.mk>

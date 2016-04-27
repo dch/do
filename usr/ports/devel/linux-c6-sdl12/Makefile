@@ -1,0 +1,31 @@
+# Created by: Johannes Meixner <xmj@chaot.net
+# $FreeBSD: head/devel/linux-c6-sdl12/Makefile 393817 2015-08-09 19:14:13Z netchild $
+
+PORTNAME=	sdl
+PORTVERSION=	1.2.14
+PORTREVISION=	2
+CATEGORIES=	devel linux
+DISTNAME=	SDL-${PORTVERSION}-${RPMVERSION}
+
+MAINTAINER=	emulation@FreeBSD.org
+COMMENT=	Cross-platform multi-media development API (Linux CentOS ${LINUX_DIST_VER})
+
+CONFLICTS=	linux-sdl12-[0-9]* linux-f8-sdl12-[0-9]*
+
+ONLY_FOR_ARCHS=	i386 amd64
+USE_LINUX=	c6
+USE_LINUX_RPM=	yes
+USE_LINUX_APPS=	xorglibs
+INSTALL_SHLIB=	yes
+LINUX_NAME=	SDL
+
+RPMVERSION=	3.el6
+USE_LDCONFIG=	yes
+
+DOCSDIR=	${PREFIX}/usr/share/doc/${LINUX_NAME}-${PORTVERSION}
+PORTDOCS=	BUGS COPYING CREDITS README-SDL.txt
+DESCR=		${.CURDIR}/../${PORTNAME}12/pkg-descr
+
+SRC_DISTFILES=	SDL-${PORTVERSION}-${RPMVERSION}${SRC_SUFX}:SOURCE
+
+.include <bsd.port.mk>

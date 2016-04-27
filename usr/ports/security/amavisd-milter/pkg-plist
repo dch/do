@@ -1,0 +1,4 @@
+sbin/amavisd-milter
+man/man8/amavisd-milter.8.gz
+@dir(%%AMAVISUSER%%,%%AMAVISGROUP%%,750) %%RUNDIR%%/tmp
+@dir(%%AMAVISUSER%%,%%AMAVISGROUP%%,755) %%RUNDIR%%

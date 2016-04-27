@@ -1,0 +1,5 @@
+bandwidthd/etc/bandwidthd.conf-dist
+bandwidthd/bandwidthd
+bandwidthd/htdocs/legend.gif
+bandwidthd/htdocs/logo.gif
+etc/rc.d/bandwidthd.sh.sample

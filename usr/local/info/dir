@@ -1,0 +1,21 @@
+Produced by: indexinfo 0.2.3.
+
+File: dir,	Node: Top	This is the top of the INFO tree
+
+  This (the Directory node) gives a menu of major topics.
+  Typing "q" exits, "?" lists all Info commands, "d" returns here,
+  "h" gives a primer for first-timers,
+  "mXXX<Return>" visits the XXX manual, etc.
+
+* Menu:
+
+C++ libraries
+* autosprintf: (autosprintf).   Support for printf format strings in C++.
+
+Development
+* libffi: (libffi).             Portable foreign-function interface library.
+
+Programming & development tools
+* GDBM: (gdbm).                 The GNU database manager.
+* gdbm_dump: gdbm_dump(gdbm).   Dump the GDBM database into a flat file.
+* gdbm_load: gdbm_load(gdbm).   Load the database from a flat file.

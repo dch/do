@@ -1,0 +1,121 @@
+# Created by: alepulver
+# $FreeBSD: head/emulators/mame/Makefile 390310 2015-06-22 18:33:20Z antoine $
+
+PORTNAME?=	mame
+PORTVERSION=	0.161
+PORTREVISION?=	0
+CATEGORIES=	emulators
+
+MAINTAINER=	ports@FreeBSD.org
+COMMENT?=	Multi Arcade Machine Emulator
+
+LIB_DEPENDS=	libFLAC.so:${PORTSDIR}/audio/flac \
+		libexpat.so:${PORTSDIR}/textproc/expat2 \
+		libfontconfig.so:${PORTSDIR}/x11-fonts/fontconfig
+RUN_DEPENDS=	liberation-fonts-ttf>=0:${PORTSDIR}/x11-fonts/liberation-fonts-ttf
+
+NOT_FOR_ARCHS=	ia64 powerpc sparc64
+
+USE_GITHUB=	yes
+GH_ACCOUNT=	mamedev
+GH_PROJECT=	mame 				# explicit (master port)
+GH_TAGNAME=	mame${PORTVERSION:S/.//}
+
+# base clang fails with signal during build (!)
+USE_GCC=	yes
+
+USES=		gmake jpeg pkgconfig python:2,build shebangfix
+SHEBANG_FILES=	src/emu/cpu/m6502/m6502make.py \
+		src/emu/cpu/m6809/m6809make.py \
+		src/emu/cpu/mcs96/mcs96make.py \
+		src/emu/cpu/tms57002/tmsmake.py \
+		src/build/*.py
+USE_XORG=	xext xi xinerama xrender x11
+USE_GL=		gl
+USE_SDL=	sdl2 ttf2
+USE_QT4=	gui moc_build qmake_build
+MTARGET?=	mame
+CFLAGS+=	-I${LOCALBASE}/include
+MAKE_ENV=	NOWERROR=1 USE_NETWORK=1 \
+		LD="${CXX}" PYTHON="${PYTHON_CMD}" SDL_LIBVER="sdl2" \
+		OPT_FLAGS="${CXXFLAGS}" GCC_LDFLAGS="${LDFLAGS}" \
+		TARGET="${MTARGET}" FULLNAME="mame" SDL_NETWORK="pcap"
+MAKE_ARGS=	TARGETOS=freebsd VERBOSE=1 TOOLS=1
+MAKEFILE=	makefile
+GENIE=		${WRKSRC}/3rdparty/genie
+PORTDOCS=	*
+PORTEXAMPLES=	${MTARGET}.ini
+
+SUB_FILES=	pkg-message target.ini
+SUB_LIST=	MTARGET=${MTARGET}
+
+OPTIONS_DEFINE=		DEBUG DOCS EXAMPLES
+DEBUG_MAKE_ENV=		DEBUG=1
+
+.include <bsd.port.options.mk>
+
+.if ${ARCH} == amd64
+MAKE_ARGS+=	PTR64=1
+EMULATOR=	${MTARGET}64
+.else
+EMULATOR=	${MTARGET}
+.endif
+PLIST_SUB=	EMULATOR=${EMULATOR}
+
+.if ${OPSYS} == FreeBSD && ${OSREL:R} == 8
+BROKEN=		will not build on FreeBSD 8.x
+.endif
+
+post-patch:
+	@${REINPLACE_CMD} -e \
+		's|^\(CC \)|#\1| ; \
+		 s|^\(CXX \)|#\1| ; \
+		 s|^\(LD \)|#\1| ; \
+		 s|^\(PYTHON \)|#\1| ; \
+		 s| .(ARCH)|| ; \
+		 s|FreeBSD|${OPSYS}|g' \
+		 ${WRKSRC}/makefile \
+		 ${GENIE}/build/gmake.bsd/genie.make
+	@${REINPLACE_CMD} -e 's|gcc|cc|; s|g++|c++|' \
+		${GENIE}/src/actions/codelite/codelite_project.lua \
+		${GENIE}/src/tools/gcc.lua \
+		${GENIE}/src/tools/snc.lua \
+		${GENIE}/tests/test_gmake_cpp.lua
+	@${REINPLACE_CMD} -e 's|= \"gcc|= \"cc|; s|= \"g++|= \"c++|' \
+		-e "s|'CXX =|'#CXX =|; s|'CC  =|'#CC  =|; s| .(ARCH)| |g" \
+		${GENIE}/src/host/scripts.c
+	# we can't fix two types of python shebangs, so do these manually
+	@${REINPLACE_CMD} -i "" -e "s|/usr/bin/env python|${PYTHON_CMD}|" \
+		${WRKSRC}/src/build/png*.py
+	@${REINPLACE_CMD} -e 's|"python"|"${PYTHON_CMD}"|' \
+		${WRKSRC}/scripts/genie.lua
+	@${GREP} -rl '"png.h"' ${WRKSRC}/src | ${XARGS} ${REINPLACE_CMD} \
+		-e 's|"png.h"|"localpng.h"|'
+	@${MV} ${WRKSRC}/src/lib/util/png.h ${WRKSRC}/src/lib/util/localpng.h
+
+do-install:
+	@${MKDIR} ${STAGEDIR}${DATADIR} \
+		${STAGEDIR}${DOCSDIR} \
+		${STAGEDIR}${EXAMPLESDIR} \
+		${STAGEDIR}${PREFIX}/libexec/${MTARGET}
+	${INSTALL_PROGRAM} ${WRKSRC}/${EMULATOR} ${STAGEDIR}${PREFIX}/bin
+.if ${MTARGET:Mmame}
+	(cd ${WRKSRC} && \
+		${INSTALL_PROGRAM} chdman jedutil ldresample ldverify \
+		romcmp testkeys unidasm \
+		${STAGEDIR}${PREFIX}/libexec/mame)
+.endif
+.if ${MTARGET:Mmess}
+	(cd ${WRKSRC} && ${INSTALL_PROGRAM} castool chdman imgtool jedutil \
+		ldresample ldverify romcmp testkeys unidasm \
+		${STAGEDIR}${PREFIX}/libexec/mess)
+.endif
+	(cd ${WRKSRC} && ${COPYTREE_SHARE} artwork ${STAGEDIR}${DATADIR})
+	(cd ${WRKSRC} && ${COPYTREE_SHARE} hash ${STAGEDIR}${DATADIR})
+	(cd ${WRKSRC}/src/osd/sdl && \
+		${COPYTREE_SHARE} keymaps ${STAGEDIR}${DATADIR})
+	(cd ${WRKSRC} && ${COPYTREE_SHARE} docs ${STAGEDIR}${DOCSDIR})
+	${INSTALL_DATA} ${WRKDIR}/target.ini \
+		${STAGEDIR}${EXAMPLESDIR}/${MTARGET}.ini
+
+.include <bsd.port.mk>

@@ -1,0 +1,36 @@
+# Created by: Dmitry Marakasov <amdmi3@FreeBSD.org>
+# $FreeBSD: head/games/phlipple/Makefile 387471 2015-05-26 13:10:48Z amdmi3 $
+
+PORTNAME=	phlipple
+PORTVERSION=	0.8.5
+PORTREVISION=	3
+CATEGORIES=	games
+MASTER_SITES=	SF/${PORTNAME}
+
+MAINTAINER=	amdmi3@FreeBSD.org
+COMMENT=	Flipping squares will never be the same
+
+LIB_DEPENDS=	libogg.so:${PORTSDIR}/audio/libogg \
+		libvorbis.so:${PORTSDIR}/audio/libvorbis \
+		libGLEW.so:${PORTSDIR}/graphics/glew
+
+USES=		desktop-file-utils pkgconfig
+USE_SDL=	sdl mixer image
+USE_GL=		gl glu
+GNU_CONFIGURE=	yes
+
+CPPFLAGS+=	-I${LOCALBASE}/include
+LIBS+=		-L${LOCALBASE}/lib -lm
+
+PLIST_FILES=	bin/${PORTNAME} \
+		share/applications/${PORTNAME}.desktop \
+		share/pixmaps/${PORTNAME}.png
+PORTDOCS=	*
+PORTDATA=	*
+
+OPTIONS_DEFINE=	DOCS
+
+post-patch:
+	@${REINPLACE_CMD} -e 's|malloc.h|stdlib.h|' ${WRKSRC}/src/*.c
+
+.include <bsd.port.mk>

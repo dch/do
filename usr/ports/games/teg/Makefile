@@ -1,0 +1,31 @@
+# Created by: Maxim Sobolev <sobomax@FreeBSD.org>
+# $FreeBSD: head/games/teg/Makefile 374598 2014-12-12 17:11:22Z marino $
+
+PORTNAME=	teg
+PORTVERSION=	0.11.2
+PORTREVISION=	7
+CATEGORIES=	games gnome
+MASTER_SITES=	SF
+
+MAINTAINER=	ports@FreeBSD.org
+COMMENT=	Turn-based strategy game for GNOME
+
+LICENSE=	GPLv2 # only
+LICENSE_FILE=	${WRKSRC}/COPYING
+
+USES=		gettext-tools gmake iconv libtool pathfix pkgconfig
+USE_GNOME=	gnomeprefix intlhack libgnomeui
+CPPFLAGS+=	-I${LOCALBASE}/include
+LDFLAGS+=	-L${LOCALBASE}/lib ${ICONV_LIB}
+GNU_CONFIGURE=	yes
+CONFIGURE_ARGS=	--disable-ggz
+
+GCONF_SCHEMAS=	teg.schemas
+
+post-patch:
+	@${GREP} -lR " LIST_NEXT" ${WRKSRC} | ${XARGS} ${REINPLACE_CMD} -e \
+		's| LIST_NEXT| TEG_LIST_NEXT|g'
+	@${REINPLACE_CMD} -e '/^SUBDIRS/s|pl||g' \
+		${WRKSRC}/docs/gnome-help/Makefile.in
+
+.include <bsd.port.mk>

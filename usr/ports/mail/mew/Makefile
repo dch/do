@@ -1,0 +1,53 @@
+# Created by: Kiriyama Kazuhiko <kiri@kiri.toba-cmt.ac.jp>
+# $FreeBSD: head/mail/mew/Makefile 392961 2015-07-27 06:04:58Z hrs $
+
+PORTNAME=	mew
+PORTVERSION=	6.6
+PORTREVISION=	3
+CATEGORIES=	mail elisp
+MASTER_SITES=	http://www.mew.org/Release/
+PKGNAMESUFFIX=	-${EMACS_PORT_NAME}
+
+MAINTAINER=	hiroto.kagotani@gmail.com
+COMMENT=	Messaging in the Emacs World for emacs
+
+LICENSE=	BSD3CLAUSE
+LICENSE_FILE=	${WRKSRC}/00copyright
+
+OPTIONS_DEFINE=	DATABASE DOCS STUNNEL
+OPTIONS_DEFAULT=STUNNEL
+DATABASE_DESC=	Support database feature (with Ruby & Sqlite3)
+DATABASE_RUN_DEPENDS=	rubygem-sqlite3>=0:${PORTSDIR}/databases/rubygem-sqlite3
+STUNNEL_DESC=	Support SSL feature using stunnel
+STUNNEL_RUN_DEPENDS=	stunnel>=0:${PORTSDIR}/security/stunnel
+
+# emacs port setup
+USE_EMACS=	yes
+SUB_FILES=	pkg-message
+GNU_CONFIGURE=	yes
+CONFIGURE_ARGS=	--with-elispdir=${LOCALBASE}/${EMACS_SITE_LISPDIR}/mew \
+		--with-etcdir=${LOCALBASE}/${EMACS_SITE_LISPDIR}/mew/etc
+
+# target name for make build and install
+ALL_TARGET=	all info
+INSTALL_TARGET=	install
+INFO=		mew
+DOCS_ALL_TARGET=	jinfo
+DOCS_INSTALL_TARGET=	install-jinfo
+DOCS_INFO=	mew.ja
+PORTDOCS=	00api 00changes.0 00changes.1 00changes.2 00changes.3 \
+		00changes.4.1 00changes.4.2 00changes.5.1 00changes.5.2 \
+		00changes.6.1 00changes.6.2 00changes.6.3 00changes.6.4 \
+		00changes.6.5 00changes.6.6 \
+		00diff 00readme dot.emacs dot.mew dot.theme
+
+.include <bsd.port.options.mk>
+
+post-install:
+	@${RM} -f ${STAGEDIR}${PREFIX}/${INFO_PATH}/*.info.~1~
+.if ${PORT_OPTIONS:MDOCS}
+	${MKDIR} ${STAGEDIR}${DOCSDIR}
+	cd ${WRKSRC} && ${INSTALL_DATA} ${PORTDOCS} ${STAGEDIR}${DOCSDIR}
+.endif
+
+.include <bsd.port.mk>

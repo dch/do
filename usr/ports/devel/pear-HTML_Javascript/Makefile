@@ -1,0 +1,13 @@
+# Created by: Antonio Carlos Venancio Junior (<antonio@inf.ufsc.br>)
+# $FreeBSD: head/devel/pear-HTML_Javascript/Makefile 372709 2014-11-18 09:37:31Z bapt $
+
+PORTNAME=	HTML_Javascript
+PORTVERSION=	1.1.2
+CATEGORIES=	devel www pear
+
+MAINTAINER=	ports@FreeBSD.org
+COMMENT=	Provides an interface for creating simple JS scripts
+
+USES=	pear
+
+.include <bsd.port.mk>

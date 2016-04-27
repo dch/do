@@ -1,0 +1,20 @@
+# Created by: Steve Wills <swills@FreeBSD.org>
+# $FreeBSD: head/devel/p5-CPAN-Perl-Releases/Makefile 395116 2015-08-23 16:40:01Z sunpoet $
+
+PORTNAME=	CPAN-Perl-Releases
+PORTVERSION=	2.32
+CATEGORIES=	devel perl5
+MASTER_SITES=	CPAN
+PKGNAMEPREFIX=	p5-
+
+MAINTAINER=	perl@FreeBSD.org
+COMMENT=	Map Perl releases to the location of the tarballs
+
+LICENSE=	ART10 GPLv1
+LICENSE_COMB=	dual
+
+NO_ARCH=	yes
+USES=		perl5
+USE_PERL5=	configure
+
+.include <bsd.port.mk>

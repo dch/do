@@ -1,0 +1,10 @@
+prefix=/usr/local
+exec_prefix=${prefix}
+libdir=/usr/local/lib
+includedir=${prefix}/include/avahi-compat-howl/
+
+Name: avahi-compat-howl
+Description: Avahi Multicast DNS Responder (HOWL Compatibility)
+Version: 0.9.8
+Libs: -L${libdir} -lhowl 
+Cflags: -D_REENTRANT -D_THREAD_SAFE -pthread -I${includedir}

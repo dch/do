@@ -1,0 +1,13 @@
+# Created by: Antonio Carlos Venancio Junior (<antonio@inf.ufsc.br>)
+# $FreeBSD: head/mail/pear-Contact_Vcard_Build/Makefile 372709 2014-11-18 09:37:31Z bapt $
+
+PORTNAME=	Contact_Vcard_Build
+PORTVERSION=	1.1.2
+CATEGORIES=	mail www pear
+
+MAINTAINER=	ports@FreeBSD.org
+COMMENT=	PEAR class to build (create) and fetch vCard 2.1 and 3.0 text blocks
+
+USES=	pear
+
+.include <bsd.port.mk>

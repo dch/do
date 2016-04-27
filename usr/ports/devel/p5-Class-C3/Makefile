@@ -1,0 +1,25 @@
+# $FreeBSD: head/devel/p5-Class-C3/Makefile 384178 2015-04-17 19:59:05Z sunpoet $
+
+PORTNAME=	Class-C3
+PORTVERSION=	0.28
+CATEGORIES=	devel perl5
+MASTER_SITES=	CPAN
+PKGNAMEPREFIX=	p5-
+
+MAINTAINER=	perl@FreeBSD.org
+COMMENT=	Pragma to use the C3 method resolution order algorithm
+
+LICENSE=	ART10 GPLv1
+LICENSE_COMB=	dual
+
+OPTIONS_DEFINE=	XS
+
+USES=		perl5
+USE_PERL5=	configure
+
+XS_BUILD_DEPENDS=	p5-Class-C3-XS>=0.13:${PORTSDIR}/devel/p5-Class-C3-XS
+XS_RUN_DEPENDS=		p5-Class-C3-XS>=0.13:${PORTSDIR}/devel/p5-Class-C3-XS
+XS_BUILD_DEPENDS_OFF=	p5-Algorithm-C3>=0.07:${PORTSDIR}/devel/p5-Algorithm-C3
+XS_RUN_DEPENDS_OFF=	p5-Algorithm-C3>=0.07:${PORTSDIR}/devel/p5-Algorithm-C3
+
+.include <bsd.port.mk>

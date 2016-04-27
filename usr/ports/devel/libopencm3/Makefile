@@ -1,0 +1,33 @@
+# $FreeBSD: head/devel/libopencm3/Makefile 393510 2015-08-04 07:18:00Z lev $
+
+PORTNAME=	libopencm3
+PORTVERSION=	0.0.20150631
+CATEGORIES=	devel
+
+MAINTAINER=	lev@FreeBSD.org
+COMMENT=	LGPLv3 Cortex-M0/M3/M4 runtime library
+
+LICENSE=	LGPL3
+
+BUILD_DEPENDS=	${LOCALBASE}/gcc-arm-embedded-${TOOLCHAIN_FULL_VERSION}/bin/arm-none-eabi-gcc:${PORTSDIR}/devel/gcc-arm-embedded
+
+USE_GITHUB=	yes
+GH_ACCOUNT=	libopencm3
+GH_TAGNAME=	7b29cae
+
+USES=		gmake python:2,build
+
+TOOLCHAIN_FULL_VERSION?=4_9-2015q2-20150609
+TOOLCHAIN_PORT_VERSION?=4.9.20150609
+TOOLCHAIN_TARGET?=arm-none-eabi
+
+DESTDIRNAME=	STAGEDIR
+MAKE_ENV=	PATH=${LOCALBASE}/gcc-arm-embedded-${TOOLCHAIN_FULL_VERSION}/bin:${PATH} \
+		DESTDIR=${STAGEDIR}${PREFIX}/gcc-arm-embedded-${TOOLCHAIN_FULL_VERSION}
+
+PLIST_SUB+=	TARGET=${TOOLCHAIN_TARGET} FULL_VERSION=${TOOLCHAIN_FULL_VERSION}
+
+do-configure:
+	${FIND} ${WRKSRC} -name Makefile -o -name \*.mk -type f | ${XARGS} ${REINPLACE_CMD} -e 's|PREFIX|TARGET|g'
+
+.include <bsd.port.mk>

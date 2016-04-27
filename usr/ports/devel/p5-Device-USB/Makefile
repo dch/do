@@ -1,0 +1,30 @@
+# Created by: Jason Bacon <jwbacon@tds.net>
+# $FreeBSD: head/devel/p5-Device-USB/Makefile 376086 2015-01-03 07:11:20Z sunpoet $
+
+PORTNAME=	Device-USB
+PORTVERSION=	0.35
+PORTREVISION=	2
+CATEGORIES=	devel perl5
+MASTER_SITES=	CPAN \
+		http://personalpages.tds.net/~jwbacon/Ports/distfiles/
+PKGNAMEPREFIX=	p5-
+
+MAINTAINER=	josh.carroll@gmail.com
+COMMENT=	Perl wrapper for libusb
+
+LICENSE=	ART10 GPLv1
+LICENSE_COMB=	dual
+
+BUILD_DEPENDS=	p5-Inline>=0:${PORTSDIR}/devel/p5-Inline \
+		p5-Inline-C>=0:${PORTSDIR}/devel/p5-Inline-C
+RUN_DEPENDS:=	${BUILD_DEPENDS}
+
+MAKE_JOBS_UNSAFE=yes
+USES=		perl5
+USE_PERL5=	configure
+
+post-patch:
+	@${REINPLACE_CMD} -e 's|dump_usb.pl|lib/Device/&|' ${WRKSRC}/MANIFEST
+	@${MV} ${WRKSRC}/dump_usb.pl ${WRKSRC}/lib/Device/
+
+.include <bsd.port.mk>

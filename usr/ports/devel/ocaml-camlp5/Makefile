@@ -1,0 +1,61 @@
+# Created by: Hirohisa Yamaguchi <umq@ueo.co.jp>
+# $FreeBSD: head/devel/ocaml-camlp5/Makefile 394508 2015-08-17 14:20:40Z mat $
+
+PORTNAME=	camlp5
+PORTVERSION=	6.13
+CATEGORIES=	devel
+MASTER_SITES=	http://camlp5.gforge.inria.fr/distrib/src/ \
+		http://cristal.inria.fr/~ddr/camlp5/distrib/src/ \
+		http://pauillac.inria.fr/~ddr/camlp5/distrib/src/
+PKGNAMEPREFIX=	ocaml-
+DIST_SUBDIR=	${PKGBASE}
+
+PATCH_SITES=	${MASTER_SITES}
+
+MAINTAINER=	ports@FreeBSD.org
+COMMENT=	Preprocessor-pretty-printer of OCaml
+
+LICENSE=	INRIA
+LICENSE_NAME=	INRIA permissive license with copyright notice requirements
+LICENSE_FILE=	${WRKSRC}/LICENSE
+LICENSE_PERMS=	dist-mirror dist-sell pkg-mirror pkg-sell auto-accept
+
+USES=			tar:tgz
+USE_OCAML=		yes
+HAS_CONFIGURE=		yes
+CONFIGURE_ARGS=		--prefix ${PREFIX}
+
+OPTIONS_SINGLE=		MODE
+OPTIONS_SINGLE_MODE=	TRANSITIONAL STRICT
+OPTIONS_DEFAULT=	STRICT
+TRANSITIONAL_DESC=	Compatible syntax tree with old versions
+STRICT_DESC=		New syntax tree quotations kit
+
+OPTIONS_DEFINE=	DOCS
+
+DOCSDIR=	${OCAML_DOCSDIR}/${PORTNAME}
+PORTDOCS=	CHANGES DEVEL ICHANGES INSTALL MODE README UPGRADING
+
+MAKE_JOBS_UNSAFE=	yes
+
+.include <bsd.port.options.mk>
+
+.if ${PORT_OPTIONS:MTRANSITIONAL}
+CONFIGURE_ARGS+=	--transitional
+.elif ${PORT_OPTIONS:MSTRICT}
+CONFIGURE_ARGS+=	--strict
+.endif
+ALL_TARGET=	world.opt
+
+post-install:
+.if ${PORT_OPTIONS:MDOCS}
+	@${MKDIR} ${STAGEDIR}${DOCSDIR}
+.for f in ${PORTDOCS}
+	${INSTALL_DATA} ${WRKSRC}/${f} ${STAGEDIR}${DOCSDIR}
+.endfor
+.endif
+	${INSTALL_DATA} ${WRKSRC}/etc/META \
+		${STAGEDIR}${PREFIX}/lib/ocaml/camlp5
+	${STRIP_CMD} ${STAGEDIR}${PREFIX}/bin/camlp5*.opt
+
+.include <bsd.port.mk>

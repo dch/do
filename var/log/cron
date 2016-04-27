@@ -1,0 +1,5 @@
+Apr 27 14:22:00 pirate /usr/sbin/cron[843]: (operator) CMD (/usr/libexec/save-entropy)
+Apr 27 14:25:00 pirate /usr/sbin/cron[868]: (root) CMD (/usr/libexec/atrun)
+Apr 27 14:30:00 pirate /usr/sbin/cron[949]: (root) CMD (/usr/libexec/atrun)
+Apr 27 14:33:00 pirate /usr/sbin/cron[951]: (operator) CMD (/usr/libexec/save-entropy)
+Apr 27 14:35:00 pirate /usr/sbin/cron[956]: (root) CMD (/usr/libexec/atrun)

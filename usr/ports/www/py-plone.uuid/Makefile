@@ -1,0 +1,24 @@
+# $FreeBSD: head/www/py-plone.uuid/Makefile 376109 2015-01-03 08:41:20Z mva $
+
+PORTNAME=	plone.uuid
+PORTVERSION=	1.0.3
+PORTREVISION=	1
+CATEGORIES=	www python zope
+MASTER_SITES=	CHEESESHOP
+PKGNAMEPREFIX=	${PYTHON_PKGNAMEPREFIX}
+DIST_SUBDIR=	zope
+
+MAINTAINER=	zope@FreeBSD.org
+COMMENT=	UUIDs for content items
+
+LICENSE=	BSD3CLAUSE
+
+RUN_DEPENDS=	${PYTHON_PKGNAMEPREFIX}zope.browserpage>=0:${PORTSDIR}/devel/py-zope.browserpage \
+		${PYTHON_PKGNAMEPREFIX}zope.interface>=0:${PORTSDIR}/devel/py-zope.interface \
+		${PYTHON_PKGNAMEPREFIX}zope.lifecycleevent>=0:${PORTSDIR}/devel/py-zope.lifecycleevent \
+		${PYTHON_PKGNAMEPREFIX}zope.publisher>=0:${PORTSDIR}/devel/py-zope.publisher
+
+USES=		python zip
+USE_PYTHON=	distutils autoplist
+
+.include <bsd.port.mk>

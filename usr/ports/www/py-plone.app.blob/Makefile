@@ -1,0 +1,25 @@
+# $FreeBSD: head/www/py-plone.app.blob/Makefile 376109 2015-01-03 08:41:20Z mva $
+
+PORTNAME=	plone.app.blob
+PORTVERSION=	1.5.8
+PORTREVISION=	1
+CATEGORIES=	www python zope
+MASTER_SITES=	CHEESESHOP
+PKGNAMEPREFIX=	${PYTHON_PKGNAMEPREFIX}
+DIST_SUBDIR=	zope
+
+MAINTAINER=	zope@FreeBSD.org
+COMMENT=	ZODB blob support for Plone
+
+LICENSE=	GPLv2
+
+RUN_DEPENDS=	zodb${PYTHON_PKGNAMESUFFIX}>=3.8.1:${PORTSDIR}/databases/zodb3 \
+		${PYTHON_PKGNAMEPREFIX}zope.proxy>=3.4:${PORTSDIR}/net/py-zope.proxy \
+		${PYTHON_PKGNAMEPREFIX}archetypes.schemaextender>=1.6:${PORTSDIR}/devel/py-archetypes.schemaextender \
+		${PYTHON_PKGNAMEPREFIX}plone.app.imaging>1.0:${PORTSDIR}/www/py-plone.app.imaging \
+		${PYTHON_PKGNAMEPREFIX}plone.scale>=0:${PORTSDIR}/www/py-plone.scale
+
+USES=		python:2 zip
+USE_PYTHON=	distutils autoplist
+
+.include <bsd.port.mk>

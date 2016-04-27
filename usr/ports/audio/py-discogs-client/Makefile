@@ -1,0 +1,22 @@
+# Created by: Mark Felder <feld@FreeBSD.org>
+# $FreeBSD: head/audio/py-discogs-client/Makefile 384825 2015-04-27 11:11:25Z robak $
+
+PORTNAME=	discogs-client
+PORTVERSION=	2.1.0
+CATEGORIES=	audio python
+MASTER_SITES=	CHEESESHOP
+PKGNAMEPREFIX=	${PYTHON_PKGNAMEPREFIX}
+
+MAINTAINER=	stiginge@pvv.org
+COMMENT=	Python interface to Discogs website
+
+LICENSE=	BSD2CLAUSE
+
+RUN_DEPENDS=	${PYTHON_PKGNAMEPREFIX}requests>0:${PORTSDIR}/www/py-requests \
+		${PYTHON_PKGNAMEPREFIX}oauthlib>=0:${PORTSDIR}/security/py-oauthlib \
+		${PYTHON_PKGNAMEPREFIX}six>=0:${PORTSDIR}/devel/py-six
+
+USES=		python
+USE_PYTHON=	distutils autoplist
+
+.include <bsd.port.mk>

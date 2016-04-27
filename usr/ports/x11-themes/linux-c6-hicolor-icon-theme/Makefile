@@ -1,0 +1,28 @@
+# Created by: Johannes Meixner <xmj@chaot.net>
+# $FreeBSD: head/x11-themes/linux-c6-hicolor-icon-theme/Makefile 393817 2015-08-09 19:14:13Z netchild $
+
+PORTNAME=	hicolor-icon-theme
+PORTVERSION=	0.5
+PORTREVISION=	3
+CATEGORIES=	x11-themes linux
+MASTER_SITES=	# empty
+DISTFILES=	# empty
+PKGNAMEPREFIX=	linux-${USE_LINUX}-
+
+MAINTAINER=	emulation@FreeBSD.org
+COMMENT=	High-color icon theme shell from the FreeDesktop project
+
+CONFLICTS=	linux-hicolor-icon-theme-[0-9]* linux-f8-hicolor-icon-theme-[0-9]*
+
+RUN_DEPENDS=	${LOCALBASE}/share/icons/hicolor/index.theme:${PORTSDIR}/misc/hicolor-icon-theme
+
+NO_BUILD=	yes
+USE_LINUX=	c6
+USE_LINUX_PREFIX=	yes
+PLIST_FILES=	usr/share/icons/hicolor
+
+do-install:
+	${INSTALL} -d ${STAGEDIR}${PREFIX}/usr/share/icons
+	${LN} -fs ${LOCALBASE}/share/icons/hicolor ${STAGEDIR}${PREFIX}/usr/share/icons
+
+.include <bsd.port.mk>

@@ -1,0 +1,2 @@
+757
+/usr/sbin/sendmail -L sm-msp-queue -Ac -q30m

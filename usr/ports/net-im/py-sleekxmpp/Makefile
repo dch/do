@@ -1,0 +1,20 @@
+# $FreeBSD: head/net-im/py-sleekxmpp/Makefile 385640 2015-05-07 17:26:05Z mat $
+
+PORTNAME=	sleekxmpp
+PORTVERSION=	1.3.1
+PORTREVISION=	1
+CATEGORIES=	net-im python
+PKGNAMEPREFIX=	${PYTHON_PKGNAMEPREFIX}
+
+MAINTAINER=	arved@FreeBSD.org
+COMMENT=	XMPP Library
+
+LICENSE=	MIT
+
+USES=		python:3.2+
+USE_PYTHON=	distutils autoplist
+USE_GITHUB=	yes
+GH_ACCOUNT=	fritzy
+GH_PROJECT=	SleekXMPP
+
+.include <bsd.port.mk>

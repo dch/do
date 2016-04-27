@@ -1,0 +1,37 @@
+# Created by: Pawel Pekala <pawel@FreeBSD.org>
+# $FreeBSD: head/textproc/coccigrep/Makefile 387986 2015-05-30 21:25:06Z mat $
+
+PORTNAME=	coccigrep
+PORTVERSION=	1.13
+DISTVERSIONPREFIX=	v
+CATEGORIES=	textproc
+
+MAINTAINER=	pawel@FreeBSD.org
+COMMENT=	Semantic grep for the C language
+
+LICENSE=	GPLv3
+
+RUN_DEPENDS=	spatch:${PORTSDIR}/devel/coccinelle
+
+USE_GITHUB=	yes
+GH_ACCOUNT=	regit
+
+USES=		python
+USE_PYTHON=	distutils autoplist
+
+PLIST_FILES=	man/man1/coccigrep.1.gz \
+		${DATADIR_REL}/cocci-grep.el \
+		${DATADIR_REL}/cocci-grep.vim
+PORTDOCS=	ChangeLog README.rst
+
+OPTIONS_DEFINE=	DOCS
+
+post-install:
+	${INSTALL_MAN} ${WRKSRC}/coccigrep.1 ${STAGEDIR}${MANPREFIX}/man/man1
+	@${MKDIR} ${STAGEDIR}${DATADIR}
+	${INSTALL_DATA} ${WRKSRC}/editors/cocci-grep.el ${STAGEDIR}${DATADIR}
+	${INSTALL_DATA} ${WRKSRC}/editors/cocci-grep.vim ${STAGEDIR}${DATADIR}
+	@${MKDIR} ${STAGEDIR}${DOCSDIR}
+	${INSTALL_DATA} ${PORTDOCS:S|^|${WRKSRC}/|} ${STAGEDIR}${DOCSDIR}
+
+.include <bsd.port.mk>

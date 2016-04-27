@@ -1,0 +1,21 @@
+# Created by: fluffy@
+# $FreeBSD: head/graphics/prison/Makefile 386312 2015-05-14 10:15:04Z mat $
+
+PORTNAME=	prison
+PORTVERSION=	1.0
+PORTREVISION=	1
+CATEGORIES=	graphics kde
+MASTER_SITES=	KDE/stable/${PORTNAME}/${PORTVERSION}/src
+
+MAINTAINER=	fluffy@FreeBSD.org
+COMMENT=	Barcode library for KDE
+
+
+LIB_DEPENDS=	libdmtx.so:${PORTSDIR}/graphics/libdmtx \
+		libqrencode.so:${PORTSDIR}/graphics/libqrencode
+
+USE_QT4=	corelib gui qmake_build moc_build rcc_build uic_build
+USES=		cmake
+USE_LDCONFIG=	yes
+
+.include <bsd.port.mk>

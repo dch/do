@@ -1,0 +1,21 @@
+# $FreeBSD: head/www/py-plone.app.search/Makefile 376109 2015-01-03 08:41:20Z mva $
+
+PORTNAME=	plone.app.search
+PORTVERSION=	1.1.5
+PORTREVISION=	1
+CATEGORIES=	www python zope
+MASTER_SITES=	CHEESESHOP
+PKGNAMEPREFIX=	${PYTHON_PKGNAMEPREFIX}
+DIST_SUBDIR=	zope
+
+MAINTAINER=	zope@FreeBSD.org
+COMMENT=	Search user interface for Plone CMS
+
+LICENSE=	GPLv2
+
+RUN_DEPENDS=	${PYTHON_PKGNAMEPREFIX}plone.app.contentlisting>=0:${PORTSDIR}/www/py-plone.app.contentlisting
+
+USES=		python zip
+USE_PYTHON=	distutils autoplist
+
+.include <bsd.port.mk>

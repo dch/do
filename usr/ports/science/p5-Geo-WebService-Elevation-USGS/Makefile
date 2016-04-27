@@ -1,0 +1,28 @@
+# Created by: Wen Heping <wen@FreeBSD.org>
+# $FreeBSD: head/science/p5-Geo-WebService-Elevation-USGS/Makefile 391096 2015-07-01 17:46:12Z sunpoet $
+
+PORTNAME=	Geo-WebService-Elevation-USGS
+PORTVERSION=	0.102
+CATEGORIES=	science perl5
+MASTER_SITES=	CPAN
+MASTER_SITE_SUBDIR=	CPAN:WYANT
+PKGNAMEPREFIX=	p5-
+
+MAINTAINER=	perl@FreeBSD.org
+COMMENT=	Perl extension for elevation queries against USGS web services
+
+LICENSE=	ART10 GPLv1
+LICENSE_COMB=	dual
+
+BUILD_DEPENDS=	p5-HTTP-Message>=0:${PORTSDIR}/www/p5-HTTP-Message \
+		p5-JSON>=0:${PORTSDIR}/converters/p5-JSON \
+		p5-libwww>=0:${PORTSDIR}/www/p5-libwww
+RUN_DEPENDS:=	${BUILD_DEPENDS}
+
+PORTSCOUT=	limit:^[0-9\.]*$$
+
+NO_ARCH=	yes
+USES=		perl5
+USE_PERL5=	configure
+
+.include <bsd.port.mk>

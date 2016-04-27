@@ -1,0 +1,466 @@
+# Created by: Martin Blapp
+# $FreeBSD: head/editors/openoffice-devel/Makefile 394508 2015-08-17 14:20:40Z mat $
+
+PORTNAME=	apache-openoffice
+PORTVERSION=	${AOOVERSION1}.${AOOVERSION2}.${SVNREVISION}
+#PORTREVISION=	1
+PORTEPOCH=	3
+CATEGORIES=	editors java
+MASTER_SITES=	http://ci.apache.org/projects/openoffice/milestones/${AOOVERSION}-${AOORC}-r${SVNREVISION}/source/ \
+		http://tools.openoffice.org/unowinreg_prebuild/680/:unoreg \
+		LOCAL/truckman/openoffice:snap,extsrc
+.if defined(LANG_PKGNAME)
+PKGNAMEPREFIX=		${LANG_PKGNAME}-
+.endif
+.if defined(LANG_SUFFIX)
+PKGNAMESUFFIX=		-${LANG_SUFFIX}
+.endif
+PKGNAMESUFFIX=		-devel
+DISTFILES=	${OOOSRC}${AOODISTTAG} unowinreg.dll:unoreg ${EXTSRC}:extsrc
+DIST_SUBDIR=	openoffice
+EXTRACT_ONLY=	${OOOSRC}
+
+MAINTAINER=	office@FreeBSD.org
+#de facto maintainer is truckman@FreeBSD.org
+#Frequent Patch submitters should optionally sign Apache iCLA
+COMMENT=	Integrated wordprocessor/dbase/spreadsheet/drawing/chart/browser (developer version)
+
+LICENSE=		APACHE20 ADOBE BSD3CLAUSE BSD4CLAUSE BSL ICU MIT MPL \
+			PSFL TWAIN W3C
+LICENSE_COMB=		multi
+LICENSE_NAME_ADOBE=	Adobe Systems Incorporated license
+LICENSE_NAME_ICU=	ICU License
+LICENSE_NAME_TWAIN=	TWAIN Working Group license
+LICENSE_NAME_W3C=	W3C license
+LICENSE_FILE_APACHE20=	${WRKSRC}/LICENSE_ALv2
+LICENSE_FILE_ADOBE=	${WRKSRC}/LICENSE_ADOBE
+LICENSE_FILE_BSD3CLAUSE=	${WRKSRC}/LICENSE_BSD3CLAUSE
+LICENSE_FILE_BSD4CLAUSE=	${WRKSRC}/LICENSE_BSD4CLAUSE
+LICENSE_FILE_BSL=	${WRKSRC}/LICENSE_BSL
+LICENSE_FILE_ICU=	${WRKSRC}/LICENSE_ICU
+LICENSE_FILE_MIT=	${WRKSRC}/LICENSE_MIT
+LICENSE_FILE_MPL=	${WRKSRC}/LICENSE_MPL
+LICENSE_FILE_PSFL=	${WRKSRC}/LICENSE_PSFL
+LICENSE_FILE_TWAIN=	${WRKSRC}/LICENSE_TWAIN
+LICENSE_FILE_W3C=	${WRKSRC}/LICENSE_W3C
+LICENSE_PERMS_ADOBE=	dist-mirror dist-sell pkg-mirror pkg-sell auto-accept
+LICENSE_PERMS_ICU=	dist-mirror dist-sell pkg-mirror pkg-sell auto-accept
+LICENSE_PERMS_TWAIN=	dist-mirror dist-sell pkg-mirror pkg-sell auto-accept
+LICENSE_PERMS_W3C=	dist-mirror dist-sell pkg-mirror pkg-sell auto-accept
+
+BUILD_DEPENDS=								\
+		p5-Archive-Zip>=0:${PORTSDIR}/archivers/p5-Archive-Zip	\
+		p5-libwww>=0:${PORTSDIR}/www/p5-libwww			\
+		p5-XML-Parser>=0:${PORTSDIR}/textproc/p5-XML-Parser	\
+		${LOCALBASE}/bin/unzip:${PORTSDIR}/archivers/unzip	\
+		zip:${PORTSDIR}/archivers/zip				\
+		ant:${PORTSDIR}/devel/apache-ant			\
+		${LOCALBASE}/include/boost/shared_ptr.hpp:${PORTSDIR}/devel/boost-libs \
+		dmake:${PORTSDIR}/devel/dmake				\
+		epm:${PORTSDIR}/devel/epm				\
+		${LOCALBASE}/bin/gperf:${PORTSDIR}/devel/gperf		\
+		imake:${PORTSDIR}/devel/imake				\
+		gpatch:${PORTSDIR}/devel/patch				\
+		${LOCALBASE}/include/sane/sane.h:${PORTSDIR}/graphics/sane-backends \
+		${LOCALBASE}/bin/vigra-config:${PORTSDIR}/graphics/vigra \
+		${JAVALIBDIR}/commons-httpclient.jar:${PORTSDIR}/java/jakarta-commons-httpclient \
+		${JAVALIBDIR}/commons-lang.jar:${PORTSDIR}/java/jakarta-commons-lang \
+		${JAVALIBDIR}/junit.jar:${PORTSDIR}/java/junit		\
+		${JAVALIBDIR}/bsh.jar:${PORTSDIR}/lang/bsh		\
+		bash:${PORTSDIR}/shells/bash				\
+		${JAVALIBDIR}/lucene-core-3.6.2.jar:${PORTSDIR}/textproc/lucene \
+		p5-libwww>=0:${PORTSDIR}/www/p5-libwww
+LIB_DEPENDS=								\
+		libapr-1.so:${PORTSDIR}/devel/apr1			\
+		libnspr4.so:${PORTSDIR}/devel/nspr			\
+		libcurl.so:${PORTSDIR}/ftp/curl				\
+		libcairo.so:${PORTSDIR}/graphics/cairo			\
+		libpng.so:${PORTSDIR}/graphics/png			\
+		libpoppler-glib.so:${PORTSDIR}/graphics/poppler-glib	\
+		libgraphite.so:${PORTSDIR}/graphics/silgraphite		\
+		libCoinMP.so:${PORTSDIR}/math/coinmp			\
+		libfreetype.so:${PORTSDIR}/print/freetype2		\
+		libnss3.so:${PORTSDIR}/security/nss			\
+		libexpat.so:${PORTSDIR}/textproc/expat2			\
+		libhunspell-1.3.so:${PORTSDIR}/textproc/hunspell	\
+		libhyphen.so:${PORTSDIR}/textproc/hyphen		\
+		libtextcat.so:${PORTSDIR}/textproc/libtextcat		\
+		libmythes-1.2.so:${PORTSDIR}/textproc/mythes		\
+		librdf.so:${PORTSDIR}/textproc/redland			\
+		libserf-1.so:${PORTSDIR}/www/serf			\
+		libfontconfig.so:${PORTSDIR}/x11-fonts/fontconfig
+RUN_DEPENDS=								\
+		${LOCALBASE}/share/icons/hicolor/index.theme:${PORTSDIR}/misc/hicolor-icon-theme \
+		${JAVALIBDIR}/commons-httpclient.jar:${PORTSDIR}/java/jakarta-commons-httpclient \
+		${JAVALIBDIR}/bsh.jar:${PORTSDIR}/lang/bsh \
+		${LOCALBASE}/share/fonts/ChromeOS/Arimo-Bold.ttf:${PORTSDIR}/x11-fonts/croscorefonts-fonts-ttf
+
+AOOVERSION1=	4
+AOOVERSION2=	2
+AOOVERSION3=	0
+# From solenv/inc/minor.mk SOURCEREVISION LAST_MINOR BUILD
+AOOTAG=		AOO420m1\(Build:9800\)
+SVNREVISION=	1694132
+#AOORC=rc3
+EXTSRC=		ApacheOpenOffice.ext_sources.${AOOVERSION1}.x.x.20150707.tar.gz
+
+AOOVERSION=	${AOOVERSION1}.${AOOVERSION2}.${AOOVERSION3}
+AOOXXX=		${AOOVERSION1}${AOOVERSION2}${AOOVERSION3}
+.if defined(AOORC)
+AOOSUFFIX=	${AOOVERSION}-${AOORC}
+OOOSRC=		apache-openoffice-${AOOVERSION}-r${SVNREVISION}-src${EXTRACT_SUFX}
+AOODISTTAG=
+TARTYPE=	bzip2
+.else
+AOOSUFFIX=	${PORTVERSION}
+OOOSRC=		apache-openoffice-r${SVNREVISION}-src${EXTRACT_SUFX}
+AOODISTTAG=	:snap
+TARTYPE=	xz
+.endif
+
+OOODIR=			openoffice${AOOVERSION1}
+AOOUDIR=		.openoffice.org\/${AOOVERSION1}
+INSTALLATION_BASEDIR?=	openoffice-${AOOSUFFIX}
+EXECBASE?=		openoffice-${AOOSUFFIX}
+
+ONLY_FOR_ARCHS=	i386 amd64
+
+USE_GL=		gl glu
+USE_GNOME=	gtk20 libxslt libidl glib20
+USE_JAVA=	yes
+JAVA_BUILD=	jdk
+JAVA_VENDOR=	openjdk
+JAVA_VERSION=	1.6+
+USE_PERL5=	build
+USE_XORG=	x11 ice xaw xau xext xrender xrandr \
+		xi xt xcursor xdamage xcomposite xfixes
+USES=		autoreconf:autoconf bison compiler cpe desktop-file-utils \
+		gettext-runtime gmake iconv jpeg perl5 pkgconfig python \
+		tar:${TARTYPE}
+WITHOUT_CPU_CFLAGS=	true
+CPE_PRODUCT=	${PORTNAME:S|apache-||}
+CPE_VENDOR=	apache
+
+OPTIONS_DEFINE=		CUPS GNOME GNOMEVFS MMEDIA CCACHE
+OPTIONS_DEFAULT=	CUPS GNOME GNOMEVFS MMEDIA
+GNOME_DESC=		GConf + screensaver presentation control via DBUS
+GNOMEVFS_DESC=		GNOME Virtual File System
+MMEDIA_DESC=		Multimedia backend for impress
+CCACHE_DESC=		Mimimize compile time of C/C++ programs
+
+CUPS_CONFIGURE_ENABLE=		cups
+CUPS_LIB_DEPENDS=		libcups.so:${PORTSDIR}/print/cups-client
+
+GNOME_CONFIGURE_ENABLE=		dbus gconf lockdown
+GNOME_LIB_DEPENDS=		libdbus-glib-1.so:${PORTSDIR}/devel/dbus-glib
+GNOME_USE=			GNOME=gconf2
+
+GNOMEVFS_CONFIGURE_ENABLE=	gnome-vfs
+GNOMEVFS_CONFIGURE_OFF=		--enable-gio
+GNOMEVFS_CONFIGURE_ON=		--disable-gio
+GNOMEVFS_USE=			GNOME=gnomevfs2
+
+MMEDIA_CONFIGURE_ENABLE=	gstreamer
+MMEDIA_USE=			GSTREAMER=yes
+
+.include <bsd.port.pre.mk>
+
+.include <${FILESDIR}/Makefile.localized>
+
+.if ${COMPILER_TYPE} == clang
+CPPFLAGS+=		-I${LOCALBASE}/include
+.else
+USE_GCC=		yes
+.endif
+
+.if ${ARCH} == amd64
+FREEBSD_ENV_SET=	FreeBSDAMDEnv.Set.sh
+PACKAGE_MIDDLE=		${PORTVERSION}_${OPSYS}_x86-64
+.else
+FREEBSD_ENV_SET=	FreeBSDX86Env.Set.sh
+PACKAGE_MIDDLE=		${PORTVERSION}_${OPSYS}_x86
+.endif
+PACKAGE_PREFIX=		Apache_OpenOffice
+
+LOCALIZED_LANG?=	en-US
+
+.if ${PORT_OPTIONS:MCCACHE} || defined(WITH_CCACHE)
+BUILD_DEPENDS+=	ccache:${PORTSDIR}/devel/ccache
+CCACHE_PREFIX=	ccache
+OOOCC=		${CCACHE_PREFIX} ${CC}
+OOOCXX=		${CCACHE_PREFIX} ${CXX}
+.else
+OOOCC=		${CC}
+OOOCXX=		${CXX}
+.endif
+
+CONFIGURE_ENV+=	CC="${OOOCC}" CXX="${OOOCXX}"		\
+		PATH=${WRKSRC}/solenv/bin:$$PATH
+
+GNU_CONFIGURE=	yes
+WRKSUBDIR=	${WRKDIR}/aoo-${AOOVERSION}
+WRKSRC?=	${WRKSUBDIR}/main
+SUB_FILES=	pkg-message
+SUB_LIST=	EXECBASE=${EXECBASE} AOOTAG=${AOOTAG} AOOUDIR=${AOOUDIR}
+
+CONFIGURE_ARGS+=							\
+			--with-system-apache-commons=yes		\
+			--with-commons-codec-jar=${JAVALIBDIR}/commons-codec.jar \
+			--with-commons-lang-jar=${JAVALIBDIR}/commons-lang.jar \
+			--with-commons-httpclient-jar=${JAVALIBDIR}/commons-httpclient.jar \
+			--with-commons-logging-jar=${JAVALIBDIR}/commons-logging.jar \
+			--with-system-apr				\
+			--with-system-apr-util				\
+			--with-system-beanshell				\
+			--with-beanshell-jar=${JAVALIBDIR}/bsh.jar	\
+			--with-system-boost				\
+			--enable-category-b				\
+			--with-system-cairo --enable-cairo		\
+			--with-system-coinmp				\
+			--with-system-curl				\
+			--enable-crashdump				\
+			--with-system-dicts				\
+			--with-epm=${LOCALBASE}/bin/epm			\
+			--with-system-expat				\
+			--disable-fetch-external			\
+			--without-fonts					\
+			--with-gnu-patch=${LOCALBASE}/bin/gpatch	\
+			--with-gperf=${LOCALBASE}/bin/gperf		\
+			--with-system-graphite				\
+			--enable-gtk					\
+			--with-system-hunspell				\
+			--with-external-dict-dir=${LOCALBASE}/share/hunspell \
+			--with-system-hyphen				\
+			--with-external-hyph-dir=${LOCALBASE}/share/hyphen \
+			--with-system-jpeg				\
+			--with-junit=${LOCALBASE}/share/java/classes/junit.jar \
+			--with-system-libtextcat			\
+			--disable-kde					\
+			--disable-kde4					\
+			--with-system-libxml				\
+			--with-system-libxslt				\
+			--with-system-lucene				\
+			--with-lucene-core-jar=${JAVALIBDIR}/lucene-core-3.6.2.jar \
+			--with-lucene-analyzers-jar=${JAVALIBDIR}/lucene-analyzers-3.6.2.jar \
+			--with-system-mythes				\
+			--with-external-thes-dir=${LOCALBASE}/share/mythes \
+			--with-system-nss				\
+			--enable-opengl					\
+			--with-system-openssl				\
+			--with-package-format="archive"			\
+			--with-system-poppler				\
+			--with-system-python				\
+			--with-system-redland				\
+			--with-system-sane				\
+			--with-system-serf				\
+			--with-system-stdlibs				\
+			--enable-symbols=small				\
+			--without-stlport				\
+			--with-vendor="FreeBSD ports system"		\
+			--enable-verbose				\
+			--with-system-vigra				\
+			--enable-wiki-publisher				\
+			--with-system-xrender				\
+			--with-system-zlib
+
+#OOOEXTENSIONS+=		minimizer/presentation-minimizer.oxt
+#OOOEXTENSIONS+=		presenter/presenter-screen.oxt
+#OOOEXTENSIONS+=		pdfimport/pdfimport.oxt
+OOOEXTENSIONS+=		swext/wiki-publisher.oxt
+
+ICONS=	${WRKSRC}/sysui/desktop/icons
+
+.include <${FILESDIR}/Makefile.knobs>
+
+pre-everything::
+# really tweak, extremely useful when you build all localized language versions
+# needed after when you build with ALL_LOCALIZED_LANGS.
+.if defined(TWEAK_L10N)
+	${RM} -f ${WRKDIR}/.PLIST*
+	${RM} -f ${WRKDIR}/.install_done.*
+	${RM} -f ${WRKDIR}/.package_done.*
+	${RM} -f ${WRKDIR}/.extract_done.*
+	${RM} -f ${WRKDIR}/.patch_done.*
+	${RM} -f ${WRKDIR}/.configure_done.*
+	${RM} -f ${WRKDIR}/.build_done.*
+	${MKDIR} ${WRKDIR}
+	${TOUCH} ${EXTRACT_COOKIE}
+	${TOUCH} ${PATCH_COOKIE}
+	${TOUCH} ${CONFIGURE_COOKIE}
+	${TOUCH} ${BUILD_COOKIE}
+.endif
+
+post-extract:
+	${TAR} -C ${WRKSUBDIR} -xzf ${DISTDIR}/${DIST_SUBDIR}/${EXTSRC}
+	${CP} ${DISTDIR}/${DIST_SUBDIR}/unowinreg.dll ${WRKSRC}/external/unowinreg/
+	${RM} -rf ${WRKSRC}/l10n
+	${LN} -sf ${UNZIP_CMD} ${WRKSRC}/solenv/bin/unzip
+	${SED}  -e '\|^For main/vcl/unx/generic/fontmanager/parseAFM|,/^__/p' \
+		-e '\|^For PostScript(R) AFM|,/^__/p'			\
+		-e d  ${WRKSRC}/LICENSE > ${LICENSE_FILE_ADOBE}
+	${SED}  -e '\|^For main/unixODBC|,/^__/p'			\
+		-e '\|^For main/connectivity|,/^__/p'			\
+		-e '\|^For main/libtextcat/data|,/^__/p'		\
+		-e '\|^For integration of HSQLDB|,/^__/p'		\
+		-e '\|^For C preprocessor|,/^__/p'			\
+		-e d  ${WRKSRC}/LICENSE > ${LICENSE_FILE_BSD3CLAUSE}
+	${SED}  -e '\|^For ICC |,/^__/p'				\
+		-e d  ${WRKSRC}/LICENSE > ${LICENSE_FILE_BSD4CLAUSE}
+	${SED}  -e '\|^For integration of the C++ Boost |,/^__/p'	\
+		-e d  ${WRKSRC}/LICENSE > ${LICENSE_FILE_BSL}
+	${SED}  -e '\|^For main/i18npool/source/breakiterator|,/^__/p'	\
+		-e d  ${WRKSRC}/LICENSE > ${LICENSE_FILE_ICU}
+	${SED}  -e '\|^For Multi-Dimensional Data|,/^__/p'	\
+		-e '\|^For XSLT MathML Library|,/^__/p'			\
+		-e d  ${WRKSRC}/LICENSE > ${LICENSE_FILE_MIT}
+	${SED}  -e '\|^For XMLSec Library|,/^__/p'	\
+		-e d  ${WRKSRC}/LICENSE_category_b >> ${LICENSE_FILE_MIT}
+	${SED}  -e '\|^For Graphite|,$$d'	\
+		      ${WRKSRC}/LICENSE_category_b > ${LICENSE_FILE_MPL}
+	${SED}  -e '\|^For main/filter/source/config/tools/merge/pyAltFCFGMerge|,/^__/p'	\
+		-e d  ${WRKSRC}/LICENSE > ${LICENSE_FILE_PSFL}
+	${SED}  -e '\|^For main/twain|,/^__/p'	\
+		-e d  ${WRKSRC}/LICENSE > ${LICENSE_FILE_TWAIN}
+	${SED}  -e '\|^For main/MathMLDTD|,/^__/p'	\
+		-e d  ${WRKSRC}/LICENSE > ${LICENSE_FILE_W3C}
+
+post-patch:
+.if ${COMPILER_TYPE} == gcc
+	# g++49 -Os sometimes leaves inline class methods undefined,
+	# affects fmgridif.cxx and ColumnControl.cxx
+	# See: <https://gcc.gnu.org/bugzilla/show_bug.cgi?id=65009>
+	if [ ${CXX} = g++49  ]; then \
+		${REINPLACE_CMD} -e "s/ := -Os/ := -Os -fno-devirtualize -fno-devirtualize-speculatively/" ${WRKSRC}/solenv/gbuild/platform/freebsd.mk; \
+		${REINPLACE_CMD} -e "s/=-Os /=-Os -fno-devirtualize -fno-devirtualize-speculatively /" ${WRKSRC}/solenv/inc/unxfbsdi.mk; \
+	fi
+.elif ${ARCH} == i386 && ${COMPILER_TYPE} == clang && ${COMPILER_VERSION} == 36
+	# autodoc and uno (bridgetest) core dump when built with with -Os
+	# on i386, affects file.cxx and bridgetest.cxx
+	# Using -O2 optimiztion works, and -Os is essentially -O2 with out
+	# loop unrolling.
+	# Changing optimization in just unxfbsdi.mk is sufficient to get
+	# a successful build, but change it in both places to avoid the
+	# possibility of obscure runtime problems.
+	${REINPLACE_CMD} -e "s/=-Os /=-O2 -fno-unroll-loops /" ${WRKSRC}/solenv/inc/unxfbsdi.mk
+	${REINPLACE_CMD} -e "s/ := -Os/ := -O2 -fno-unroll-loops/" ${WRKSRC}/solenv/gbuild/platform/freebsd.mk
+.endif
+
+do-build:
+	${PRINTF} "[repositories]\nmain=active\nextras=active\n" > ${WRKSUBDIR}/source_config
+	cd ${WRKSRC} ; ./bootstrap
+	#
+	# numproc controls the number of parallel makes.
+	#
+	# dmproc is passed to dmake and controls parallelization at that
+	# level.
+	#
+	# dmproc > numproc seems to give shorter build times than
+	# numproc > dmproc.
+	#
+	# Select values for numproc and dmproc such that:
+	#  * numproc*dmproc >= MAKE_JOBS_NUMBER
+	#  * minimize numproc*dmproc-MAKE_JOBS_NUMBER
+	#  * dmproc >= numproc
+	#  * dmproc <= 2*numproc if MAKE_JOBS_NUMBER <= 3
+	#
+	if [ ${MAKE_JOBS_NUMBER} -le 3 ] ; then				  \
+	 numproc=1 ; dmproc=${MAKE_JOBS_NUMBER} ;			  \
+	else								  \
+	 a=1 ;								  \
+	 while [ $$(( 2 * $${a} * $${a} )) -lt ${MAKE_JOBS_NUMBER} ]; do  \
+	  a=$$(( $${a} + 1 )) ;						  \
+	 done ;								  \
+	 b=$$(( $${a} + 1 )) ;						  \
+	 ad=$$(( ( ${MAKE_JOBS_NUMBER} + $${a} - 1 ) / $${a} )) ;	  \
+	 ap=$$(( $${a} * $${ad} )) ;					  \
+	 bd=$$(( ( ${MAKE_JOBS_NUMBER} + $${b} - 1 ) / $${b} )) ;	  \
+	 bp=$$(( $${b} * $${bd} )) ;					  \
+	 if [ $${ap} -le $${bp} ]; then					  \
+	  numproc=$${a} ; dmproc=$${ad} ;				  \
+	 else								  \
+	  numproc=$${b} ; dmproc=$${bd} ;				  \
+	 fi ;								  \
+	fi ;								  \
+	cd ${WRKSRC}/instsetoo_native ;					  \
+	. ../${FREEBSD_ENV_SET} ; 					  \
+	LANG=C LC_ALL=C build.pl --all -P$${numproc} -- -P$${dmproc}
+
+do-install:
+	cd ${WRKSRC}/instsetoo_native/unxfbsd?.pro/Apache_OpenOffice/archive/install/${LOCALIZED_LANG}/ ; ${LS} *.tar.?z > ${WRKDIR}/INSTALLFILES
+	${RM} -Rf ${WRKDIR}/tmp
+	${MKDIR} ${WRKDIR}/tmp
+	@for i in `${CAT} ${WRKDIR}/INSTALLFILES`; do \
+		${ECHO_CMD} "extracting $$i" ; \
+		cd ${WRKDIR}/tmp ; ${TAR} xfz ${WRKSRC}/instsetoo_native/unxfbsd?.pro/Apache_OpenOffice/archive/install/${LOCALIZED_LANG}/$$i ; \
+	done
+	${MKDIR} ${STAGEDIR}${PREFIX}/${INSTALLATION_BASEDIR}
+	cd ${WRKDIR}/tmp/*/ ; ${TAR} cf - -C . . | ${TAR} xf - -C ${STAGEDIR}${PREFIX}/${INSTALLATION_BASEDIR}
+	${REINPLACE_CMD} -e 's/^UserInstallation.*$$/USERINSTALLATION/' ${STAGEDIR}${PREFIX}/${INSTALLATION_BASEDIR}/${OOODIR}/program/bootstraprc
+	${REINPLACE_CMD} -e 's/USERINSTALLATION/UserInstallation=$$SYSUSERCONFIG\/${AOOUDIR}/' ${STAGEDIR}${PREFIX}/${INSTALLATION_BASEDIR}/${OOODIR}/program/bootstraprc
+	${MKDIR} ${STAGEDIR}${PREFIX}/${INSTALLATION_BASEDIR}/extensions/
+	cd ${WRKSRC}/solver/${AOOXXX}/unxfbsd?.pro/bin/ ; ${INSTALL_DATA} ${OOOEXTENSIONS} ${STAGEDIR}${PREFIX}/${INSTALLATION_BASEDIR}/extensions/
+	${FIND} ${STAGEDIR}${PREFIX}/${INSTALLATION_BASEDIR}/${OOODIR}/program -type f \( -name '*.so*' -or -name '*.bin' \) -print0 | ${XARGS} -0 -n1 ${STRIP_CMD}
+	for prog in crashrep pagein uri-encode javaldx regmerge regview; do \
+		${STRIP_CMD} ${STAGEDIR}${PREFIX}/${INSTALLATION_BASEDIR}/${OOODIR}/program/$${prog}; \
+	done
+	${FIND} ${STAGEDIR}${PREFIX}/${INSTALLATION_BASEDIR} -type d -exec ${CHMOD} 755 {} \;
+	@${ECHO_MSG} "===>  Add wrapper scripts";
+	${CP} ${FILESDIR}/openoffice-wrapper ${WRKDIR}/
+	${REINPLACE_CMD} -e 's#%%PREFIX%%#${PREFIX}#g' \
+			-e 's#%%SVNREVISION%%#${SVNREVISION}#g' \
+			-e 's#%%OOODIR%%#${OOODIR}#g' \
+			-e 's#%%INSTALLATION_BASEDIR%%#${INSTALLATION_BASEDIR}#g' \
+			${WRKDIR}/openoffice-wrapper
+	${INSTALL_SCRIPT} ${WRKDIR}/openoffice-wrapper \
+		${STAGEDIR}${PREFIX}/bin/${EXECBASE}
+	${LN} -fs ${EXECBASE} ${STAGEDIR}${PREFIX}/bin/${EXECBASE}-sbase
+	${LN} -fs ${EXECBASE} ${STAGEDIR}${PREFIX}/bin/${EXECBASE}-scalc
+	${LN} -fs ${EXECBASE} ${STAGEDIR}${PREFIX}/bin/${EXECBASE}-sdraw
+	${LN} -fs ${EXECBASE} ${STAGEDIR}${PREFIX}/bin/${EXECBASE}-setofficelang
+	${LN} -fs ${EXECBASE} ${STAGEDIR}${PREFIX}/bin/${EXECBASE}-simpress
+	${LN} -fs ${EXECBASE} ${STAGEDIR}${PREFIX}/bin/${EXECBASE}-smath
+	${LN} -fs ${EXECBASE} ${STAGEDIR}${PREFIX}/bin/${EXECBASE}-spadmin
+	${LN} -fs ${EXECBASE} ${STAGEDIR}${PREFIX}/bin/${EXECBASE}-swriter
+	cd ${STAGEDIR}${PREFIX} ; ${FIND} -s bin \( -type f -or -type l \) -name "${EXECBASE}*" >> ${TMPPLIST}
+	cd ${STAGEDIR}${PREFIX} ; ${FIND} -s ${INSTALLATION_BASEDIR} \( -type f -or -type l \) >> ${TMPPLIST}
+	cd ${STAGEDIR}${PREFIX} ; ${FIND} ${INSTALLATION_BASEDIR} -type d -empty | ${SORT} -r | \
+		${XARGS} -n 1 ${ECHO_CMD} @dir >> ${TMPPLIST}
+	for app in base calc draw impress math writer; do \
+		${REINPLACE_CMD} -e "s/^Exec.*/Exec=${EXECBASE} -$${app} %U/" \
+			-e "s/^Icon.*/Icon=${EXECBASE}-$${app}.png/" \
+		${STAGEDIR}${PREFIX}/${INSTALLATION_BASEDIR}/${OOODIR}/share/xdg/$${app}.desktop ; \
+	done
+	${REINPLACE_CMD} -e "s/^Exec.*/Exec=${EXECBASE}-spadmin %U/" \
+		-e "s/^Icon.*/Icon=${EXECBASE}-printeradmin.png/" \
+		${STAGEDIR}${PREFIX}/${INSTALLATION_BASEDIR}/${OOODIR}/share/xdg/printeradmin.desktop
+	${REINPLACE_CMD} -e "s/^Exec.*/Exec=${EXECBASE} -quickstart -nologo -nodefault/" \
+		${STAGEDIR}${PREFIX}/${INSTALLATION_BASEDIR}/${OOODIR}/share/xdg/startcenter.desktop
+	${RM} ${STAGEDIR}${PREFIX}/${INSTALLATION_BASEDIR}/${OOODIR}/share/xdg/*.desktop.bak
+	${RM} -f ${STAGEDIR}${DESKTOPDIR}/${EXECBASE}
+	${MKDIR} ${STAGEDIR}${DESKTOPDIR}
+	${LN} -sf ${PREFIX}/${INSTALLATION_BASEDIR}/${OOODIR}/share/xdg \
+			${STAGEDIR}${DESKTOPDIR}/${EXECBASE}
+	${ECHO_CMD} "share/applications/${EXECBASE}" >> ${TMPPLIST}
+	for dir in `ls ${ICONS}/hicolor | ${GREP} -v CVS`; do \
+		for app in base calc draw impress math printeradmin writer; do \
+			if [ -r ${ICONS}/hicolor/$${dir}/apps/$${app}.png ]; then \
+				${MKDIR} ${STAGEDIR}${PREFIX}/share/icons/hicolor/$${dir}/apps/ ; \
+				${INSTALL_DATA} ${ICONS}/hicolor/$${dir}/apps/$${app}.png \
+				    ${STAGEDIR}${PREFIX}/share/icons/hicolor/$${dir}/apps/${EXECBASE}-$${app}.png ; \
+				${ECHO_CMD} "share/icons/hicolor/$${dir}/apps/${EXECBASE}-$${app}.png" >> ${TMPPLIST} ; \
+			fi \
+		done ; \
+		for iconfile in `cd ${ICONS}/hicolor/$${dir}/mimetypes; ls *.png`; do \
+			${MKDIR} ${STAGEDIR}${PREFIX}/share/icons/hicolor/$${dir}/mimetypes/ ; \
+			${INSTALL_DATA} ${ICONS}/hicolor/$${dir}/mimetypes/$${iconfile} \
+			    ${STAGEDIR}${PREFIX}/share/icons/hicolor/$${dir}/mimetypes/ ; \
+			${ECHO_CMD} "share/icons/hicolor/$${dir}/mimetypes/$${iconfile}" >> ${TMPPLIST} ; \
+		done ; \
+	done
+	${ECHO_CMD} "@unexec ${RM} %D/share/icons/hicolor/icon-theme.cache 2>/dev/null || ${TRUE}" >> ${TMPPLIST}
+	${ECHO_CMD} "@exec ${PREFIX}/bin/gtk-update-icon-cache -q -f %D/share/icons/hicolor 2>/dev/null || ${TRUE}" >> ${TMPPLIST}
+	${ECHO_CMD} "@unexec ${PREFIX}/bin/gtk-update-icon-cache -q -f %D/share/icons/hicolor 2>/dev/null || ${TRUE}" >> ${TMPPLIST}
+
+.include <${FILESDIR}/Makefile.others>
+
+.include <bsd.port.post.mk>

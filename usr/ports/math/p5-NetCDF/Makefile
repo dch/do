@@ -1,0 +1,27 @@
+# Created by: Douglas K. Rand (rand@meridian-enviro.com)
+# $FreeBSD: head/math/p5-NetCDF/Makefile 373448 2014-11-26 13:08:24Z mat $
+
+PORTNAME=	NetCDF
+PORTVERSION=	1.2.4
+PORTREVISION=	3
+CATEGORIES=	math perl5
+MASTER_SITES=	ftp://ftp.unidata.ucar.edu/pub/netcdf-perl/
+PKGNAMEPREFIX=	p5-
+DISTNAME=	netcdf-perl-${PORTVERSION}
+
+MAINTAINER=	rand@meridian-enviro.com
+COMMENT=	Perl5 module to read and write netCDF files
+
+LIB_DEPENDS=	libnetcdf.so:${PORTSDIR}/science/netcdf
+
+USES=		perl5
+
+WRKSRC=		${WRKDIR}/${DISTNAME}/src
+GNU_CONFIGURE=	yes
+CONFIGURE_ENV=	CPP_NETCDF=-I${LOCALBASE}/include LD_NETCDF=-lnetcdf \
+		PERL_MANDIR=${STAGEDIR}${MAN1PREFIX}/man PERL=${PERL5}
+
+pre-install:
+	@${PERL5} -pi -e 's/ doc_(perl|site|\$$\(INSTALLDIRS\))_install$$//' ${WRKSRC}/perl/Makefile
+
+.include <bsd.port.mk>

@@ -1,0 +1,45 @@
+# Created by: Petar Zhivkov Petrov <pesho.petrov@gmail.com>
+# $FreeBSD: head/multimedia/libmtp/Makefile 393429 2015-08-02 15:03:19Z tijl $
+
+PORTNAME=	libmtp
+PORTVERSION=	1.1.9
+PORTREVISION=	1
+CATEGORIES=	multimedia audio
+MASTER_SITES=	SF
+
+MAINTAINER=	jbeich@FreeBSD.org
+COMMENT=	Media Transfer Protocol (MTP) library
+
+LICENSE=	LGPL21 # or any later version
+
+CONFLICTS_INSTALL=libosmo-sccp-[0-9]* # lib/libmtp.a
+
+OPTIONS_DEFINE=	MTPZ
+OPTIONS_DEFAULT=	MTPZ
+MTPZ_DESC=	Enable functionality to connect to MTPZ devices
+
+GNU_CONFIGURE=	yes
+CONFIGURE_ARGS=	--disable-doxygen
+INSTALL_TARGET=	install-strip
+USES=		iconv libtool pathfix pkgconfig
+USE_LDCONFIG=	yes
+
+CPPFLAGS+=	-I${LOCALBASE}/include
+LDFLAGS+=	-L${LOCALBASE}/lib
+
+.if !exists(/usr/libdata/pkgconfig/libusb-1.0.pc)
+CONFIGURE_ENV+=	LIBUSB_CFLAGS=" " LIBUSB_LIBS="-lusb"
+.endif
+
+MTPZ_CONFIGURE_ENABLE=	mtpz
+MTPZ_LIB_DEPENDS=	libgcrypt.so:${PORTSDIR}/security/libgcrypt
+
+post-patch:
+.if !exists(/usr/libdata/pkgconfig/libusb-1.0.pc)
+	@${REINPLACE_CMD} -i .pkgconf.bak -e \
+		'/LIBUSB_REQUIRES/s|libusb-1.0||' ${WRKSRC}/configure
+	@${REINPLACE_CMD} -i .pkgconf.bak -e \
+		'/Libs.private/s|:|& @LIBUSB_LIBS@|' ${WRKSRC}/libmtp.pc.in
+.endif
+
+.include <bsd.port.mk>

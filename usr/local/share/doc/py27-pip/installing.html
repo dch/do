@@ -1,0 +1,335 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Installation &mdash; pip 8.0.2 documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="pip 8.0.2 documentation" href="index.html"/>
+        <link rel="next" title="User Guide" href="user_guide.html"/>
+        <link rel="prev" title="Quickstart" href="quickstart.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> pip
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                8.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="quickstart.html">Quickstart</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="">Installation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#do-i-need-to-install-pip">Do I need to install pip?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#installing-with-get-pip-py">Installing with get-pip.py</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#get-pip-py-options">get-pip.py options</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#using-linux-package-managers">Using Linux Package Managers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#upgrading-pip">Upgrading pip</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#python-and-os-compatibility">Python and OS Compatibility</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="user_guide.html">User Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reference/index.html">Reference Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="development.html">Development</a></li>
+<li class="toctree-l1"><a class="reference internal" href="news.html">Release Notes</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="index.html">pip</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="index.html">Docs</a> &raquo;</li>
+      
+    <li>Installation</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="installation">
+<span id="id1"></span><h1>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="do-i-need-to-install-pip">
+<h2>Do I need to install pip?<a class="headerlink" href="#do-i-need-to-install-pip" title="Permalink to this headline">¶</a></h2>
+<p>pip is already installed if you're using Python 2 &gt;=2.7.9 or Python 3 &gt;=3.4
+downloaded from <a class="reference external" href="https://www.python.org">python.org</a>, but you'll need to
+<a class="reference internal" href="#upgrading-pip"><span>upgrade pip</span></a>.</p>
+<p>Additionally, pip will already be installed if you're working in a <span class="xref std std-ref">Virtual
+Envionment</span> created by
+<span class="xref std std-ref">pypug:virtualenv</span> or <span class="xref std std-ref">pyvenv</span>.</p>
+</div>
+<div class="section" id="installing-with-get-pip-py">
+<span id="get-pip"></span><h2>Installing with get-pip.py<a class="headerlink" href="#installing-with-get-pip-py" title="Permalink to this headline">¶</a></h2>
+<p>To install pip, securely download <a class="reference external" href="https://bootstrap.pypa.io/get-pip.py">get-pip.py</a>. <a class="footnote-reference" href="#id8" id="id2">[2]</a></p>
+<p>Then run the following:</p>
+<div class="highlight-python"><div class="highlight"><pre>python get-pip.py
+</pre></div>
+</div>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">Be cautious if you're using a Python install that's managed by your operating
+system or another package manager. get-pip.py does not coordinate with
+those tools, and may leave your system in an inconsistent state.</p>
+</div>
+<p>get-pip.py will also intall <span class="xref std std-ref">pypug:setuptools</span> <a class="footnote-reference" href="#id9" id="id3">[3]</a> and <span class="xref std std-ref">pypug:wheel</span>,
+if they're not already. <span class="xref std std-ref">pypug:setuptools</span> is required to install
+<span class="xref std std-term">source distributions</span>.  Both are
+required to be able to build a <a class="reference internal" href="reference/pip_install.html#wheel-cache"><span>Wheel Cache</span></a> (which improves installation
+speed), although neither are required to install pre-built <span class="xref std std-term">wheels</span>.</p>
+<div class="section" id="get-pip-py-options">
+<h3>get-pip.py options<a class="headerlink" href="#get-pip-py-options" title="Permalink to this headline">¶</a></h3>
+<dl class="option">
+<dt id="cmdoption--no-setuptools">
+<code class="descname">--no-setuptools</code><code class="descclassname"></code><a class="headerlink" href="#cmdoption--no-setuptools" title="Permalink to this definition">¶</a></dt>
+<dd><p>If set, don't attempt to install <span class="xref std std-ref">pypug:setuptools</span></p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption--no-wheel">
+<code class="descname">--no-wheel</code><code class="descclassname"></code><a class="headerlink" href="#cmdoption--no-wheel" title="Permalink to this definition">¶</a></dt>
+<dd><p>If set, don't attempt to install <span class="xref std std-ref">pypug:wheel</span></p>
+</dd></dl>
+
+<p>Additionally, <code class="docutils literal"><span class="pre">get-pip.py</span></code> supports using the <a class="reference internal" href="reference/pip_install.html#pip-install-options"><span>pip install options</span></a> and the <a class="reference internal" href="reference/pip.html#general-options"><span>general options</span></a>. Below are
+some examples:</p>
+<p>Install from local copies of pip and setuptools:</p>
+<div class="highlight-python"><div class="highlight"><pre>python get-pip.py --no-index --find-links=/local/copies
+</pre></div>
+</div>
+<p>Install to the user site <a class="footnote-reference" href="#id10" id="id4">[4]</a>:</p>
+<div class="highlight-python"><div class="highlight"><pre>python get-pip.py --user
+</pre></div>
+</div>
+<p>Install behind a proxy:</p>
+<div class="highlight-python"><div class="highlight"><pre>python get-pip.py --proxy=&quot;[user:passwd@]proxy.server:port&quot;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="using-linux-package-managers">
+<h2>Using Linux Package Managers<a class="headerlink" href="#using-linux-package-managers" title="Permalink to this headline">¶</a></h2>
+<p>See <span class="xref std std-ref">pypug:Installing pip/setuptools/wheel with Linux Package Managers</span> in
+the <a class="reference external" href="https://packaging.python.org/en/latest/current/">Python Packaging User Guide</a>.</p>
+</div>
+<div class="section" id="upgrading-pip">
+<span id="id5"></span><h2>Upgrading pip<a class="headerlink" href="#upgrading-pip" title="Permalink to this headline">¶</a></h2>
+<p>On Linux or OS X:</p>
+<div class="highlight-python"><div class="highlight"><pre>pip install -U pip
+</pre></div>
+</div>
+<p>On Windows <a class="footnote-reference" href="#id11" id="id6">[5]</a>:</p>
+<div class="highlight-python"><div class="highlight"><pre>python -m pip install -U pip
+</pre></div>
+</div>
+</div>
+<div class="section" id="python-and-os-compatibility">
+<h2>Python and OS Compatibility<a class="headerlink" href="#python-and-os-compatibility" title="Permalink to this headline">¶</a></h2>
+<p>pip works with CPython versions 2.6, 2.7, 3.3, 3.4, 3.5 and also pypy.</p>
+<p>This means pip works on the latest patch version of each of these minor versions
+(i.e. 2.6.9 for 2.6, etc).
+Previous patch versions are supported on a best effort approach.</p>
+<p>pip works on Unix/Linux, OS X, and Windows.</p>
+<hr class="docutils" />
+<table class="docutils footnote" frame="void" id="id7" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label">[1]</td><td>For Python 2, see <a class="reference external" href="https://docs.python.org/2/installing">https://docs.python.org/2/installing</a>, and for Python3,
+see <a class="reference external" href="https://docs.python.org/3/installing">https://docs.python.org/3/installing</a>.</td></tr>
+</tbody>
+</table>
+<table class="docutils footnote" frame="void" id="id8" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id2">[2]</a></td><td>&quot;Secure&quot; in this context means using a modern browser or a
+tool like <cite>curl</cite> that verifies SSL certificates when downloading from
+https URLs.</td></tr>
+</tbody>
+</table>
+<table class="docutils footnote" frame="void" id="id9" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id3">[3]</a></td><td>Beginning with pip v1.5.1, <code class="docutils literal"><span class="pre">get-pip.py</span></code> stopped requiring setuptools to
+be installed first.</td></tr>
+</tbody>
+</table>
+<table class="docutils footnote" frame="void" id="id10" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id4">[4]</a></td><td>The pip developers are considering making <code class="docutils literal"><span class="pre">--user</span></code> the default for all
+installs, including <code class="docutils literal"><span class="pre">get-pip.py</span></code> installs of pip, but at this time,
+<code class="docutils literal"><span class="pre">--user</span></code> installs for pip itself, should not be considered to be fully
+tested or endorsed. For discussion, see <a class="reference external" href="https://github.com/pypa/pip/issues/1668">Issue 1668</a>.</td></tr>
+</tbody>
+</table>
+<table class="docutils footnote" frame="void" id="id11" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id6">[5]</a></td><td><a class="reference external" href="https://github.com/pypa/pip/issues/1299">https://github.com/pypa/pip/issues/1299</a></td></tr>
+</tbody>
+</table>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="user_guide.html" class="btn btn-neutral float-right" title="User Guide" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="quickstart.html" class="btn btn-neutral" title="Quickstart" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2008-2014, PyPA.
+      Last updated on Apr 03, 2016.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'8.0.2',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>
