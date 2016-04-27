@@ -1,0 +1,733 @@
+DEBUG: Running installation step: auto 
+DEBUG: dialog.subr: DEBUG_SELF_INITIALIZE=[]
+DEBUG: UNAME_S=[FreeBSD] UNAME_P=[amd64] UNAME_R=[10.2-RELEASE]
+DEBUG: common.subr: Successfully loaded.
+DEBUG: f_include: file=[/usr/share/bsdconfig/dialog.subr]
+DEBUG: dialog.subr: loading includes...
+DEBUG: f_include: file=[/usr/share/bsdconfig/strings.subr]
+DEBUG: strings.subr: Successfully loaded.
+DEBUG: f_include: file=[/usr/share/bsdconfig/variable.subr]
+DEBUG: variable.subr: loading includes...
+DEBUG: f_include: file=[/usr/share/bsdconfig/dialog.subr]
+DEBUG: f_include: file=[/usr/share/bsdconfig/strings.subr]
+DEBUG: variable.subr: New variable VAR_CONFIG_FILE -> configFile
+DEBUG: variable.subr: New variable VAR_DEBUG -> debug
+DEBUG: variable.subr: New variable VAR_DEBUG_FILE -> debugFile
+DEBUG: variable.subr: New variable VAR_DIRECTORY_PATH -> _directoryPath
+DEBUG: variable.subr: New variable VAR_DOMAINNAME -> domainname
+DEBUG: variable.subr: New variable VAR_EDITOR -> editor
+DEBUG: variable.subr: New variable VAR_EXTRAS -> ifconfig_
+DEBUG: variable.subr: New variable VAR_FTP_DIR -> ftpDirectory
+DEBUG: variable.subr: New variable VAR_FTP_HOST -> ftpHost
+DEBUG: variable.subr: New variable VAR_FTP_PASS -> ftpPass
+DEBUG: variable.subr: New variable VAR_FTP_PATH -> _ftpPath
+DEBUG: variable.subr: New variable VAR_FTP_PORT -> ftpPort
+DEBUG: variable.subr: New variable VAR_FTP_STATE -> ftpState
+DEBUG: variable.subr: New variable VAR_FTP_USER -> ftpUser
+DEBUG: variable.subr: New variable VAR_GATEWAY -> defaultrouter
+DEBUG: variable.subr: New variable VAR_GROUP -> group
+DEBUG: variable.subr: New variable VAR_GROUP_GID -> groupGid
+DEBUG: variable.subr: New variable VAR_GROUP_MEMBERS -> groupMembers
+DEBUG: variable.subr: New variable VAR_GROUP_PASSWORD -> groupPassword
+DEBUG: variable.subr: New variable VAR_HOSTNAME -> hostname
+DEBUG: variable.subr: New variable VAR_HTTP_DIR -> httpDirectory
+DEBUG: variable.subr: New variable VAR_HTTP_FTP_MODE -> httpFtpMode
+DEBUG: variable.subr: New variable VAR_HTTP_HOST -> httpHost
+DEBUG: variable.subr: New variable VAR_HTTP_PATH -> _httpPath
+DEBUG: variable.subr: New variable VAR_HTTP_PORT -> httpPort
+DEBUG: variable.subr: New variable VAR_HTTP_PROXY -> httpProxy
+DEBUG: variable.subr: New variable VAR_HTTP_PROXY_HOST -> httpProxyHost
+DEBUG: variable.subr: New variable VAR_HTTP_PROXY_PATH -> _httpProxyPath
+DEBUG: variable.subr: New variable VAR_HTTP_PROXY_PORT -> httpProxyPort
+DEBUG: variable.subr: New variable VAR_IFCONFIG -> ifconfig_
+DEBUG: variable.subr: New variable VAR_IPADDR -> ipaddr
+DEBUG: variable.subr: New variable VAR_IPV6ADDR -> ipv6addr
+DEBUG: variable.subr: New variable VAR_IPV6_ENABLE -> ipv6_activate_all_interfaces
+DEBUG: variable.subr: New variable VAR_KEYMAP -> keymap
+DEBUG: variable.subr: New variable VAR_MEDIA_TIMEOUT -> MEDIA_TIMEOUT
+DEBUG: variable.subr: New variable VAR_MEDIA_TYPE -> mediaType
+DEBUG: variable.subr: New variable VAR_NAMESERVER -> nameserver
+DEBUG: variable.subr: New variable VAR_NETINTERACTIVE -> netInteractive
+DEBUG: variable.subr: New variable VAR_NETMASK -> netmask
+DEBUG: variable.subr: New variable VAR_NETWORK_DEVICE -> netDev
+DEBUG: variable.subr: New variable VAR_NFS_HOST -> nfsHost
+DEBUG: variable.subr: New variable VAR_NFS_PATH -> nfsPath
+DEBUG: variable.subr: New variable VAR_NFS_SECURE -> nfs_reserved_port_only
+DEBUG: variable.subr: New variable VAR_NFS_TCP -> nfs_use_tcp
+DEBUG: variable.subr: New variable VAR_NFS_V3 -> nfs_use_v3
+DEBUG: variable.subr: New variable VAR_NONINTERACTIVE -> nonInteractive
+DEBUG: variable.subr: New variable VAR_NO_CONFIRM -> noConfirm
+DEBUG: variable.subr: New variable VAR_NO_ERROR -> noError
+DEBUG: variable.subr: New variable VAR_NO_INET6 -> noInet6
+DEBUG: variable.subr: New variable VAR_PACKAGE -> package
+DEBUG: variable.subr: New variable VAR_PKG_TMPDIR -> PKG_TMPDIR
+DEBUG: variable.subr: New variable VAR_PORTS_PATH -> ports
+DEBUG: variable.subr: New variable VAR_RELNAME -> releaseName
+DEBUG: variable.subr: New variable VAR_SLOW_ETHER -> slowEthernetCard
+DEBUG: variable.subr: New variable VAR_TRY_DHCP -> tryDHCP
+DEBUG: variable.subr: New variable VAR_TRY_RTSOL -> tryRTSOL
+DEBUG: variable.subr: New variable VAR_UFS_PATH -> ufs
+DEBUG: variable.subr: New variable VAR_USER -> user
+DEBUG: variable.subr: New variable VAR_USER_ACCOUNT_EXPIRE -> userAccountExpire
+DEBUG: variable.subr: New variable VAR_USER_DOTFILES_CREATE -> userDotfilesCreate
+DEBUG: variable.subr: New variable VAR_USER_GECOS -> userGecos
+DEBUG: variable.subr: New variable VAR_USER_GID -> userGid
+DEBUG: variable.subr: New variable VAR_USER_GROUPS -> userGroups
+DEBUG: variable.subr: New variable VAR_USER_GROUP_DELETE -> userGroupDelete
+DEBUG: variable.subr: New variable VAR_USER_HOME -> userHome
+DEBUG: variable.subr: New variable VAR_USER_HOME_CREATE -> userHomeCreate
+DEBUG: variable.subr: New variable VAR_USER_HOME_DELETE -> userHomeDelete
+DEBUG: variable.subr: New variable VAR_USER_LOGIN_CLASS -> userLoginClass
+DEBUG: variable.subr: New variable VAR_USER_PASSWORD -> userPassword
+DEBUG: variable.subr: New variable VAR_USER_PASSWORD_EXPIRE -> userPasswordExpire
+DEBUG: variable.subr: New variable VAR_USER_SHELL -> userShell
+DEBUG: variable.subr: New variable VAR_USER_UID -> userUid
+DEBUG: variable.subr: New variable VAR_ZFSINTERACTIVE -> zfsInteractive
+DEBUG: variable.subr: VARIABLE_SELF_INITIALIZE=[1]
+DEBUG: f_variable_set_defaults: Initializing defaults...
+DEBUG: f_getvar: var=[debug] value=[1] r=0
+DEBUG: f_getvar: var=[editor] value=[/usr/bin/ee] r=0
+DEBUG: f_getvar: var=[ftpState] value=[auto] r=0
+DEBUG: f_getvar: var=[ftpUser] value=[ftp] r=0
+DEBUG: f_getvar: var=[hostname] value=[] r=0
+DEBUG: f_getvar: var=[MEDIA_TIMEOUT] value=[300] r=0
+DEBUG: f_getvar: var=[nfs_reserved_port_only] value=[NO] r=0
+DEBUG: f_getvar: var=[nfs_use_tcp] value=[NO] r=0
+DEBUG: f_getvar: var=[nfs_use_v3] value=[YES] r=0
+DEBUG: f_getvar: var=[PKG_TMPDIR] value=[/var/tmp] r=0
+DEBUG: f_getvar: var=[releaseName] value=[10.2-RELEASE] r=0
+DEBUG: f_variable_set_defaults: Defaults initialized.
+DEBUG: variable.subr: Successfully loaded.
+DEBUG: f_include_lang: file=[/usr/libexec/bsdconfig/include/messages.subr] lang=[]
+DEBUG: dialog.subr: DIALOG_SELF_INITIALIZE=[1]
+DEBUG: f_dialog_init: ARGV=[] GETOPTS_STDARGS=[dD:SX]
+DEBUG: f_dialog_init: SECURE=[] USE_XDIALOG=[]
+DEBUG: f_dialog_init: dialog(1) API initialized.
+DEBUG: dialog.subr: Successfully loaded.
+DEBUG: Began Installation at Wed Apr 27 17:39:25 UTC 2016
+DEBUG: dialog.subr: DEBUG_SELF_INITIALIZE=[]
+DEBUG: UNAME_S=[FreeBSD] UNAME_P=[amd64] UNAME_R=[10.2-RELEASE]
+DEBUG: common.subr: Successfully loaded.
+DEBUG: f_debug_init: ARGV=[keymap] GETOPTS_STDARGS=[dD:]
+DEBUG: f_debug_init: debug=[1] debugFile=[/tmp/bsdinstall_log]
+DEBUG: Running installation step: keymap 
+DEBUG: dialog.subr: DEBUG_SELF_INITIALIZE=[]
+DEBUG: UNAME_S=[FreeBSD] UNAME_P=[amd64] UNAME_R=[10.2-RELEASE]
+DEBUG: common.subr: Successfully loaded.
+DEBUG: /usr/libexec/bsdinstall/keymap: loading includes...
+DEBUG: f_include: file=[/usr/share/bsdconfig/dialog.subr]
+DEBUG: dialog.subr: loading includes...
+DEBUG: f_include: file=[/usr/share/bsdconfig/strings.subr]
+DEBUG: strings.subr: Successfully loaded.
+DEBUG: f_include: file=[/usr/share/bsdconfig/variable.subr]
+DEBUG: variable.subr: loading includes...
+DEBUG: f_include: file=[/usr/share/bsdconfig/dialog.subr]
+DEBUG: f_include: file=[/usr/share/bsdconfig/strings.subr]
+DEBUG: variable.subr: New variable VAR_CONFIG_FILE -> configFile
+DEBUG: variable.subr: New variable VAR_DEBUG -> debug
+DEBUG: variable.subr: New variable VAR_DEBUG_FILE -> debugFile
+DEBUG: variable.subr: New variable VAR_DIRECTORY_PATH -> _directoryPath
+DEBUG: variable.subr: New variable VAR_DOMAINNAME -> domainname
+DEBUG: variable.subr: New variable VAR_EDITOR -> editor
+DEBUG: variable.subr: New variable VAR_EXTRAS -> ifconfig_
+DEBUG: variable.subr: New variable VAR_FTP_DIR -> ftpDirectory
+DEBUG: variable.subr: New variable VAR_FTP_HOST -> ftpHost
+DEBUG: variable.subr: New variable VAR_FTP_PASS -> ftpPass
+DEBUG: variable.subr: New variable VAR_FTP_PATH -> _ftpPath
+DEBUG: variable.subr: New variable VAR_FTP_PORT -> ftpPort
+DEBUG: variable.subr: New variable VAR_FTP_STATE -> ftpState
+DEBUG: variable.subr: New variable VAR_FTP_USER -> ftpUser
+DEBUG: variable.subr: New variable VAR_GATEWAY -> defaultrouter
+DEBUG: variable.subr: New variable VAR_GROUP -> group
+DEBUG: variable.subr: New variable VAR_GROUP_GID -> groupGid
+DEBUG: variable.subr: New variable VAR_GROUP_MEMBERS -> groupMembers
+DEBUG: variable.subr: New variable VAR_GROUP_PASSWORD -> groupPassword
+DEBUG: variable.subr: New variable VAR_HOSTNAME -> hostname
+DEBUG: variable.subr: New variable VAR_HTTP_DIR -> httpDirectory
+DEBUG: variable.subr: New variable VAR_HTTP_FTP_MODE -> httpFtpMode
+DEBUG: variable.subr: New variable VAR_HTTP_HOST -> httpHost
+DEBUG: variable.subr: New variable VAR_HTTP_PATH -> _httpPath
+DEBUG: variable.subr: New variable VAR_HTTP_PORT -> httpPort
+DEBUG: variable.subr: New variable VAR_HTTP_PROXY -> httpProxy
+DEBUG: variable.subr: New variable VAR_HTTP_PROXY_HOST -> httpProxyHost
+DEBUG: variable.subr: New variable VAR_HTTP_PROXY_PATH -> _httpProxyPath
+DEBUG: variable.subr: New variable VAR_HTTP_PROXY_PORT -> httpProxyPort
+DEBUG: variable.subr: New variable VAR_IFCONFIG -> ifconfig_
+DEBUG: variable.subr: New variable VAR_IPADDR -> ipaddr
+DEBUG: variable.subr: New variable VAR_IPV6ADDR -> ipv6addr
+DEBUG: variable.subr: New variable VAR_IPV6_ENABLE -> ipv6_activate_all_interfaces
+DEBUG: variable.subr: New variable VAR_KEYMAP -> keymap
+DEBUG: variable.subr: New variable VAR_MEDIA_TIMEOUT -> MEDIA_TIMEOUT
+DEBUG: variable.subr: New variable VAR_MEDIA_TYPE -> mediaType
+DEBUG: variable.subr: New variable VAR_NAMESERVER -> nameserver
+DEBUG: variable.subr: New variable VAR_NETINTERACTIVE -> netInteractive
+DEBUG: variable.subr: New variable VAR_NETMASK -> netmask
+DEBUG: variable.subr: New variable VAR_NETWORK_DEVICE -> netDev
+DEBUG: variable.subr: New variable VAR_NFS_HOST -> nfsHost
+DEBUG: variable.subr: New variable VAR_NFS_PATH -> nfsPath
+DEBUG: variable.subr: New variable VAR_NFS_SECURE -> nfs_reserved_port_only
+DEBUG: variable.subr: New variable VAR_NFS_TCP -> nfs_use_tcp
+DEBUG: variable.subr: New variable VAR_NFS_V3 -> nfs_use_v3
+DEBUG: variable.subr: New variable VAR_NONINTERACTIVE -> nonInteractive
+DEBUG: variable.subr: New variable VAR_NO_CONFIRM -> noConfirm
+DEBUG: variable.subr: New variable VAR_NO_ERROR -> noError
+DEBUG: variable.subr: New variable VAR_NO_INET6 -> noInet6
+DEBUG: variable.subr: New variable VAR_PACKAGE -> package
+DEBUG: variable.subr: New variable VAR_PKG_TMPDIR -> PKG_TMPDIR
+DEBUG: variable.subr: New variable VAR_PORTS_PATH -> ports
+DEBUG: variable.subr: New variable VAR_RELNAME -> releaseName
+DEBUG: variable.subr: New variable VAR_SLOW_ETHER -> slowEthernetCard
+DEBUG: variable.subr: New variable VAR_TRY_DHCP -> tryDHCP
+DEBUG: variable.subr: New variable VAR_TRY_RTSOL -> tryRTSOL
+DEBUG: variable.subr: New variable VAR_UFS_PATH -> ufs
+DEBUG: variable.subr: New variable VAR_USER -> user
+DEBUG: variable.subr: New variable VAR_USER_ACCOUNT_EXPIRE -> userAccountExpire
+DEBUG: variable.subr: New variable VAR_USER_DOTFILES_CREATE -> userDotfilesCreate
+DEBUG: variable.subr: New variable VAR_USER_GECOS -> userGecos
+DEBUG: variable.subr: New variable VAR_USER_GID -> userGid
+DEBUG: variable.subr: New variable VAR_USER_GROUPS -> userGroups
+DEBUG: variable.subr: New variable VAR_USER_GROUP_DELETE -> userGroupDelete
+DEBUG: variable.subr: New variable VAR_USER_HOME -> userHome
+DEBUG: variable.subr: New variable VAR_USER_HOME_CREATE -> userHomeCreate
+DEBUG: variable.subr: New variable VAR_USER_HOME_DELETE -> userHomeDelete
+DEBUG: variable.subr: New variable VAR_USER_LOGIN_CLASS -> userLoginClass
+DEBUG: variable.subr: New variable VAR_USER_PASSWORD -> userPassword
+DEBUG: variable.subr: New variable VAR_USER_PASSWORD_EXPIRE -> userPasswordExpire
+DEBUG: variable.subr: New variable VAR_USER_SHELL -> userShell
+DEBUG: variable.subr: New variable VAR_USER_UID -> userUid
+DEBUG: variable.subr: New variable VAR_ZFSINTERACTIVE -> zfsInteractive
+DEBUG: variable.subr: VARIABLE_SELF_INITIALIZE=[1]
+DEBUG: f_variable_set_defaults: Initializing defaults...
+DEBUG: f_getvar: var=[debug] value=[1] r=0
+DEBUG: f_getvar: var=[editor] value=[/usr/bin/ee] r=0
+DEBUG: f_getvar: var=[ftpState] value=[auto] r=0
+DEBUG: f_getvar: var=[ftpUser] value=[ftp] r=0
+DEBUG: f_getvar: var=[hostname] value=[] r=0
+DEBUG: f_getvar: var=[MEDIA_TIMEOUT] value=[300] r=0
+DEBUG: f_getvar: var=[nfs_reserved_port_only] value=[NO] r=0
+DEBUG: f_getvar: var=[nfs_use_tcp] value=[NO] r=0
+DEBUG: f_getvar: var=[nfs_use_v3] value=[YES] r=0
+DEBUG: f_getvar: var=[PKG_TMPDIR] value=[/var/tmp] r=0
+DEBUG: f_getvar: var=[releaseName] value=[10.2-RELEASE] r=0
+DEBUG: f_variable_set_defaults: Defaults initialized.
+DEBUG: variable.subr: Successfully loaded.
+DEBUG: f_include_lang: file=[/usr/libexec/bsdconfig/include/messages.subr] lang=[]
+DEBUG: dialog.subr: DIALOG_SELF_INITIALIZE=[1]
+DEBUG: f_dialog_init: ARGV=[] GETOPTS_STDARGS=[dD:SX]
+DEBUG: f_dialog_init: SECURE=[] USE_XDIALOG=[]
+DEBUG: f_dialog_init: dialog(1) API initialized.
+DEBUG: dialog.subr: Successfully loaded.
+DEBUG: f_include: file=[/usr/share/bsdconfig/keymap.subr]
+DEBUG: keymap.subr: loading includes...
+DEBUG: f_include: file=[/usr/share/bsdconfig/struct.subr]
+DEBUG: struct.subr: Successfully loaded.
+DEBUG: keymap.subr: KEYMAP_SELF_SCAN_ALL=[1]
+DEBUG: f_keymap_get_all: Looking for keymap files...
+DEBUG: f_dialog_max_size: dialog --print-maxsize = [MaxSize: 25, 80]
+DEBUG: f_getvar: var=[height] value=[3] r=0
+DEBUG: f_getvar: var=[width] value=[31] r=0
+DEBUG: DEFAULT_LANG=[en]
+DEBUG: dialect=[en]
+DEBUG: lang_abk=[en]
+DEBUG: f_struct_new: type=[KEYMAP] name=[keymap_be_iso_kbd]
+DEBUG: f_struct_new: type=[KEYMAP] name=[keymap_be_iso_acc_kbd]
+DEBUG: f_struct_new: type=[KEYMAP] name=[keymap_bg_bds_ctrlcaps_kbd]
+DEBUG: f_struct_new: type=[KEYMAP] name=[keymap_bg_phonetic_ctrlcaps_kbd]
+DEBUG: f_struct_new: type=[KEYMAP] name=[keymap_br275_iso_kbd]
+DEBUG: f_struct_new: type=[KEYMAP] name=[keymap_br275_iso_acc_kbd]
+DEBUG: f_struct_new: type=[KEYMAP] name=[keymap_br275_cp850_kbd]
+DEBUG: f_struct_new: type=[KEYMAP] name=[keymap_by_cp1131_kbd]
+DEBUG: f_struct_new: type=[KEYMAP] name=[keymap_by_cp1251_kbd]
+DEBUG: f_struct_new: type=[KEYMAP] name=[keymap_by_cp1251_kbd]
+DEBUG: f_struct_new: type=[KEYMAP] name=[keymap_by_iso5_kbd]
+DEBUG: f_struct_new: type=[KEYMAP] name=[keymap_ce_iso2_kbd]
+DEBUG: f_struct_new: type=[KEYMAP] name=[keymap_colemak_iso15_acc_kbd]
+DEBUG: f_struct_new: type=[KEYMAP] name=[keymap_cs_latin2_qwertz_kbd]
+DEBUG: f_struct_new: type=[KEYMAP] name=[keymap_cz_iso2_kbd]
+DEBUG: f_struct_new: type=[KEYMAP] name=[keymap_danish_iso_kbd]
+DEBUG: f_struct_new: type=[KEYMAP] name=[keymap_danish_iso_acc_kbd]
+DEBUG: f_struct_new: type=[KEYMAP] name=[keymap_danish_cp865_kbd]
+DEBUG: f_struct_new: type=[KEYMAP] name=[keymap_danish_iso_macbook_kbd]
+DEBUG: f_struct_new: type=[KEYMAP] name=[keymap_dutch_iso_acc_kbd]
+DEBUG: f_struct_new: type=[KEYMAP] name=[keymap_eee_nordic_kbd]
+DEBUG: f_struct_new: type=[KEYMAP] name=[keymap_el_iso07_kbd]
+DEBUG: f_struct_new: type=[KEYMAP] name=[keymap_estonian_iso_kbd]
+DEBUG: f_struct_new: type=[KEYMAP] name=[keymap_estonian_iso15_kbd]
+DEBUG: f_struct_new: type=[KEYMAP] name=[keymap_estonian_cp850_kbd]
+DEBUG: f_struct_new: type=[KEYMAP] name=[keymap_finnish_iso_kbd]
+DEBUG: f_struct_new: type=[KEYMAP] name=[keymap_finnish_cp850_kbd]
+DEBUG: f_struct_new: type=[KEYMAP] name=[keymap_fr_iso_kbd]
+DEBUG: f_struct_new: type=[KEYMAP] name=[keymap_fr_iso_acc_kbd]
+DEBUG: f_struct_new: type=[KEYMAP] name=[keymap_fr_macbook_acc_kbd]
+DEBUG: f_struct_new: type=[KEYMAP] name=[keymap_fr_dvorak_kbd]
+DEBUG: f_struct_new: type=[KEYMAP] name=[keymap_fr_dvorak_acc_kbd]
+DEBUG: f_struct_new: type=[KEYMAP] name=[keymap_fr_CA_iso_acc_kbd]
+DEBUG: f_struct_new: type=[KEYMAP] name=[keymap_german_iso_kbd]
+DEBUG: f_struct_new: type=[KEYMAP] name=[keymap_german_iso_acc_kbd]
+DEBUG: f_struct_new: type=[KEYMAP] name=[keymap_german_cp850_kbd]
+DEBUG: f_struct_new: type=[KEYMAP] name=[keymap_gr_elot_acc_kbd]
+DEBUG: f_struct_new: type=[KEYMAP] name=[keymap_gr_us101_acc_kbd]
+DEBUG: f_struct_new: type=[KEYMAP] name=[keymap_iw_iso8_kbd]
+DEBUG: f_struct_new: type=[KEYMAP] name=[keymap_hr_iso_kbd]
+DEBUG: f_struct_new: type=[KEYMAP] name=[keymap_hu_iso2_101keys_kbd]
+DEBUG: f_struct_new: type=[KEYMAP] name=[keymap_hu_iso2_102keys_kbd]
+DEBUG: f_struct_new: type=[KEYMAP] name=[keymap_hy_armscii_8_kbd]
+DEBUG: f_struct_new: type=[KEYMAP] name=[keymap_hy_armscii_8_kbd]
+DEBUG: f_struct_new: type=[KEYMAP] name=[keymap_hy_armscii_8_kbd]
+DEBUG: f_struct_new: type=[KEYMAP] name=[keymap_icelandic_iso_kbd]
+DEBUG: f_struct_new: type=[KEYMAP] name=[keymap_icelandic_iso_acc_kbd]
+DEBUG: f_struct_new: type=[KEYMAP] name=[keymap_it_iso_kbd]
+DEBUG: f_struct_new: type=[KEYMAP] name=[keymap_jp_106_kbd]
+DEBUG: f_struct_new: type=[KEYMAP] name=[keymap_jp_106x_kbd]
+DEBUG: f_struct_new: type=[KEYMAP] name=[keymap_jp_pc98_kbd]
+DEBUG: f_struct_new: type=[KEYMAP] name=[keymap_jp_pc98_iso_kbd]
+DEBUG: f_struct_new: type=[KEYMAP] name=[keymap_kk_pt154_kst_kbd]
+DEBUG: f_struct_new: type=[KEYMAP] name=[keymap_kk_pt154_io_kbd]
+DEBUG: f_struct_new: type=[KEYMAP] name=[keymap_latinamerican_kbd]
+DEBUG: f_struct_new: type=[KEYMAP] name=[keymap_latinamerican_iso_acc_kbd]
+DEBUG: f_struct_new: type=[KEYMAP] name=[keymap_lt_iso4_kbd]
+DEBUG: f_struct_new: type=[KEYMAP] name=[keymap_norwegian_iso_kbd]
+DEBUG: f_struct_new: type=[KEYMAP] name=[keymap_norwegian_dvorak_kbd]
+DEBUG: f_struct_new: type=[KEYMAP] name=[keymap_pl_PL_ISO8859_2_kbd]
+DEBUG: f_struct_new: type=[KEYMAP] name=[keymap_pl_PL_dvorak_kbd]
+DEBUG: f_struct_new: type=[KEYMAP] name=[keymap_pt_iso_kbd]
+DEBUG: f_struct_new: type=[KEYMAP] name=[keymap_pt_iso_acc_kbd]
+DEBUG: f_struct_new: type=[KEYMAP] name=[keymap_ru_cp866_kbd]
+DEBUG: f_struct_new: type=[KEYMAP] name=[keymap_ru_iso5_kbd]
+DEBUG: f_struct_new: type=[KEYMAP] name=[keymap_ru_koi8_r_kbd]
+DEBUG: f_struct_new: type=[KEYMAP] name=[keymap_ru_koi8_r_shift_kbd]
+DEBUG: f_struct_new: type=[KEYMAP] name=[keymap_ru_koi8_r_win_kbd]
+DEBUG: f_struct_new: type=[KEYMAP] name=[keymap_spanish_dvorak_kbd]
+DEBUG: f_struct_new: type=[KEYMAP] name=[keymap_spanish_iso_kbd]
+DEBUG: f_struct_new: type=[KEYMAP] name=[keymap_spanish_iso_acc_kbd]
+DEBUG: f_struct_new: type=[KEYMAP] name=[keymap_spanish_iso15_acc_kbd]
+DEBUG: f_struct_new: type=[KEYMAP] name=[keymap_si_iso_kbd]
+DEBUG: f_struct_new: type=[KEYMAP] name=[keymap_sk_iso2_kbd]
+DEBUG: f_struct_new: type=[KEYMAP] name=[keymap_swedish_iso_kbd]
+DEBUG: f_struct_new: type=[KEYMAP] name=[keymap_swedish_cp850_kbd]
+DEBUG: f_struct_new: type=[KEYMAP] name=[keymap_swissfrench_iso_kbd]
+DEBUG: f_struct_new: type=[KEYMAP] name=[keymap_swissfrench_iso_acc_kbd]
+DEBUG: f_struct_new: type=[KEYMAP] name=[keymap_swissfrench_cp850_kbd]
+DEBUG: f_struct_new: type=[KEYMAP] name=[keymap_swissgerman_iso_kbd]
+DEBUG: f_struct_new: type=[KEYMAP] name=[keymap_swissgerman_iso_acc_kbd]
+DEBUG: f_struct_new: type=[KEYMAP] name=[keymap_swissgerman_cp850_kbd]
+DEBUG: f_struct_new: type=[KEYMAP] name=[keymap_swissgerman_macbook_acc_kbd]
+DEBUG: f_struct_new: type=[KEYMAP] name=[keymap_tr_iso9_q_kbd]
+DEBUG: f_struct_new: type=[KEYMAP] name=[keymap_uk_iso_kbd]
+DEBUG: f_struct_new: type=[KEYMAP] name=[keymap_uk_iso_ctrl_kbd]
+DEBUG: f_struct_new: type=[KEYMAP] name=[keymap_uk_cp850_kbd]
+DEBUG: f_struct_new: type=[KEYMAP] name=[keymap_uk_cp850_ctrl_kbd]
+DEBUG: f_struct_new: type=[KEYMAP] name=[keymap_uk_dvorak_kbd]
+DEBUG: f_struct_new: type=[KEYMAP] name=[keymap_us_iso_kbd]
+DEBUG: f_struct_new: type=[KEYMAP] name=[keymap_us_iso_acc_kbd]
+DEBUG: f_struct_new: type=[KEYMAP] name=[keymap_us_dvorak_kbd]
+DEBUG: f_struct_new: type=[KEYMAP] name=[keymap_us_dvorakr_kbd]
+DEBUG: f_struct_new: type=[KEYMAP] name=[keymap_us_dvorakl_kbd]
+DEBUG: f_struct_new: type=[KEYMAP] name=[keymap_us_dvorakp_kbd]
+DEBUG: f_struct_new: type=[KEYMAP] name=[keymap_us_dvorakx_kbd]
+DEBUG: f_struct_new: type=[KEYMAP] name=[keymap_us_emacs_kbd]
+DEBUG: f_struct_new: type=[KEYMAP] name=[keymap_us_pc_ctrl_kbd]
+DEBUG: f_struct_new: type=[KEYMAP] name=[keymap_us_unix_kbd]
+DEBUG: f_struct_new: type=[KEYMAP] name=[keymap_ua_iso5_kbd]
+DEBUG: f_struct_new: type=[KEYMAP] name=[keymap_ua_koi8_u_kbd]
+DEBUG: f_struct_new: type=[KEYMAP] name=[keymap_ua_koi8_u_shift_alt_kbd]
+DEBUG: f_keymap_get_all: Sorting keymap entries by description...
+DEBUG: keymap.subr: Found 99 keymap file(s).
+DEBUG: keymap.subr: Successfully loaded.
+DEBUG: f_include: file=[/usr/share/bsdconfig/sysrc.subr]
+DEBUG: sysrc.subr: loading includes...
+DEBUG: f_include_lang: file=[/usr/libexec/bsdconfig/include/messages.subr] lang=[]
+DEBUG: sysrc.subr: Successfully loaded.
+DEBUG: f_getvar: var=[keymap] value=[] r=1
+DEBUG: f_getvar: var=[_struct_value_keymap_hy_armscii_8_kbd_keym] value=[hy.armscii-8.kbd] r=0
+DEBUG: f_getvar: var=[_struct_value_keymap_hy_armscii_8_kbd_desc] value=[Armenian phonetic layout] r=0
+DEBUG: f_getvar: var=[_struct_value_keymap_by_cp1131_kbd_keym] value=[by.cp1131.kbd] r=0
+DEBUG: f_getvar: var=[_struct_value_keymap_by_cp1131_kbd_desc] value=[Belarusian Codepage 1131] r=0
+DEBUG: f_getvar: var=[_struct_value_keymap_by_cp1251_kbd_keym] value=[by.cp1251.kbd] r=0
+DEBUG: f_getvar: var=[_struct_value_keymap_by_cp1251_kbd_desc] value=[Belarusian Codepage 1251] r=0
+DEBUG: f_getvar: var=[_struct_value_keymap_by_iso5_kbd_keym] value=[by.iso5.kbd] r=0
+DEBUG: f_getvar: var=[_struct_value_keymap_by_iso5_kbd_desc] value=[Belarusian ISO-8859-5] r=0
+DEBUG: f_getvar: var=[_struct_value_keymap_be_iso_kbd_keym] value=[be.iso.kbd] r=0
+DEBUG: f_getvar: var=[_struct_value_keymap_be_iso_kbd_desc] value=[Belgian ISO-8859-1] r=0
+DEBUG: f_getvar: var=[_struct_value_keymap_be_iso_acc_kbd_keym] value=[be.iso.acc.kbd] r=0
+DEBUG: f_getvar: var=[_struct_value_keymap_be_iso_acc_kbd_desc] value=[Belgian ISO-8859-1 (accent keys)] r=0
+DEBUG: f_getvar: var=[_struct_value_keymap_br275_cp850_kbd_keym] value=[br275.cp850.kbd] r=0
+DEBUG: f_getvar: var=[_struct_value_keymap_br275_cp850_kbd_desc] value=[Brazilian 275 Codepage 850] r=0
+DEBUG: f_getvar: var=[_struct_value_keymap_br275_iso_kbd_keym] value=[br275.iso.kbd] r=0
+DEBUG: f_getvar: var=[_struct_value_keymap_br275_iso_kbd_desc] value=[Brazilian 275 ISO-8859-1] r=0
+DEBUG: f_getvar: var=[_struct_value_keymap_br275_iso_acc_kbd_keym] value=[br275.iso.acc.kbd] r=0
+DEBUG: f_getvar: var=[_struct_value_keymap_br275_iso_acc_kbd_desc] value=[Brazilian 275 ISO-8859-1 (accent keys)] r=0
+DEBUG: f_getvar: var=[_struct_value_keymap_bg_bds_ctrlcaps_kbd_keym] value=[bg.bds.ctrlcaps.kbd] r=0
+DEBUG: f_getvar: var=[_struct_value_keymap_bg_bds_ctrlcaps_kbd_desc] value=[Bulgarian (BDS)] r=0
+DEBUG: f_getvar: var=[_struct_value_keymap_bg_phonetic_ctrlcaps_kbd_keym] value=[bg.phonetic.ctrlcaps.kbd] r=0
+DEBUG: f_getvar: var=[_struct_value_keymap_bg_phonetic_ctrlcaps_kbd_desc] value=[Bulgarian (Phonetic)] r=0
+DEBUG: f_getvar: var=[_struct_value_keymap_ce_iso2_kbd_keym] value=[ce.iso2.kbd] r=0
+DEBUG: f_getvar: var=[_struct_value_keymap_ce_iso2_kbd_desc] value=[Central European ISO-8859-2] r=0
+DEBUG: f_getvar: var=[_struct_value_keymap_colemak_iso15_acc_kbd_keym] value=[colemak.iso15.acc.kbd] r=0
+DEBUG: f_getvar: var=[_struct_value_keymap_colemak_iso15_acc_kbd_desc] value=[Colemak ergonomic alternative] r=0
+DEBUG: f_getvar: var=[_struct_value_keymap_hr_iso_kbd_keym] value=[hr.iso.kbd] r=0
+DEBUG: f_getvar: var=[_struct_value_keymap_hr_iso_kbd_desc] value=[Croatian ISO-8859-2] r=0
+DEBUG: f_getvar: var=[_struct_value_keymap_cz_iso2_kbd_keym] value=[cz.iso2.kbd] r=0
+DEBUG: f_getvar: var=[_struct_value_keymap_cz_iso2_kbd_desc] value=[Czech ISO-8859-2] r=0
+DEBUG: f_getvar: var=[_struct_value_keymap_cs_latin2_qwertz_kbd_keym] value=[cs.latin2.qwertz.kbd] r=0
+DEBUG: f_getvar: var=[_struct_value_keymap_cs_latin2_qwertz_kbd_desc] value=[Czech ISO-8859-2 (QWERTZ, accent keys)] r=0
+DEBUG: f_getvar: var=[_struct_value_keymap_danish_cp865_kbd_keym] value=[danish.cp865.kbd] r=0
+DEBUG: f_getvar: var=[_struct_value_keymap_danish_cp865_kbd_desc] value=[Danish Codepage 865] r=0
+DEBUG: f_getvar: var=[_struct_value_keymap_danish_iso_kbd_keym] value=[danish.iso.kbd] r=0
+DEBUG: f_getvar: var=[_struct_value_keymap_danish_iso_kbd_desc] value=[Danish ISO-8859-1] r=0
+DEBUG: f_getvar: var=[_struct_value_keymap_danish_iso_acc_kbd_keym] value=[danish.iso.acc.kbd] r=0
+DEBUG: f_getvar: var=[_struct_value_keymap_danish_iso_acc_kbd_desc] value=[Danish ISO-8859-1 (accent keys)] r=0
+DEBUG: f_getvar: var=[_struct_value_keymap_danish_iso_macbook_kbd_keym] value=[danish.iso.macbook.kbd] r=0
+DEBUG: f_getvar: var=[_struct_value_keymap_danish_iso_macbook_kbd_desc] value=[Danish ISO-8859-1 (macbook)] r=0
+DEBUG: f_getvar: var=[_struct_value_keymap_dutch_iso_acc_kbd_keym] value=[dutch.iso.acc.kbd] r=0
+DEBUG: f_getvar: var=[_struct_value_keymap_dutch_iso_acc_kbd_desc] value=[Dutch ISO keymap (accent keys)] r=0
+DEBUG: f_getvar: var=[_struct_value_keymap_estonian_cp850_kbd_keym] value=[estonian.cp850.kbd] r=0
+DEBUG: f_getvar: var=[_struct_value_keymap_estonian_cp850_kbd_desc] value=[Estonian Codepage 850] r=0
+DEBUG: f_getvar: var=[_struct_value_keymap_estonian_iso_kbd_keym] value=[estonian.iso.kbd] r=0
+DEBUG: f_getvar: var=[_struct_value_keymap_estonian_iso_kbd_desc] value=[Estonian ISO-8859-1] r=0
+DEBUG: f_getvar: var=[_struct_value_keymap_estonian_iso15_kbd_keym] value=[estonian.iso15.kbd] r=0
+DEBUG: f_getvar: var=[_struct_value_keymap_estonian_iso15_kbd_desc] value=[Estonian ISO-8859-15] r=0
+DEBUG: f_getvar: var=[_struct_value_keymap_finnish_cp850_kbd_keym] value=[finnish.cp850.kbd] r=0
+DEBUG: f_getvar: var=[_struct_value_keymap_finnish_cp850_kbd_desc] value=[Finnish Codepage 850] r=0
+DEBUG: f_getvar: var=[_struct_value_keymap_finnish_iso_kbd_keym] value=[finnish.iso.kbd] r=0
+DEBUG: f_getvar: var=[_struct_value_keymap_finnish_iso_kbd_desc] value=[Finnish ISO-8859-1] r=0
+DEBUG: f_getvar: var=[_struct_value_keymap_fr_CA_iso_acc_kbd_keym] value=[fr_CA.iso.acc.kbd] r=0
+DEBUG: f_getvar: var=[_struct_value_keymap_fr_CA_iso_acc_kbd_desc] value=[French Canadian ISO-8859-1 (accent keys)] r=0
+DEBUG: f_getvar: var=[_struct_value_keymap_fr_dvorak_kbd_keym] value=[fr.dvorak.kbd] r=0
+DEBUG: f_getvar: var=[_struct_value_keymap_fr_dvorak_kbd_desc] value=[French Dvorak-like] r=0
+DEBUG: f_getvar: var=[_struct_value_keymap_fr_dvorak_acc_kbd_keym] value=[fr.dvorak.acc.kbd] r=0
+DEBUG: f_getvar: var=[_struct_value_keymap_fr_dvorak_acc_kbd_desc] value=[French Dvorak-like (accent keys)] r=0
+DEBUG: f_getvar: var=[_struct_value_keymap_fr_iso_kbd_keym] value=[fr.iso.kbd] r=0
+DEBUG: f_getvar: var=[_struct_value_keymap_fr_iso_kbd_desc] value=[French ISO-8859-1] r=0
+DEBUG: f_getvar: var=[_struct_value_keymap_fr_iso_acc_kbd_keym] value=[fr.iso.acc.kbd] r=0
+DEBUG: f_getvar: var=[_struct_value_keymap_fr_iso_acc_kbd_desc] value=[French ISO-8859-1 (accent keys)] r=0
+DEBUG: f_getvar: var=[_struct_value_keymap_fr_macbook_acc_kbd_keym] value=[fr.macbook.acc.kbd] r=0
+DEBUG: f_getvar: var=[_struct_value_keymap_fr_macbook_acc_kbd_desc] value=[French Macbook/Macbook Pro ISO-8859-15 (accent keys)] r=0
+DEBUG: f_getvar: var=[_struct_value_keymap_german_cp850_kbd_keym] value=[german.cp850.kbd] r=0
+DEBUG: f_getvar: var=[_struct_value_keymap_german_cp850_kbd_desc] value=[German Codepage 850] r=0
+DEBUG: f_getvar: var=[_struct_value_keymap_german_iso_kbd_keym] value=[german.iso.kbd] r=0
+DEBUG: f_getvar: var=[_struct_value_keymap_german_iso_kbd_desc] value=[German ISO-8859-15] r=0
+DEBUG: f_getvar: var=[_struct_value_keymap_german_iso_acc_kbd_keym] value=[german.iso.acc.kbd] r=0
+DEBUG: f_getvar: var=[_struct_value_keymap_german_iso_acc_kbd_desc] value=[German ISO-8859-15 (accent keys)] r=0
+DEBUG: f_getvar: var=[_struct_value_keymap_gr_us101_acc_kbd_keym] value=[gr.us101.acc.kbd] r=0
+DEBUG: f_getvar: var=[_struct_value_keymap_gr_us101_acc_kbd_desc] value=[Greek ISO-8859-7 (101 keys)] r=0
+DEBUG: f_getvar: var=[_struct_value_keymap_el_iso07_kbd_keym] value=[el.iso07.kbd] r=0
+DEBUG: f_getvar: var=[_struct_value_keymap_el_iso07_kbd_desc] value=[Greek ISO-8859-7 (104 keys)] r=0
+DEBUG: f_getvar: var=[_struct_value_keymap_gr_elot_acc_kbd_keym] value=[gr.elot.acc.kbd] r=0
+DEBUG: f_getvar: var=[_struct_value_keymap_gr_elot_acc_kbd_desc] value=[Greek ISO-8859-7 ELOT] r=0
+DEBUG: f_getvar: var=[_struct_value_keymap_iw_iso8_kbd_keym] value=[iw.iso8.kbd] r=0
+DEBUG: f_getvar: var=[_struct_value_keymap_iw_iso8_kbd_desc] value=[Hebrew ISO-8859-8] r=0
+DEBUG: f_getvar: var=[_struct_value_keymap_hu_iso2_101keys_kbd_keym] value=[hu.iso2.101keys.kbd] r=0
+DEBUG: f_getvar: var=[_struct_value_keymap_hu_iso2_101keys_kbd_desc] value=[Hungarian 101 ISO-8859-2] r=0
+DEBUG: f_getvar: var=[_struct_value_keymap_hu_iso2_102keys_kbd_keym] value=[hu.iso2.102keys.kbd] r=0
+DEBUG: f_getvar: var=[_struct_value_keymap_hu_iso2_102keys_kbd_desc] value=[Hungarian 102 ISO-8859-2] r=0
+DEBUG: f_getvar: var=[_struct_value_keymap_icelandic_iso_kbd_keym] value=[icelandic.iso.kbd] r=0
+DEBUG: f_getvar: var=[_struct_value_keymap_icelandic_iso_kbd_desc] value=[Icelandic ISO-8859-1] r=0
+DEBUG: f_getvar: var=[_struct_value_keymap_icelandic_iso_acc_kbd_keym] value=[icelandic.iso.acc.kbd] r=0
+DEBUG: f_getvar: var=[_struct_value_keymap_icelandic_iso_acc_kbd_desc] value=[Icelandic ISO-8859-1 (accent keys)] r=0
+DEBUG: f_getvar: var=[_struct_value_keymap_it_iso_kbd_keym] value=[it.iso.kbd] r=0
+DEBUG: f_getvar: var=[_struct_value_keymap_it_iso_kbd_desc] value=[Italian ISO-8859-1] r=0
+DEBUG: f_getvar: var=[_struct_value_keymap_jp_106_kbd_keym] value=[jp.106.kbd] r=0
+DEBUG: f_getvar: var=[_struct_value_keymap_jp_106_kbd_desc] value=[Japanese 106] r=0
+DEBUG: f_getvar: var=[_struct_value_keymap_jp_106x_kbd_keym] value=[jp.106x.kbd] r=0
+DEBUG: f_getvar: var=[_struct_value_keymap_jp_106x_kbd_desc] value=[Japanese 106x] r=0
+DEBUG: f_getvar: var=[_struct_value_keymap_jp_pc98_kbd_keym] value=[jp.pc98.kbd] r=0
+DEBUG: f_getvar: var=[_struct_value_keymap_jp_pc98_kbd_desc] value=[Japanese PC-98x1] r=0
+DEBUG: f_getvar: var=[_struct_value_keymap_jp_pc98_iso_kbd_keym] value=[jp.pc98.iso.kbd] r=0
+DEBUG: f_getvar: var=[_struct_value_keymap_jp_pc98_iso_kbd_desc] value=[Japanese PC-98x1 (ISO)] r=0
+DEBUG: f_getvar: var=[_struct_value_keymap_kk_pt154_kst_kbd_keym] value=[kk.pt154.kst.kbd] r=0
+DEBUG: f_getvar: var=[_struct_value_keymap_kk_pt154_kst_kbd_desc] value=[Kazakh PT154 codepage] r=0
+DEBUG: f_getvar: var=[_struct_value_keymap_kk_pt154_io_kbd_keym] value=[kk.pt154.io.kbd] r=0
+DEBUG: f_getvar: var=[_struct_value_keymap_kk_pt154_io_kbd_desc] value=[Kazakh PT154 codepage (with IO)] r=0
+DEBUG: f_getvar: var=[_struct_value_keymap_latinamerican_kbd_keym] value=[latinamerican.kbd] r=0
+DEBUG: f_getvar: var=[_struct_value_keymap_latinamerican_kbd_desc] value=[Latin American] r=0
+DEBUG: f_getvar: var=[_struct_value_keymap_latinamerican_iso_acc_kbd_keym] value=[latinamerican.iso.acc.kbd] r=0
+DEBUG: f_getvar: var=[_struct_value_keymap_latinamerican_iso_acc_kbd_desc] value=[Latin American (accent keys)] r=0
+DEBUG: f_getvar: var=[_struct_value_keymap_lt_iso4_kbd_keym] value=[lt.iso4.kbd] r=0
+DEBUG: f_getvar: var=[_struct_value_keymap_lt_iso4_kbd_desc] value=[Lithuanian ISO-8859-4] r=0
+DEBUG: f_getvar: var=[_struct_value_keymap_eee_nordic_kbd_keym] value=[eee_nordic.kbd] r=0
+DEBUG: f_getvar: var=[_struct_value_keymap_eee_nordic_kbd_desc] value=[Nordic layout on Asus eeePC] r=0
+DEBUG: f_getvar: var=[_struct_value_keymap_norwegian_iso_kbd_keym] value=[norwegian.iso.kbd] r=0
+DEBUG: f_getvar: var=[_struct_value_keymap_norwegian_iso_kbd_desc] value=[Norwegian ISO-8859-1] r=0
+DEBUG: f_getvar: var=[_struct_value_keymap_norwegian_dvorak_kbd_keym] value=[norwegian.dvorak.kbd] r=0
+DEBUG: f_getvar: var=[_struct_value_keymap_norwegian_dvorak_kbd_desc] value=[Norwegian dvorak] r=0
+DEBUG: f_getvar: var=[_struct_value_keymap_pl_PL_dvorak_kbd_keym] value=[pl_PL.dvorak.kbd] r=0
+DEBUG: f_getvar: var=[_struct_value_keymap_pl_PL_dvorak_kbd_desc] value=[Polish Dvorak] r=0
+DEBUG: f_getvar: var=[_struct_value_keymap_pl_PL_ISO8859_2_kbd_keym] value=[pl_PL.ISO8859-2.kbd] r=0
+DEBUG: f_getvar: var=[_struct_value_keymap_pl_PL_ISO8859_2_kbd_desc] value=[Polish ISO-8859-2 (programmer's)] r=0
+DEBUG: f_getvar: var=[_struct_value_keymap_pt_iso_kbd_keym] value=[pt.iso.kbd] r=0
+DEBUG: f_getvar: var=[_struct_value_keymap_pt_iso_kbd_desc] value=[Portuguese ISO-8859-1] r=0
+DEBUG: f_getvar: var=[_struct_value_keymap_pt_iso_acc_kbd_keym] value=[pt.iso.acc.kbd] r=0
+DEBUG: f_getvar: var=[_struct_value_keymap_pt_iso_acc_kbd_desc] value=[Portuguese ISO-8859-1 (accent keys)] r=0
+DEBUG: f_getvar: var=[_struct_value_keymap_ru_cp866_kbd_keym] value=[ru.cp866.kbd] r=0
+DEBUG: f_getvar: var=[_struct_value_keymap_ru_cp866_kbd_desc] value=[Russian Codepage 866 (alternative)] r=0
+DEBUG: f_getvar: var=[_struct_value_keymap_ru_iso5_kbd_keym] value=[ru.iso5.kbd] r=0
+DEBUG: f_getvar: var=[_struct_value_keymap_ru_iso5_kbd_desc] value=[Russian ISO-8859-5] r=0
+DEBUG: f_getvar: var=[_struct_value_keymap_ru_koi8_r_kbd_keym] value=[ru.koi8-r.kbd] r=0
+DEBUG: f_getvar: var=[_struct_value_keymap_ru_koi8_r_kbd_desc] value=[Russian koi8-r] r=0
+DEBUG: f_getvar: var=[_struct_value_keymap_ru_koi8_r_shift_kbd_keym] value=[ru.koi8-r.shift.kbd] r=0
+DEBUG: f_getvar: var=[_struct_value_keymap_ru_koi8_r_shift_kbd_desc] value=[Russian koi8-r (shift)] r=0
+DEBUG: f_getvar: var=[_struct_value_keymap_ru_koi8_r_win_kbd_keym] value=[ru.koi8-r.win.kbd] r=0
+DEBUG: f_getvar: var=[_struct_value_keymap_ru_koi8_r_win_kbd_desc] value=[Russian koi8-r (winkeys)] r=0
+DEBUG: f_getvar: var=[_struct_value_keymap_sk_iso2_kbd_keym] value=[sk.iso2.kbd] r=0
+DEBUG: f_getvar: var=[_struct_value_keymap_sk_iso2_kbd_desc] value=[Slovak ISO-8859-2] r=0
+DEBUG: f_getvar: var=[_struct_value_keymap_si_iso_kbd_keym] value=[si.iso.kbd] r=0
+DEBUG: f_getvar: var=[_struct_value_keymap_si_iso_kbd_desc] value=[Slovenian ISO-8859-2] r=0
+DEBUG: f_getvar: var=[_struct_value_keymap_spanish_dvorak_kbd_keym] value=[spanish.dvorak.kbd] r=0
+DEBUG: f_getvar: var=[_struct_value_keymap_spanish_dvorak_kbd_desc] value=[Spanish Dvorak] r=0
+DEBUG: f_getvar: var=[_struct_value_keymap_spanish_iso_kbd_keym] value=[spanish.iso.kbd] r=0
+DEBUG: f_getvar: var=[_struct_value_keymap_spanish_iso_kbd_desc] value=[Spanish ISO-8859-1] r=0
+DEBUG: f_getvar: var=[_struct_value_keymap_spanish_iso_acc_kbd_keym] value=[spanish.iso.acc.kbd] r=0
+DEBUG: f_getvar: var=[_struct_value_keymap_spanish_iso_acc_kbd_desc] value=[Spanish ISO-8859-1 (accent keys)] r=0
+DEBUG: f_getvar: var=[_struct_value_keymap_spanish_iso15_acc_kbd_keym] value=[spanish.iso15.acc.kbd] r=0
+DEBUG: f_getvar: var=[_struct_value_keymap_spanish_iso15_acc_kbd_desc] value=[Spanish ISO-8859-15 (accent keys)] r=0
+DEBUG: f_getvar: var=[_struct_value_keymap_swedish_cp850_kbd_keym] value=[swedish.cp850.kbd] r=0
+DEBUG: f_getvar: var=[_struct_value_keymap_swedish_cp850_kbd_desc] value=[Swedish Codepage 850] r=0
+DEBUG: f_getvar: var=[_struct_value_keymap_swedish_iso_kbd_keym] value=[swedish.iso.kbd] r=0
+DEBUG: f_getvar: var=[_struct_value_keymap_swedish_iso_kbd_desc] value=[Swedish ISO-8859-1] r=0
+DEBUG: f_getvar: var=[_struct_value_keymap_swissfrench_cp850_kbd_keym] value=[swissfrench.cp850.kbd] r=0
+DEBUG: f_getvar: var=[_struct_value_keymap_swissfrench_cp850_kbd_desc] value=[Swiss-French Codepage 850] r=0
+DEBUG: f_getvar: var=[_struct_value_keymap_swissfrench_iso_kbd_keym] value=[swissfrench.iso.kbd] r=0
+DEBUG: f_getvar: var=[_struct_value_keymap_swissfrench_iso_kbd_desc] value=[Swiss-French ISO-8859-1] r=0
+DEBUG: f_getvar: var=[_struct_value_keymap_swissfrench_iso_acc_kbd_keym] value=[swissfrench.iso.acc.kbd] r=0
+DEBUG: f_getvar: var=[_struct_value_keymap_swissfrench_iso_acc_kbd_desc] value=[Swiss-French ISO-8859-1 (accent keys)] r=0
+DEBUG: f_getvar: var=[_struct_value_keymap_swissgerman_cp850_kbd_keym] value=[swissgerman.cp850.kbd] r=0
+DEBUG: f_getvar: var=[_struct_value_keymap_swissgerman_cp850_kbd_desc] value=[Swiss-German Codepage 850] r=0
+DEBUG: f_getvar: var=[_struct_value_keymap_swissgerman_iso_kbd_keym] value=[swissgerman.iso.kbd] r=0
+DEBUG: f_getvar: var=[_struct_value_keymap_swissgerman_iso_kbd_desc] value=[Swiss-German ISO-8859-1] r=0
+DEBUG: f_getvar: var=[_struct_value_keymap_swissgerman_iso_acc_kbd_keym] value=[swissgerman.iso.acc.kbd] r=0
+DEBUG: f_getvar: var=[_struct_value_keymap_swissgerman_iso_acc_kbd_desc] value=[Swiss-German ISO-8859-1 (accent keys)] r=0
+DEBUG: f_getvar: var=[_struct_value_keymap_swissgerman_macbook_acc_kbd_keym] value=[swissgerman.macbook.acc.kbd] r=0
+DEBUG: f_getvar: var=[_struct_value_keymap_swissgerman_macbook_acc_kbd_desc] value=[Swiss-German Macbook/Macbook Pro (accent keys)] r=0
+DEBUG: f_getvar: var=[_struct_value_keymap_tr_iso9_q_kbd_keym] value=[tr.iso9.q.kbd] r=0
+DEBUG: f_getvar: var=[_struct_value_keymap_tr_iso9_q_kbd_desc] value=[Turkish ISO-8859-9] r=0
+DEBUG: f_getvar: var=[_struct_value_keymap_ua_iso5_kbd_keym] value=[ua.iso5.kbd] r=0
+DEBUG: f_getvar: var=[_struct_value_keymap_ua_iso5_kbd_desc] value=[Ukrainian ISO-8859-5] r=0
+DEBUG: f_getvar: var=[_struct_value_keymap_ua_koi8_u_kbd_keym] value=[ua.koi8-u.kbd] r=0
+DEBUG: f_getvar: var=[_struct_value_keymap_ua_koi8_u_kbd_desc] value=[Ukrainian koi8-u] r=0
+DEBUG: f_getvar: var=[_struct_value_keymap_ua_koi8_u_shift_alt_kbd_keym] value=[ua.koi8-u.shift.alt.kbd] r=0
+DEBUG: f_getvar: var=[_struct_value_keymap_ua_koi8_u_shift_alt_kbd_desc] value=[Ukrainian koi8-u with koi8-r (shift)] r=0
+DEBUG: f_getvar: var=[_struct_value_keymap_uk_cp850_kbd_keym] value=[uk.cp850.kbd] r=0
+DEBUG: f_getvar: var=[_struct_value_keymap_uk_cp850_kbd_desc] value=[United Kingdom Codepage 850] r=0
+DEBUG: f_getvar: var=[_struct_value_keymap_uk_cp850_ctrl_kbd_keym] value=[uk.cp850-ctrl.kbd] r=0
+DEBUG: f_getvar: var=[_struct_value_keymap_uk_cp850_ctrl_kbd_desc] value=[United Kingdom Codepage 850 (Caps Lock acts as Left Ctrl)] r=0
+DEBUG: f_getvar: var=[_struct_value_keymap_uk_dvorak_kbd_keym] value=[uk.dvorak.kbd] r=0
+DEBUG: f_getvar: var=[_struct_value_keymap_uk_dvorak_kbd_desc] value=[United Kingdom Dvorak] r=0
+DEBUG: f_getvar: var=[_struct_value_keymap_uk_iso_kbd_keym] value=[uk.iso.kbd] r=0
+DEBUG: f_getvar: var=[_struct_value_keymap_uk_iso_kbd_desc] value=[United Kingdom ISO-8859-1] r=0
+DEBUG: f_getvar: var=[_struct_value_keymap_uk_iso_ctrl_kbd_keym] value=[uk.iso-ctrl.kbd] r=0
+DEBUG: f_getvar: var=[_struct_value_keymap_uk_iso_ctrl_kbd_desc] value=[United Kingdom ISO-8859-1 (Caps Lock acts as Left Ctrl)] r=0
+DEBUG: f_getvar: var=[_struct_value_keymap_us_emacs_kbd_keym] value=[us.emacs.kbd] r=0
+DEBUG: f_getvar: var=[_struct_value_keymap_us_emacs_kbd_desc] value=[United States of America Emacs optimized layout] r=0
+DEBUG: f_getvar: var=[_struct_value_keymap_us_iso_kbd_keym] value=[us.iso.kbd] r=0
+DEBUG: f_getvar: var=[_struct_value_keymap_us_iso_kbd_desc] value=[United States of America ISO-8859-1] r=0
+DEBUG: f_getvar: var=[_struct_value_keymap_us_pc_ctrl_kbd_keym] value=[us.pc-ctrl.kbd] r=0
+DEBUG: f_getvar: var=[_struct_value_keymap_us_pc_ctrl_kbd_desc] value=[United States of America ISO-8859-1 (Caps Lock acts as Left Ctrl)] r=0
+DEBUG: f_getvar: var=[_struct_value_keymap_us_iso_acc_kbd_keym] value=[us.iso.acc.kbd] r=0
+DEBUG: f_getvar: var=[_struct_value_keymap_us_iso_acc_kbd_desc] value=[United States of America ISO-8859-1 (accent keys)] r=0
+DEBUG: f_getvar: var=[_struct_value_keymap_us_dvorakp_kbd_keym] value=[us.dvorakp.kbd] r=0
+DEBUG: f_getvar: var=[_struct_value_keymap_us_dvorakp_kbd_desc] value=[United States of America Programmer Dvorak] r=0
+DEBUG: f_getvar: var=[_struct_value_keymap_us_unix_kbd_keym] value=[us.unix.kbd] r=0
+DEBUG: f_getvar: var=[_struct_value_keymap_us_unix_kbd_desc] value=[United States of America Traditional Unix Workstation] r=0
+DEBUG: f_getvar: var=[_struct_value_keymap_us_dvorak_kbd_keym] value=[us.dvorak.kbd] r=0
+DEBUG: f_getvar: var=[_struct_value_keymap_us_dvorak_kbd_desc] value=[United States of America dvorak] r=0
+DEBUG: f_getvar: var=[_struct_value_keymap_us_dvorakx_kbd_keym] value=[us.dvorakx.kbd] r=0
+DEBUG: f_getvar: var=[_struct_value_keymap_us_dvorakx_kbd_desc] value=[United States of America dvorakx] r=0
+DEBUG: f_getvar: var=[_struct_value_keymap_us_dvorakl_kbd_keym] value=[us.dvorakl.kbd] r=0
+DEBUG: f_getvar: var=[_struct_value_keymap_us_dvorakl_kbd_desc] value=[United States of America lefthand dvorak] r=0
+DEBUG: f_getvar: var=[_struct_value_keymap_us_dvorakr_kbd_keym] value=[us.dvorakr.kbd] r=0
+DEBUG: f_getvar: var=[_struct_value_keymap_us_dvorakr_kbd_desc] value=[United States of America righthand dvorak] r=0
+DEBUG: f_dialog_max_size: dialog --print-maxsize = [MaxSize: 25, 80]
+DEBUG: f_getvar: var=[height] value=[20] r=0
+DEBUG: f_getvar: var=[rows] value=[14] r=0
+DEBUG: f_getvar: var=[menu_choice] value=[>>> Continue with default keymap] r=0
+DEBUG: dialog.subr: DEBUG_SELF_INITIALIZE=[]
+DEBUG: UNAME_S=[FreeBSD] UNAME_P=[amd64] UNAME_R=[10.2-RELEASE]
+DEBUG: common.subr: Successfully loaded.
+DEBUG: f_debug_init: ARGV=[hostname] GETOPTS_STDARGS=[dD:]
+DEBUG: f_debug_init: debug=[1] debugFile=[/tmp/bsdinstall_log]
+DEBUG: Running installation step: hostname 
+DEBUG: dialog.subr: DEBUG_SELF_INITIALIZE=[]
+DEBUG: UNAME_S=[FreeBSD] UNAME_P=[amd64] UNAME_R=[10.2-RELEASE]
+DEBUG: common.subr: Successfully loaded.
+DEBUG: f_debug_init: ARGV=[netconfig] GETOPTS_STDARGS=[dD:]
+DEBUG: f_debug_init: debug=[1] debugFile=[/tmp/bsdinstall_log]
+DEBUG: Running installation step: netconfig 
+DEBUG: dialog.subr: DEBUG_SELF_INITIALIZE=[]
+DEBUG: UNAME_S=[FreeBSD] UNAME_P=[amd64] UNAME_R=[10.2-RELEASE]
+DEBUG: common.subr: Successfully loaded.
+DEBUG: f_debug_init: ARGV=[netconfig_ipv4 em0 ] GETOPTS_STDARGS=[dD:]
+DEBUG: f_debug_init: debug=[1] debugFile=[/tmp/bsdinstall_log]
+DEBUG: Running installation step: netconfig_ipv4 em0 
+DEBUG: dialog.subr: DEBUG_SELF_INITIALIZE=[]
+DEBUG: UNAME_S=[FreeBSD] UNAME_P=[amd64] UNAME_R=[10.2-RELEASE]
+DEBUG: common.subr: Successfully loaded.
+DEBUG: /usr/libexec/bsdinstall/netconfig_ipv4: loading includes...
+DEBUG: f_include: file=[/usr/share/bsdconfig/dialog.subr]
+DEBUG: dialog.subr: loading includes...
+DEBUG: f_include: file=[/usr/share/bsdconfig/strings.subr]
+DEBUG: strings.subr: Successfully loaded.
+DEBUG: f_include: file=[/usr/share/bsdconfig/variable.subr]
+DEBUG: variable.subr: loading includes...
+DEBUG: f_include: file=[/usr/share/bsdconfig/dialog.subr]
+DEBUG: f_include: file=[/usr/share/bsdconfig/strings.subr]
+DEBUG: variable.subr: New variable VAR_CONFIG_FILE -> configFile
+DEBUG: variable.subr: New variable VAR_DEBUG -> debug
+DEBUG: variable.subr: New variable VAR_DEBUG_FILE -> debugFile
+DEBUG: variable.subr: New variable VAR_DIRECTORY_PATH -> _directoryPath
+DEBUG: variable.subr: New variable VAR_DOMAINNAME -> domainname
+DEBUG: variable.subr: New variable VAR_EDITOR -> editor
+DEBUG: variable.subr: New variable VAR_EXTRAS -> ifconfig_
+DEBUG: variable.subr: New variable VAR_FTP_DIR -> ftpDirectory
+DEBUG: variable.subr: New variable VAR_FTP_HOST -> ftpHost
+DEBUG: variable.subr: New variable VAR_FTP_PASS -> ftpPass
+DEBUG: variable.subr: New variable VAR_FTP_PATH -> _ftpPath
+DEBUG: variable.subr: New variable VAR_FTP_PORT -> ftpPort
+DEBUG: variable.subr: New variable VAR_FTP_STATE -> ftpState
+DEBUG: variable.subr: New variable VAR_FTP_USER -> ftpUser
+DEBUG: variable.subr: New variable VAR_GATEWAY -> defaultrouter
+DEBUG: variable.subr: New variable VAR_GROUP -> group
+DEBUG: variable.subr: New variable VAR_GROUP_GID -> groupGid
+DEBUG: variable.subr: New variable VAR_GROUP_MEMBERS -> groupMembers
+DEBUG: variable.subr: New variable VAR_GROUP_PASSWORD -> groupPassword
+DEBUG: variable.subr: New variable VAR_HOSTNAME -> hostname
+DEBUG: variable.subr: New variable VAR_HTTP_DIR -> httpDirectory
+DEBUG: variable.subr: New variable VAR_HTTP_FTP_MODE -> httpFtpMode
+DEBUG: variable.subr: New variable VAR_HTTP_HOST -> httpHost
+DEBUG: variable.subr: New variable VAR_HTTP_PATH -> _httpPath
+DEBUG: variable.subr: New variable VAR_HTTP_PORT -> httpPort
+DEBUG: variable.subr: New variable VAR_HTTP_PROXY -> httpProxy
+DEBUG: variable.subr: New variable VAR_HTTP_PROXY_HOST -> httpProxyHost
+DEBUG: variable.subr: New variable VAR_HTTP_PROXY_PATH -> _httpProxyPath
+DEBUG: variable.subr: New variable VAR_HTTP_PROXY_PORT -> httpProxyPort
+DEBUG: variable.subr: New variable VAR_IFCONFIG -> ifconfig_
+DEBUG: variable.subr: New variable VAR_IPADDR -> ipaddr
+DEBUG: variable.subr: New variable VAR_IPV6ADDR -> ipv6addr
+DEBUG: variable.subr: New variable VAR_IPV6_ENABLE -> ipv6_activate_all_interfaces
+DEBUG: variable.subr: New variable VAR_KEYMAP -> keymap
+DEBUG: variable.subr: New variable VAR_MEDIA_TIMEOUT -> MEDIA_TIMEOUT
+DEBUG: variable.subr: New variable VAR_MEDIA_TYPE -> mediaType
+DEBUG: variable.subr: New variable VAR_NAMESERVER -> nameserver
+DEBUG: variable.subr: New variable VAR_NETINTERACTIVE -> netInteractive
+DEBUG: variable.subr: New variable VAR_NETMASK -> netmask
+DEBUG: variable.subr: New variable VAR_NETWORK_DEVICE -> netDev
+DEBUG: variable.subr: New variable VAR_NFS_HOST -> nfsHost
+DEBUG: variable.subr: New variable VAR_NFS_PATH -> nfsPath
+DEBUG: variable.subr: New variable VAR_NFS_SECURE -> nfs_reserved_port_only
+DEBUG: variable.subr: New variable VAR_NFS_TCP -> nfs_use_tcp
+DEBUG: variable.subr: New variable VAR_NFS_V3 -> nfs_use_v3
+DEBUG: variable.subr: New variable VAR_NONINTERACTIVE -> nonInteractive
+DEBUG: variable.subr: New variable VAR_NO_CONFIRM -> noConfirm
+DEBUG: variable.subr: New variable VAR_NO_ERROR -> noError
+DEBUG: variable.subr: New variable VAR_NO_INET6 -> noInet6
+DEBUG: variable.subr: New variable VAR_PACKAGE -> package
+DEBUG: variable.subr: New variable VAR_PKG_TMPDIR -> PKG_TMPDIR
+DEBUG: variable.subr: New variable VAR_PORTS_PATH -> ports
+DEBUG: variable.subr: New variable VAR_RELNAME -> releaseName
+DEBUG: variable.subr: New variable VAR_SLOW_ETHER -> slowEthernetCard
+DEBUG: variable.subr: New variable VAR_TRY_DHCP -> tryDHCP
+DEBUG: variable.subr: New variable VAR_TRY_RTSOL -> tryRTSOL
+DEBUG: variable.subr: New variable VAR_UFS_PATH -> ufs
+DEBUG: variable.subr: New variable VAR_USER -> user
+DEBUG: variable.subr: New variable VAR_USER_ACCOUNT_EXPIRE -> userAccountExpire
+DEBUG: variable.subr: New variable VAR_USER_DOTFILES_CREATE -> userDotfilesCreate
+DEBUG: variable.subr: New variable VAR_USER_GECOS -> userGecos
+DEBUG: variable.subr: New variable VAR_USER_GID -> userGid
+DEBUG: variable.subr: New variable VAR_USER_GROUPS -> userGroups
+DEBUG: variable.subr: New variable VAR_USER_GROUP_DELETE -> userGroupDelete
+DEBUG: variable.subr: New variable VAR_USER_HOME -> userHome
+DEBUG: variable.subr: New variable VAR_USER_HOME_CREATE -> userHomeCreate
+DEBUG: variable.subr: New variable VAR_USER_HOME_DELETE -> userHomeDelete
+DEBUG: variable.subr: New variable VAR_USER_LOGIN_CLASS -> userLoginClass
+DEBUG: variable.subr: New variable VAR_USER_PASSWORD -> userPassword
+DEBUG: variable.subr: New variable VAR_USER_PASSWORD_EXPIRE -> userPasswordExpire
+DEBUG: variable.subr: New variable VAR_USER_SHELL -> userShell
+DEBUG: variable.subr: New variable VAR_USER_UID -> userUid
+DEBUG: variable.subr: New variable VAR_ZFSINTERACTIVE -> zfsInteractive
+DEBUG: variable.subr: VARIABLE_SELF_INITIALIZE=[1]
+DEBUG: f_variable_set_defaults: Initializing defaults...
+DEBUG: f_getvar: var=[debug] value=[1] r=0
+DEBUG: f_getvar: var=[editor] value=[/usr/bin/ee] r=0
+DEBUG: f_getvar: var=[ftpState] value=[auto] r=0
+DEBUG: f_getvar: var=[ftpUser] value=[ftp] r=0
+DEBUG: f_getvar: var=[hostname] value=[blob] r=0
+DEBUG: f_getvar: var=[MEDIA_TIMEOUT] value=[300] r=0
+DEBUG: f_getvar: var=[nfs_reserved_port_only] value=[NO] r=0
+DEBUG: f_getvar: var=[nfs_use_tcp] value=[NO] r=0
+DEBUG: f_getvar: var=[nfs_use_v3] value=[YES] r=0
+DEBUG: f_getvar: var=[PKG_TMPDIR] value=[/var/tmp] r=0
+DEBUG: f_getvar: var=[releaseName] value=[10.2-RELEASE] r=0
+DEBUG: f_variable_set_defaults: Defaults initialized.
+DEBUG: variable.subr: Successfully loaded.
+DEBUG: f_include_lang: file=[/usr/libexec/bsdconfig/include/messages.subr] lang=[]
+DEBUG: dialog.subr: DIALOG_SELF_INITIALIZE=[1]
+DEBUG: f_dialog_init: ARGV=[em0 ] GETOPTS_STDARGS=[dD:SX]
+DEBUG: f_dialog_init: SECURE=[] USE_XDIALOG=[]
+DEBUG: f_dialog_init: dialog(1) API initialized.
+DEBUG: dialog.subr: Successfully loaded.
+DEBUG: f_getvar: var=[nonInteractive] value=[] r=1
+DEBUG: smbios.system.maker=[Veertu]
+DEBUG: smbios.system.product=[Veertu]
+DEBUG: smbios.system.version=[]
+DEBUG: dialog.subr: DEBUG_SELF_INITIALIZE=[]
+DEBUG: UNAME_S=[FreeBSD] UNAME_P=[amd64] UNAME_R=[10.2-RELEASE]
+DEBUG: common.subr: Successfully loaded.
+DEBUG: f_debug_init: ARGV=[autopart] GETOPTS_STDARGS=[dD:]
+DEBUG: f_debug_init: debug=[1] debugFile=[/tmp/bsdinstall_log]
+DEBUG: Running installation step: autopart 
+DEBUG: dialog.subr: DEBUG_SELF_INITIALIZE=[]
+DEBUG: UNAME_S=[FreeBSD] UNAME_P=[amd64] UNAME_R=[10.2-RELEASE]
+DEBUG: common.subr: Successfully loaded.
+DEBUG: f_debug_init: ARGV=[mount] GETOPTS_STDARGS=[dD:]
+DEBUG: f_debug_init: debug=[1] debugFile=[/tmp/bsdinstall_log]
+DEBUG: Running installation step: mount 
+DEBUG: dialog.subr: DEBUG_SELF_INITIALIZE=[]
+DEBUG: UNAME_S=[FreeBSD] UNAME_P=[amd64] UNAME_R=[10.2-RELEASE]
+DEBUG: common.subr: Successfully loaded.
+DEBUG: f_debug_init: ARGV=[distfetch] GETOPTS_STDARGS=[dD:]
+DEBUG: f_debug_init: debug=[1] debugFile=[/tmp/bsdinstall_log]
+DEBUG: Running installation step: distfetch 
+DEBUG: dialog.subr: DEBUG_SELF_INITIALIZE=[]
+DEBUG: UNAME_S=[FreeBSD] UNAME_P=[amd64] UNAME_R=[10.2-RELEASE]
+DEBUG: common.subr: Successfully loaded.
+DEBUG: f_debug_init: ARGV=[checksum] GETOPTS_STDARGS=[dD:]
+DEBUG: f_debug_init: debug=[1] debugFile=[/tmp/bsdinstall_log]
+DEBUG: Running installation step: checksum 
+DEBUG: dialog.subr: DEBUG_SELF_INITIALIZE=[]
+DEBUG: UNAME_S=[FreeBSD] UNAME_P=[amd64] UNAME_R=[10.2-RELEASE]
+DEBUG: common.subr: Successfully loaded.
+DEBUG: f_debug_init: ARGV=[distextract] GETOPTS_STDARGS=[dD:]
+DEBUG: f_debug_init: debug=[1] debugFile=[/tmp/bsdinstall_log]
+DEBUG: Running installation step: distextract 
+DEBUG: dialog.subr: DEBUG_SELF_INITIALIZE=[]
+DEBUG: UNAME_S=[FreeBSD] UNAME_P=[amd64] UNAME_R=[10.2-RELEASE]
+DEBUG: common.subr: Successfully loaded.
+DEBUG: f_debug_init: ARGV=[rootpass] GETOPTS_STDARGS=[dD:]
+DEBUG: f_debug_init: debug=[1] debugFile=[/tmp/bsdinstall_log]
+DEBUG: Running installation step: rootpass 
+DEBUG: dialog.subr: DEBUG_SELF_INITIALIZE=[]
+DEBUG: UNAME_S=[FreeBSD] UNAME_P=[amd64] UNAME_R=[10.2-RELEASE]
+DEBUG: common.subr: Successfully loaded.
+DEBUG: f_debug_init: ARGV=[time] GETOPTS_STDARGS=[dD:]
+DEBUG: f_debug_init: debug=[1] debugFile=[/tmp/bsdinstall_log]
+DEBUG: Running installation step: time 
+DEBUG: dialog.subr: DEBUG_SELF_INITIALIZE=[]
+DEBUG: UNAME_S=[FreeBSD] UNAME_P=[amd64] UNAME_R=[10.2-RELEASE]
+DEBUG: common.subr: Successfully loaded.
+DEBUG: f_debug_init: ARGV=[services] GETOPTS_STDARGS=[dD:]
+DEBUG: f_debug_init: debug=[1] debugFile=[/tmp/bsdinstall_log]
+DEBUG: Running installation step: services 
+DEBUG: dialog.subr: DEBUG_SELF_INITIALIZE=[]
+DEBUG: UNAME_S=[FreeBSD] UNAME_P=[amd64] UNAME_R=[10.2-RELEASE]
+DEBUG: common.subr: Successfully loaded.
+DEBUG: f_debug_init: ARGV=[adduser] GETOPTS_STDARGS=[dD:]
+DEBUG: f_debug_init: debug=[1] debugFile=[/tmp/bsdinstall_log]
+DEBUG: Running installation step: adduser 
+DEBUG: dialog.subr: DEBUG_SELF_INITIALIZE=[]
+DEBUG: UNAME_S=[FreeBSD] UNAME_P=[amd64] UNAME_R=[10.2-RELEASE]
+DEBUG: common.subr: Successfully loaded.
+DEBUG: f_debug_init: ARGV=[config] GETOPTS_STDARGS=[dD:]
+DEBUG: f_debug_init: debug=[1] debugFile=[/tmp/bsdinstall_log]
+DEBUG: Running installation step: config 
+cat: /tmp/bsdinstall_boot/loader.conf.*: No such file or directory
+rm: /tmp/bsdinstall_boot/loader.conf.*: No such file or directory

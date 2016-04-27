@@ -14,8 +14,3 @@ C++ libraries
 
 Development
 * libffi: (libffi).             Portable foreign-function interface library.
-
-Programming & development tools
-* GDBM: (gdbm).                 The GNU database manager.
-* gdbm_dump: gdbm_dump(gdbm).   Dump the GDBM database into a flat file.
-* gdbm_load: gdbm_load(gdbm).   Load the database from a flat file.

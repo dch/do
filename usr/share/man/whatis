@@ -363,7 +363,6 @@ basename(1), dirname(1)  - return filename or directory portion of pathname
 basename(3)              - extract the base portion of a pathname
 baudrate(3), erasechar(3), erasewchar(3), has_ic(3), has_il(3), killchar(3), killwchar(3), longname(3), term_attrs(3), termattrs(3), termname(3) - curses environment query routines
 bc(1)                    - arbitrary-precision arithmetic language and calculator
-bcd(6), ppt(6)           - reformat input as punch cards or paper tape
 bce(4)                   - QLogic NetXtreme II (BCM5706/5708/5709/5716) PCI/PCIe Gigabit Ethernet adapter driver
 bcmfw(8)                 - firmware download utility for Broadcom BCM2033 chip based Bluetooth USB devices
 bcmp(3)                  - compare byte string
@@ -470,7 +469,6 @@ c(7), c78(7), c89(7), c90(7), c99(7) - The C programming language
 c89(1)                   - POSIX.2 C language compiler
 c99(1)                   - standard C language compiler
 cacos(3), cacosf(3), cacosh(3), cacoshf(3), casin(3), casinf casinh(3), casinhf catan(3), catanf catanh(3), catanhf(3) - complex arc trigonometric and hyperbolic functions
-caesar(6), rot13(6)      - decrypt caesar ciphers
 cal(1), ncal(1)          - displays a calendar and the date of Easter
 calendar(1)              - reminder service
 call_once(3), cnd_broadcast(3), cnd_destroy(3), cnd_init(3), cnd_signal(3), cnd_timedwait(3), cnd_wait(3), mtx_destroy(3), mtx_init(3), mtx_lock(3), mtx_timedlock(3), mtx_trylock(3), mtx_unlock(3), thrd_create(3), thrd_current(3), thrd_detach(3), thrd_equal(3), thrd_exit(3), thrd_join(3), thrd_sleep(3), thrd_yield(3), tss_create(3), tss_delete(3), tss_get(3), tss_set(3) - C11 threads interface
@@ -853,7 +851,6 @@ extattr_get_fd(2), extattr_set_fd(2), extattr_delete_fd(2), extattr_list_fd(2), 
 extattr_namespace_to_string(3), extattr_string_to_namespace(3) - convert an extended attribute namespace identifier to a string and vice versa
 extattrctl(8)            - manage UFS1 extended attributes
 fabs(3), fabsf(3), fabsl(3) - floating-point absolute value functions
-factor(6), primes(6)     - factor a number, generate primes
 fail(9), KFAIL_POINT_CODE(9), KFAIL_POINT_RETURN(9), KFAIL_POINT_RETURN_VOID(9), KFAIL_POINT_ERROR(9), KFAIL_POINT_GOTO(9), fail_point(9), DEBUG_FP(9) - fail points
 faith(4)                 - IPv6-to-IPv4 TCP relay capturing interface
 faithd(8)                - FAITH IPv6/v4 translator daemon
@@ -949,7 +946,6 @@ form_post(3)             - write or erase forms from associated subwindows
 form_requestname(3)      - handle printable form request names
 form_userptr(3)          - associate application data with a form item
 form_win(3)              - make and break form window and subwindow associations
-fortune(6)               - print a random, hopefully interesting, adage
 forward(5)               - mail forwarding instructions
 fpa(4), fea(4)           - device drivers for DEC FDDI controllers
 fparseln(3)              - return the next logical line from a stream
@@ -1153,7 +1149,6 @@ gptzfsboot(8)            - GPT bootcode for ZFS on BIOS-based computers
 graid(8)                 - control utility for software RAID devices
 graid3(8)                - control utility for RAID3 devices
 grantpt(3), ptsname(3), unlockpt(3) - pseudo-terminal access functions
-grdc(6)                  - grand digital clock (curses)
 gre(4)                   - encapsulating network device
 grep(1), egrep(1), fgrep(1), zgrep(1), zegrep(1), zfgrep(1) - file pattern searcher
 grep(1), egrep(1), fgrep(1), zgrep(1), zegrep(1), zfgrep(1), bzgrep(1), bzegrep(1), bzfgrep(1) - print lines matching a pattern
@@ -1902,7 +1897,6 @@ modstat(2)               - get status of kernel module
 module(9)                - structure describing a kernel module
 moduli(5)                - Diffie-Hellman moduli
 moncontrol(3), monstartup(3) - control execution profile
-morse(6)                 - reformat input as morse code
 mos(4)                   - Moschip MCS7730/MCS7830/MCS7832 USB Ethernet driver
 motd(5)                  - file containing message(s) of the day
 mount(2), nmount(2), unmount(2) - mount or dismount a file system
@@ -2111,7 +2105,6 @@ ntpq(8)                  - standard NTP query program
 ntptime(8)               - read kernel time variables
 null(4)                  - the null device
 nullfs(5)                - null file system
-number(6)                - convert Arabic numerals to English
 nvd(4)                   - NVM Express disk driver
 nve(4)                   - NVIDIA nForce MCP Networking Adapter device driver
 nvme(4)                  - NVM Express core driver
@@ -2401,7 +2394,6 @@ pmcstudy(8)              - Perform various study's on a systems overall PMC's
 pms(4)                   - PMC-Sierra PM8001/8081/8088/8089/8074/8076/8077 SAS/SATA HBA Controller driver
 poll(2)                  - synchronous I/O multiplexing
 polling(4)               - device polling support
-pom(6)                   - display the phase of the moon
 popen(3), pclose(3)      - process I/O
 ports(7)                 - contributed applications
 portsnap(8)              - fetch and extract compressed snapshots of the ports tree
@@ -2559,7 +2551,6 @@ ral(4)                   - Ralink Technology IEEE 802.11a/g/n wireless network d
 rand(3), srand(3), sranddev(3), rand_r(3) - bad random number generator
 random(3), srandom(3), srandomdev(3), initstate(3), setstate(3) - better random number generator; routines for changing generators
 random(4)                - the entropy device
-random(6)                - random lines from a file or random numbers
 random_harvest(9)        - gather entropy from the kernel for the entropy device
 rarpd(8)                 - reverse ARP daemon
 rbootd(8)                - HP remote boot server
@@ -2980,7 +2971,6 @@ strchr(3), strrchr(3), strchrnul(3) - locate character in string
 strcmp(3), strncmp(3)    - compare strings
 strcoll(3)               - compare strings according to current collation
 strdup(3), strndup(3)    - save a copy of a string
-strfile(8), unstr(8)     - create a random access file for storing strings
 strfmon(3)               - convert monetary value to string
 strftime(3)              - format date and time
 string2key(8)            - map a password into a key

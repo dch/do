@@ -1,4 +1,0 @@
-@unexec %D/libexec/octave/load-octave-pkg || true
-libexec/octave/load-octave-pkg
-@exec %D/libexec/octave/load-octave-pkg
-@dir share/octave/tarballs

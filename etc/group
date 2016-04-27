@@ -31,8 +31,5 @@ www:*:80:
 hast:*:845:
 nogroup:*:65533:
 nobody:*:65534:
-messagebus:*:556:
-avahi:*:558:
-avahi-autoipd:*:588:
 freebsd:*:1001:
 git_daemon:*:964:

@@ -1,5 +1,5 @@
 #	$OpenBSD: sshd_config,v 1.93 2014/01/10 05:59:19 djm Exp $
-#	$FreeBSD: releng/10.1/crypto/openssh/sshd_config 264692 2014-04-20 12:46:18Z des $
+#	$FreeBSD: releng/10.2/crypto/openssh/sshd_config 264692 2014-04-20 12:46:18Z des $
 
 # This is the sshd server system-wide configuration file.  See
 # sshd_config(5) for more information.
@@ -45,6 +45,7 @@
 # Authentication:
 
 #LoginGraceTime 2m
+#PermitRootLogin no
 #StrictModes yes
 #MaxAuthTries 6
 #MaxSessions 10
@@ -145,7 +146,5 @@ Subsystem	sftp	/usr/libexec/sftp-server
 #	AllowTcpForwarding no
 #	PermitTTY no
 #	ForceCommand cvs server
+PermitRootLogin	without-password
 
-PermitRootLogin without-password
-Match User root
-	ForceCommand echo "Please use the freebsd@ user to access this droplet."

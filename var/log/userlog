@@ -1,7 +1,5 @@
-2016-04-27 14:20:07 [unknown:groupadd] freebsd(1001)
-2016-04-27 14:20:07 [unknown:useradd] freebsd(1001):freebsd(1001):Created by bsdcloud-init:/home/freebsd:/bin/tcsh
-2016-04-27 14:20:07 [unknown:useradd] freebsd(1001) home /home/freebsd made
-2016-04-27 14:20:07 [unknown:usermod] freebsd(1001):freebsd(1001):Created by bsdcloud-init:/home/freebsd:/bin/tcsh
-2016-04-27 14:20:07 [unknown:usermod] root(0):wheel(0):Charlie &:/root:/bin/csh
-2016-04-27 14:28:50 [root:groupadd] git_daemon(964)
-2016-04-27 14:28:50 [root:useradd] git_daemon(964):git_daemon(964):git daemon:/nonexistent:/usr/sbin/nologin
+2016-04-27 17:46:41 [unknown:groupadd] freebsd(1001)
+2016-04-27 17:46:41 [unknown:useradd] freebsd(1001):freebsd(1001):User &:/home/freebsd:/bin/sh
+2016-04-27 17:46:41 [unknown:useradd] freebsd(1001) home /home/freebsd made
+2016-04-27 19:46:06 [root:groupadd] git_daemon(964)
+2016-04-27 19:46:06 [root:useradd] git_daemon(964):git_daemon(964):git daemon:/nonexistent:/usr/sbin/nologin

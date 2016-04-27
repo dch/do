@@ -1,2 +1,2 @@
-754
+633
 /usr/sbin/sendmail -L sm-mta -bd -q30m -ODaemonPortOptions=Addr=localhost

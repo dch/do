@@ -1,4 +1,0 @@
-bin/conkyEmail
-%%DATADIR%%/conkyEmail.py
-%%DATADIR%%/example/conkyrc
-%%DATADIR%%/example/conkyEmail.template

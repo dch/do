@@ -1,7 +1,0 @@
-bin/cut-netspoc
-bin/netspoc
-bin/print-group
-%%PERL5_MAN3%%/Netspoc.3.gz
-%%SITE_PERL%%/Netspoc.pm
-man/man1/netspoc.1.gz
-man/man1/print-group.1.gz

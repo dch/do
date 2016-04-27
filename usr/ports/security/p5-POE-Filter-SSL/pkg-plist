@@ -1,3 +1,0 @@
-%%SITE_ARCH%%/auto/POE/Filter/SSL/SSL.so
-%%SITE_ARCH%%/POE/Filter/SSL.pm
-%%PERL5_MAN3%%/POE::Filter::SSL.3.gz

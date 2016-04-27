@@ -1,0 +1,30 @@
+lease {
+  interface "em0";
+  fixed-address 192.168.64.13;
+  next-server 192.168.64.1;
+  server-name "akai.skunkwerks.at";
+  option subnet-mask 255.255.255.0;
+  option routers 192.168.64.1;
+  option domain-name-servers 192.168.64.1;
+  option dhcp-lease-time 85536;
+  option dhcp-message-type 5;
+  option dhcp-server-identifier 192.168.64.1;
+  renew 4 2016/4/28 06:10:08;
+  rebind 4 2016/4/28 15:04:44;
+  expire 4 2016/4/28 18:02:56;
+}
+lease {
+  interface "em0";
+  fixed-address 192.168.64.13;
+  next-server 192.168.64.1;
+  server-name "akai.skunkwerks.at";
+  option subnet-mask 255.255.255.0;
+  option routers 192.168.64.1;
+  option domain-name-servers 192.168.64.1;
+  option dhcp-lease-time 85536;
+  option dhcp-message-type 5;
+  option dhcp-server-identifier 192.168.64.1;
+  renew 4 2016/4/28 06:23:47;
+  rebind 4 2016/4/28 15:18:23;
+  expire 4 2016/4/28 18:16:35;
+}

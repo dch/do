@@ -1,135 +1,258 @@
-Aug 28 19:14:05  shutdown: power-down by root: 
-Aug 28 19:14:05  syslogd: exiting on signal 15
-Apr 27 14:20:15 pirate syslogd: kernel boot file is /boot/kernel/kernel
-Apr 27 14:20:15 pirate kernel: Copyright (c) 1992-2015 The FreeBSD Project.
-Apr 27 14:20:15 pirate kernel: Copyright (c) 1979, 1980, 1983, 1986, 1988, 1989, 1991, 1992, 1993, 1994
-Apr 27 14:20:15 pirate kernel: The Regents of the University of California. All rights reserved.
-Apr 27 14:20:15 pirate kernel: FreeBSD is a registered trademark of The FreeBSD Foundation.
-Apr 27 14:20:15 pirate kernel: FreeBSD 10.2-RELEASE #0 r286666: Wed Aug 12 15:26:37 UTC 2015
-Apr 27 14:20:15 pirate kernel: root@releng1.nyi.freebsd.org:/usr/obj/usr/src/sys/GENERIC amd64
-Apr 27 14:20:15 pirate kernel: FreeBSD clang version 3.4.1 (tags/RELEASE_34/dot1-final 208032) 20140512
-Apr 27 14:20:15 pirate kernel: CPU: Intel(R) Xeon(R) CPU E5-2650L v3 @ 1.80GHz (1798.01-MHz K8-class CPU)
-Apr 27 14:20:15 pirate kernel: Origin="GenuineIntel"  Id=0x306f2  Family=0x6  Model=0x3f  Stepping=2
-Apr 27 14:20:15 pirate kernel: Features=0xf83fbff<FPU,VME,DE,PSE,TSC,MSR,PAE,MCE,CX8,APIC,SEP,MTRR,PGE,MCA,CMOV,PAT,PSE36,MMX,FXSR,SSE,SSE2,SS>
-Apr 27 14:20:15 pirate kernel: Features2=0xfffa3223<SSE3,PCLMULQDQ,VMX,SSSE3,FMA,CX16,PCID,SSE4.1,SSE4.2,x2APIC,MOVBE,POPCNT,TSCDLT,AESNI,XSAVE,OSXSAVE,AVX,F16C,RDRAND,HV>
-Apr 27 14:20:15 pirate kernel: AMD Features=0x2c100800<SYSCALL,NX,Page1GB,RDTSCP,LM>
-Apr 27 14:20:15 pirate kernel: AMD Features2=0x21<LAHF,ABM>
-Apr 27 14:20:15 pirate kernel: Structured Extended Features=0x72a<TSCADJ,BMI1,AVX2,BMI2,ERMS,INVPCID>
-Apr 27 14:20:15 pirate kernel: XSAVE Features=0x1<XSAVEOPT>
-Apr 27 14:20:15 pirate kernel: VT-x: (disabled in BIOS) PAT,HLT,PAUSE,EPT,UG
-Apr 27 14:20:15 pirate kernel: Hypervisor: Origin = "KVMKVMKVM"
-Apr 27 14:20:15 pirate kernel: real memory  = 2147483648 (2048 MB)
-Apr 27 14:20:15 pirate kernel: avail memory = 2050473984 (1955 MB)
-Apr 27 14:20:15 pirate kernel: Event timer "LAPIC" quality 600
-Apr 27 14:20:15 pirate kernel: ACPI APIC Table: <BOCHS  BXPCAPIC>
-Apr 27 14:20:15 pirate kernel: FreeBSD/SMP: Multiprocessor System Detected: 2 CPUs
-Apr 27 14:20:15 pirate kernel: FreeBSD/SMP: 2 package(s) x 1 core(s)
-Apr 27 14:20:15 pirate kernel: cpu0 (BSP): APIC ID:  0
-Apr 27 14:20:15 pirate kernel: cpu1 (AP): APIC ID:  1
-Apr 27 14:20:15 pirate kernel: ioapic0 <Version 1.1> irqs 0-23 on motherboard
-Apr 27 14:20:15 pirate kernel: random: <Software, Yarrow> initialized
-Apr 27 14:20:15 pirate kernel: kbd1 at kbdmux0
-Apr 27 14:20:15 pirate kernel: acpi0: <BOCHS BXPCRSDT> on motherboard
-Apr 27 14:20:15 pirate kernel: acpi0: Power Button (fixed)
-Apr 27 14:20:15 pirate kernel: cpu0: <ACPI CPU> on acpi0
-Apr 27 14:20:15 pirate kernel: cpu1: <ACPI CPU> on acpi0
-Apr 27 14:20:15 pirate kernel: atrtc0: <AT realtime clock> port 0x70-0x71,0x72-0x77 irq 8 on acpi0
-Apr 27 14:20:15 pirate kernel: Event timer "RTC" frequency 32768 Hz quality 0
-Apr 27 14:20:15 pirate kernel: hpet0: <High Precision Event Timer> iomem 0xfed00000-0xfed003ff on acpi0
-Apr 27 14:20:15 pirate kernel: Timecounter "HPET" frequency 100000000 Hz quality 950
-Apr 27 14:20:15 pirate kernel: Timecounter "ACPI-fast" frequency 3579545 Hz quality 900
-Apr 27 14:20:15 pirate kernel: acpi_timer0: <24-bit timer at 3.579545MHz> port 0xb008-0xb00b on acpi0
-Apr 27 14:20:15 pirate kernel: pcib0: <ACPI Host-PCI bridge> port 0xcf8-0xcff on acpi0
-Apr 27 14:20:15 pirate kernel: pci0: <ACPI PCI bus> on pcib0
-Apr 27 14:20:15 pirate kernel: isab0: <PCI-ISA bridge> at device 1.0 on pci0
-Apr 27 14:20:15 pirate kernel: isa0: <ISA bus> on isab0
-Apr 27 14:20:15 pirate kernel: atapci0: <Intel PIIX3 WDMA2 controller> port 0x1f0-0x1f7,0x3f6,0x170-0x177,0x376,0xc100-0xc10f at device 1.1 on pci0
-Apr 27 14:20:15 pirate kernel: ata0: <ATA channel> at channel 0 on atapci0
-Apr 27 14:20:15 pirate kernel: ata1: <ATA channel> at channel 1 on atapci0
-Apr 27 14:20:15 pirate kernel: uhci0: <Intel 82371SB (PIIX3) USB controller> port 0xc080-0xc09f irq 11 at device 1.2 on pci0
-Apr 27 14:20:15 pirate kernel: usbus0 on uhci0
-Apr 27 14:20:15 pirate kernel: pci0: <bridge> at device 1.3 (no driver attached)
-Apr 27 14:20:15 pirate kernel: vgapci0: <VGA-compatible display> mem 0xfc000000-0xfdffffff,0xfebd0000-0xfebd0fff at device 2.0 on pci0
-Apr 27 14:20:15 pirate kernel: vgapci0: Boot video device
-Apr 27 14:20:15 pirate kernel: virtio_pci0: <VirtIO PCI Network adapter> port 0xc0a0-0xc0bf mem 0xfebd1000-0xfebd1fff irq 11 at device 3.0 on pci0
-Apr 27 14:20:15 pirate kernel: vtnet0: <VirtIO Networking Adapter> on virtio_pci0
-Apr 27 14:20:15 pirate kernel: vtnet0: Ethernet address: 04:01:d9:20:0a:01
-Apr 27 14:20:15 pirate kernel: virtio_pci1: <VirtIO PCI Network adapter> port 0xc0c0-0xc0df mem 0xfebd2000-0xfebd2fff irq 11 at device 4.0 on pci0
-Apr 27 14:20:15 pirate kernel: vtnet1: <VirtIO Networking Adapter> on virtio_pci1
-Apr 27 14:20:15 pirate kernel: vtnet1: Ethernet address: 04:01:d9:20:0a:02
-Apr 27 14:20:15 pirate kernel: virtio_pci2: <VirtIO PCI SCSI adapter> port 0xc000-0xc03f mem 0xfebd3000-0xfebd3fff irq 10 at device 5.0 on pci0
-Apr 27 14:20:15 pirate kernel: vtscsi0: <VirtIO SCSI Adapter> on virtio_pci2
-Apr 27 14:20:15 pirate kernel: virtio_pci3: <VirtIO PCI Block adapter> port 0xc040-0xc07f mem 0xfebd4000-0xfebd4fff irq 10 at device 6.0 on pci0
-Apr 27 14:20:15 pirate kernel: vtblk0: <VirtIO Block Adapter> on virtio_pci3
-Apr 27 14:20:15 pirate kernel: vtblk0: 40960MB (83886080 512 byte sectors)
-Apr 27 14:20:15 pirate kernel: virtio_pci4: <VirtIO PCI Balloon adapter> port 0xc0e0-0xc0ff irq 11 at device 7.0 on pci0
-Apr 27 14:20:15 pirate kernel: vtballoon0: <VirtIO Balloon Adapter> on virtio_pci4
-Apr 27 14:20:15 pirate kernel: atkbdc0: <Keyboard controller (i8042)> port 0x60,0x64 irq 1 on acpi0
-Apr 27 14:20:15 pirate kernel: atkbd0: <AT Keyboard> irq 1 on atkbdc0
-Apr 27 14:20:15 pirate kernel: kbd0 at atkbd0
-Apr 27 14:20:15 pirate kernel: atkbd0: [GIANT-LOCKED]
-Apr 27 14:20:15 pirate kernel: psm0: <PS/2 Mouse> irq 12 on atkbdc0
-Apr 27 14:20:15 pirate kernel: psm0: [GIANT-LOCKED]
-Apr 27 14:20:15 pirate kernel: psm0: model IntelliMouse Explorer, device ID 4
-Apr 27 14:20:15 pirate kernel: fdc0: <floppy drive controller> port 0x3f2-0x3f5,0x3f7 irq 6 drq 2 on acpi0
-Apr 27 14:20:15 pirate kernel: fdc0: does not respond
-Apr 27 14:20:15 pirate kernel: device_attach: fdc0 attach returned 6
-Apr 27 14:20:15 pirate kernel: uart0: <16550 or compatible> port 0x3f8-0x3ff irq 4 flags 0x10 on acpi0
-Apr 27 14:20:15 pirate kernel: uart0: console (9600,n,8,1)
-Apr 27 14:20:15 pirate kernel: orm0: <ISA Option ROMs> at iomem 0xc0000-0xc8fff,0xeb800-0xeffff on isa0
-Apr 27 14:20:15 pirate kernel: sc0: <System console> at flags 0x100 on isa0
-Apr 27 14:20:15 pirate kernel: sc0: VGA <16 virtual consoles, flags=0x300>
-Apr 27 14:20:15 pirate kernel: vga0: <Generic ISA VGA> at port 0x3c0-0x3df iomem 0xa0000-0xbffff on isa0
-Apr 27 14:20:15 pirate kernel: attimer0: <AT timer> at port 0x40 on isa0
-Apr 27 14:20:15 pirate kernel: Timecounter "i8254" frequency 1193182 Hz quality 0
-Apr 27 14:20:15 pirate kernel: Event timer "i8254" frequency 1193182 Hz quality 100
-Apr 27 14:20:15 pirate kernel: fdc0: No FDOUT register!
-Apr 27 14:20:15 pirate kernel: ppc0: cannot reserve I/O port range
-Apr 27 14:20:15 pirate kernel: Timecounters tick every 1.000 msec
-Apr 27 14:20:15 pirate kernel: usbus0: 12Mbps Full Speed USB v1.0
-Apr 27 14:20:15 pirate kernel: ugen0.1: <Intel> at usbus0
-Apr 27 14:20:15 pirate kernel: uhub0: <Intel UHCI root HUB, class 9/0, rev 1.00/1.00, addr 1> on usbus0
-Apr 27 14:20:15 pirate kernel: GEOM: vtbd0: the secondary GPT header is not in the last LBA.
-Apr 27 14:20:15 pirate kernel: random: unblocking device.
-Apr 27 14:20:15 pirate kernel: SMP: AP CPU #1 Launched!
-Apr 27 14:20:15 pirate kernel: Root mount waiting for: usbus0
-Apr 27 14:20:15 pirate kernel: uhub0: 2 ports with 2 removable, self powered
-Apr 27 14:20:15 pirate kernel: Trying to mount root from ufs:/dev/gpt/rootfs [rw]...
-Apr 27 14:21:55 pirate pkg: pkg upgraded: 1.5.6 -> 1.7.2 
-Apr 27 14:21:58 pirate pkg: protobuf-2.6.1 installed
-Apr 27 14:21:58 pirate pkg: mosh-1.2.5 installed
-Apr 27 14:27:22 pirate pkg: xproto upgraded: 7.0.27 -> 7.0.28 
-Apr 27 14:27:22 pirate pkg: libxml2 upgraded: 2.9.2_3 -> 2.9.3 
-Apr 27 14:27:22 pirate pkg: indexinfo upgraded: 0.2.3 -> 0.2.4 
-Apr 27 14:27:24 pirate pkg: libxcb upgraded: 1.11_1 -> 1.11.1 
-Apr 27 14:27:24 pirate pkg: kbproto upgraded: 1.0.6 -> 1.0.7 
-Apr 27 14:27:24 pirate pkg: gettext-runtime upgraded: 0.19.4 -> 0.19.7 
-Apr 27 14:27:31 pirate pkg: python27 upgraded: 2.7.9_1 -> 2.7.11_1 
-Apr 27 14:27:38 pirate pkg: perl5 upgraded: 5.20.2_5 -> 5.20.3_8 
-Apr 27 14:27:39 pirate pkg: pcre upgraded: 8.37_4 -> 8.38_1 
-Apr 27 14:27:39 pirate pkg: libiconv upgraded: 1.14_8 -> 1.14_9 
-Apr 27 14:27:40 pirate pkg: libX11 upgraded: 1.6.2_3,1 -> 1.6.3,1 
-Apr 27 14:27:42 pirate pkg: glib upgraded: 2.42.2 -> 2.46.2 
-Apr 27 14:27:42 pirate pkg: dbus upgraded: 1.8.16 -> 1.8.20 
-Apr 27 14:27:42 pirate pkg: py27-setuptools27 upgraded: 17.0 -> 20.0 
-Apr 27 14:27:43 pirate pkg: gobject-introspection upgraded: 1.42.0 -> 1.46.0 
-Apr 27 14:27:43 pirate pkg: dbus-glib reinstalled: 0.104 -> 0.104 
-Apr 27 14:27:43 pirate pkg: ca_root_nss upgraded: 3.19.3 -> 3.22.2 
-Apr 27 14:27:43 pirate pkg: sudo upgraded: 1.8.13 -> 1.8.16 
-Apr 27 14:27:44 pirate pkg: rsync upgraded: 3.1.1_3 -> 3.1.2_1 
-Apr 27 14:27:45 pirate pkg: py27-pip upgraded: 7.0.3 -> 8.0.2 
-Apr 27 14:27:45 pirate pkg: libnet upgraded: 1.1.6_3,1 -> 1.1.6_4,1 
-Apr 27 14:27:46 pirate pkg: curl upgraded: 7.43.0_2 -> 7.48.0_1 
-Apr 27 14:27:46 pirate pkg: avahi-app upgraded: 0.6.31_3 -> 0.6.31_5 
-Apr 27 14:28:50 pirate pkg: p5-Socket-2.021 installed
-Apr 27 14:28:50 pirate pkg: p5-Net-SSLeay-1.72 installed
-Apr 27 14:28:50 pirate pkg: p5-IO-Socket-IP-0.37 installed
-Apr 27 14:28:50 pirate pkg: p5-Mozilla-CA-20160104 installed
-Apr 27 14:28:50 pirate pkg: p5-Digest-HMAC-1.03_1 installed
-Apr 27 14:28:50 pirate pkg: p5-GSSAPI-0.28_1 installed
-Apr 27 14:28:50 pirate pkg: p5-IO-Socket-SSL-2.024 installed
-Apr 27 14:28:50 pirate pkg: p5-Error-0.17024 installed
-Apr 27 14:28:50 pirate pkg: cvsps-2.1_1 installed
-Apr 27 14:28:50 pirate pkg: p5-Authen-SASL-2.16_1 installed
-Apr 27 14:28:50 pirate pkg: p5-Net-SMTP-SSL-1.03 installed
-Apr 27 14:28:51 pirate pkg: git-2.7.4_1 installed
+Apr 27 18:17:21 blob newsyslog[454]: logfile first created
+Apr 27 18:17:21 blob syslogd: kernel boot file is /boot/kernel/kernel
+Apr 27 18:17:21 blob kernel: Copyright (c) 1992-2015 The FreeBSD Project.
+Apr 27 18:17:21 blob kernel: Copyright (c) 1979, 1980, 1983, 1986, 1988, 1989, 1991, 1992, 1993, 1994
+Apr 27 18:17:21 blob kernel: The Regents of the University of California. All rights reserved.
+Apr 27 18:17:21 blob kernel: FreeBSD is a registered trademark of The FreeBSD Foundation.
+Apr 27 18:17:21 blob kernel: FreeBSD 10.2-RELEASE #0 r286666: Wed Aug 12 15:26:37 UTC 2015
+Apr 27 18:17:21 blob kernel: root@releng1.nyi.freebsd.org:/usr/obj/usr/src/sys/GENERIC amd64
+Apr 27 18:17:21 blob kernel: FreeBSD clang version 3.4.1 (tags/RELEASE_34/dot1-final 208032) 20140512
+Apr 27 18:17:21 blob kernel: CPU: Intel(R) Core(TM) i7-4770HQ CPU @ 2.20GHz (2194.99-MHz K8-class CPU)
+Apr 27 18:17:21 blob kernel: Origin="GenuineIntel"  Id=0x40661  Family=0x6  Model=0x46  Stepping=1
+Apr 27 18:17:21 blob kernel: Features=0xbfe3fbff<FPU,VME,DE,PSE,TSC,MSR,PAE,MCE,CX8,APIC,SEP,MTRR,PGE,MCA,CMOV,PAT,PSE36,DTS,ACPI,MMX,FXSR,SSE,SSE2,SS,HTT,TM,PBE>
+Apr 27 18:17:21 blob kernel: Features2=0xf6c0fa17<SSE3,PCLMULQDQ,DTES64,DS_CPL,SSSE3,<b11>,FMA,CX16,xTPR,PDCM,MOVBE,POPCNT,AESNI,XSAVE,AVX,F16C,RDRAND,HV>
+Apr 27 18:17:21 blob kernel: AMD Features=0x20100800<SYSCALL,NX,LM>
+Apr 27 18:17:21 blob kernel: AMD Features2=0x1<LAHF>
+Apr 27 18:17:21 blob kernel: Structured Extended Features=0x272a<TSCADJ,BMI1,AVX2,BMI2,ERMS,INVPCID,NFPUSG>
+Apr 27 18:17:21 blob kernel: XSAVE Features=0x1<XSAVEOPT>
+Apr 27 18:17:21 blob kernel: real memory  = 4294967296 (4096 MB)
+Apr 27 18:17:21 blob kernel: avail memory = 4103499776 (3913 MB)
+Apr 27 18:17:21 blob kernel: Event timer "LAPIC" quality 400
+Apr 27 18:17:21 blob kernel: ACPI APIC Table: <Veertu BXPCAPIC>
+Apr 27 18:17:21 blob kernel: FreeBSD/SMP: Multiprocessor System Detected: 2 CPUs
+Apr 27 18:17:21 blob kernel: FreeBSD/SMP: 1 package(s) x 1 core(s) x 2 HTT threads
+Apr 27 18:17:21 blob kernel: cpu0 (BSP): APIC ID:  0
+Apr 27 18:17:21 blob kernel: cpu1 (AP/HT): APIC ID:  1
+Apr 27 18:17:21 blob kernel: ioapic0 <Version 1.1> irqs 0-23 on motherboard
+Apr 27 18:17:21 blob kernel: random: <Software, Yarrow> initialized
+Apr 27 18:17:21 blob kernel: kbd1 at kbdmux0
+Apr 27 18:17:21 blob kernel: acpi0: <Veertu BXPCRSDT> on motherboard
+Apr 27 18:17:21 blob kernel: acpi0: Power Button (fixed)
+Apr 27 18:17:21 blob kernel: cpu0: <ACPI CPU> on acpi0
+Apr 27 18:17:21 blob kernel: cpu1: <ACPI CPU> on acpi0
+Apr 27 18:17:21 blob kernel: atrtc0: <AT realtime clock> port 0x70-0x71,0x72-0x77 irq 8 on acpi0
+Apr 27 18:17:21 blob kernel: Event timer "RTC" frequency 32768 Hz quality 0
+Apr 27 18:17:21 blob kernel: Timecounter "ACPI-fast" frequency 3579545 Hz quality 900
+Apr 27 18:17:21 blob kernel: acpi_timer0: <24-bit timer at 3.579545MHz> port 0xb008-0xb00b on acpi0
+Apr 27 18:17:21 blob kernel: pcib0: <ACPI Host-PCI bridge> port 0xcf8-0xcff on acpi0
+Apr 27 18:17:21 blob kernel: pci0: <ACPI PCI bus> on pcib0
+Apr 27 18:17:21 blob kernel: isab0: <PCI-ISA bridge> at device 1.0 on pci0
+Apr 27 18:17:21 blob kernel: isa0: <ISA bus> on isab0
+Apr 27 18:17:21 blob kernel: atapci0: <Intel PIIX3 WDMA2 controller> port 0x1f0-0x1f7,0x3f6,0x170-0x177,0x376,0xc060-0xc06f at device 1.1 on pci0
+Apr 27 18:17:21 blob kernel: ata0: <ATA channel> at channel 0 on atapci0
+Apr 27 18:17:21 blob kernel: ata1: <ATA channel> at channel 1 on atapci0
+Apr 27 18:17:21 blob kernel: uhci0: <Intel 82371SB (PIIX3) USB controller> port 0xc040-0xc05f irq 11 at device 1.2 on pci0
+Apr 27 18:17:21 blob kernel: usbus0: controller did not stop
+Apr 27 18:17:21 blob kernel: usbus0 on uhci0
+Apr 27 18:17:21 blob kernel: pci0: <bridge> at device 1.3 (no driver attached)
+Apr 27 18:17:21 blob kernel: vgapci0: <VGA-compatible display> port 0xc070-0xc07f mem 0xf8000000-0xfbffffff,0xfc000000-0xfc00ffff at device 2.0 on pci0
+Apr 27 18:17:21 blob kernel: vgapci0: Boot video device
+Apr 27 18:17:21 blob kernel: em0: <Intel(R) PRO/1000 Legacy Network Connection 1.0.6> port 0xc000-0xc03f mem 0xfebc0000-0xfebdffff irq 11 at device 3.0 on pci0
+Apr 27 18:17:21 blob kernel: em0: Ethernet address: 76:6d:78:0b:46:d3
+Apr 27 18:17:21 blob kernel: ehci0: <Intel 82801DB/L/M (ICH4) USB 2.0 controller> mem 0xfebf0000-0xfebf0fff irq 11 at device 4.0 on pci0
+Apr 27 18:17:21 blob kernel: usbus1: EHCI version 1.0
+Apr 27 18:17:21 blob kernel: usbus1 on ehci0
+Apr 27 18:17:21 blob kernel: atkbdc0: <Keyboard controller (i8042)> port 0x60,0x64 irq 1 on acpi0
+Apr 27 18:17:21 blob kernel: atkbd0: <AT Keyboard> irq 1 on atkbdc0
+Apr 27 18:17:21 blob kernel: kbd0 at atkbd0
+Apr 27 18:17:21 blob kernel: atkbd0: [GIANT-LOCKED]
+Apr 27 18:17:21 blob kernel: psm0: <PS/2 Mouse> irq 12 on atkbdc0
+Apr 27 18:17:21 blob kernel: psm0: [GIANT-LOCKED]
+Apr 27 18:17:21 blob kernel: psm0: model IntelliMouse Explorer, device ID 4
+Apr 27 18:17:21 blob kernel: fdc0: <floppy drive controller> port 0x3f2-0x3f5,0x3f7 irq 6 drq 2 on acpi0
+Apr 27 18:17:21 blob kernel: fdc0: does not respond
+Apr 27 18:17:21 blob kernel: device_attach: fdc0 attach returned 6
+Apr 27 18:17:21 blob kernel: orm0: <ISA Option ROM> at iomem 0xee000-0xeffff on isa0
+Apr 27 18:17:21 blob kernel: sc0: <System console> at flags 0x100 on isa0
+Apr 27 18:17:21 blob kernel: sc0: VGA <16 virtual consoles, flags=0x300>
+Apr 27 18:17:21 blob kernel: vga0: <Generic ISA VGA> at port 0x3c0-0x3df iomem 0xa0000-0xbffff on isa0
+Apr 27 18:17:21 blob kernel: attimer0: <AT timer> at port 0x40 on isa0
+Apr 27 18:17:21 blob kernel: Timecounter "i8254" frequency 1193182 Hz quality 0
+Apr 27 18:17:21 blob kernel: Event timer "i8254" frequency 1193182 Hz quality 100
+Apr 27 18:17:21 blob kernel: fdc0: No FDOUT register!
+Apr 27 18:17:21 blob kernel: ppc0: cannot reserve I/O port range
+Apr 27 18:17:21 blob kernel: Timecounters tick every 1.000 msec
+Apr 27 18:17:21 blob kernel: usbus0: 12Mbps Full Speed USB v1.0
+Apr 27 18:17:21 blob kernel: usbus1: 480Mbps High Speed USB v2.0
+Apr 27 18:17:21 blob kernel: ugen0.1: <Intel> at usbus0
+Apr 27 18:17:21 blob kernel: uhub0: <Intel UHCI root HUB, class 9/0, rev 1.00/1.00, addr 1> on usbus0
+Apr 27 18:17:21 blob kernel: ugen1.1: <Intel> at usbus1
+Apr 27 18:17:21 blob kernel: uhub1: <Intel EHCI root HUB, class 9/0, rev 2.00/1.00, addr 1> on usbus1
+Apr 27 18:17:21 blob kernel: ada0 at ata0 bus 0 scbus0 target 0 lun 0
+Apr 27 18:17:21 blob kernel: cd0 at ata0 bus 0 scbus0 target 1 lun 0
+Apr 27 18:17:21 blob kernel: cd0: <Veertu DVD-ROM 1.0> Removable CD-ROM SCSI device
+Apr 27 18:17:21 blob kernel: cd0: Serial Number QM00002
+Apr 27 18:17:21 blob kernel: cd0: 16.700MB/s transfers (WDMA2, ATAPI 12bytes, PIO 65534bytes)
+Apr 27 18:17:21 blob kernel: cd0: cd present [118134 x 2048 byte records]
+Apr 27 18:17:21 blob kernel: ada0: <HARDDISK 1.0> ATA-7 device
+Apr 27 18:17:21 blob kernel: random: unblocking device.
+Apr 27 18:17:21 blob kernel: ada0: Serial Number QM00001
+Apr 27 18:17:21 blob kernel: ada0: 16.700MB/s transfers (WDMA2, PIO 8192bytes)
+Apr 27 18:17:21 blob kernel: ada0: 20480MB (41943040 512 byte sectors: 16H 63S/T 16383C)
+Apr 27 18:17:21 blob kernel: ada0: Previously was known as ad0
+Apr 27 18:17:21 blob kernel: uhub0: 2 ports with 2 removable, self powered
+Apr 27 18:17:21 blob kernel: SMP: AP CPU #1 Launched!
+Apr 27 18:17:21 blob kernel: Root mount waiting for: usbus1 usbus0
+Apr 27 18:17:21 blob kernel: ugen0.2: <Veertu> at usbus0
+Apr 27 18:17:21 blob kernel: Root mount waiting for: usbus1
+Apr 27 18:17:21 blob kernel: uhub1: 6 ports with 6 removable, self powered
+Apr 27 18:17:21 blob kernel: Trying to mount root from ufs:/dev/ada0p2 [rw]...
+Apr 27 18:17:21 blob kernel: uaudio0: <Audio Device> on usbus0
+Apr 27 18:17:21 blob kernel: uaudio0: Play: 48000 Hz, 2 ch, 16-bit S-LE PCM format, 2x8ms buffer.
+Apr 27 18:17:21 blob kernel: uaudio0: Record: 48000 Hz, 1 ch, 16-bit S-LE PCM format, 2x8ms buffer.
+Apr 27 18:17:21 blob kernel: uaudio0: No MIDI sequencer.
+Apr 27 18:17:21 blob kernel: pcm0: <USB audio> on uaudio0
+Apr 27 18:17:21 blob kernel: uaudio0: No HID volume keys found.
+Apr 27 18:17:21 blob ntpd[622]: ntpd 4.2.8p3-a (1): Starting
+Apr 27 18:28:57 blob login: 2 LOGIN FAILURES ON ttyv0
+Apr 27 18:28:57 blob login: ROOT LOGIN (root) ON ttyv0
+Apr 27 18:29:46 blob unbound: [783:0] notice: init module 0: validator
+Apr 27 18:29:46 blob unbound: [783:0] notice: init module 1: iterator
+Apr 27 18:30:15 blob reboot: rebooted by root
+Apr 27 18:30:15 blob syslogd: exiting on signal 15
+Apr 27 18:30:59 blob syslogd: kernel boot file is /boot/kernel/kernel
+Apr 27 18:30:59 blob kernel: Waiting (max 60 seconds) for system process `vnlru' to stop...done
+Apr 27 18:30:59 blob kernel: Waiting (max 60 seconds) for system process `bufdaemon' to stop...done
+Apr 27 18:30:59 blob kernel: Waiting (max 60 seconds) for system process `syncer' to stop...
+Apr 27 18:30:59 blob kernel: Syncing disks, vnodes remaining...1 0 done
+Apr 27 18:30:59 blob kernel: All buffers synced.
+Apr 27 18:30:59 blob kernel: Uptime: 13m21s
+Apr 27 18:30:59 blob kernel: pcm0: detached
+Apr 27 18:30:59 blob kernel: usbus0: controller did not stop
+Apr 27 18:30:59 blob kernel: Rebooting...
+Apr 27 18:30:59 blob kernel: cpu_reset: Stopping other CPUs
+Apr 27 18:30:59 blob kernel: Copyright (c) 1992-2015 The FreeBSD Project.
+Apr 27 18:30:59 blob kernel: Copyright (c) 1979, 1980, 1983, 1986, 1988, 1989, 1991, 1992, 1993, 1994
+Apr 27 18:30:59 blob kernel: The Regents of the University of California. All rights reserved.
+Apr 27 18:30:59 blob kernel: FreeBSD is a registered trademark of The FreeBSD Foundation.
+Apr 27 18:30:59 blob kernel: FreeBSD 10.2-RELEASE #0 r286666: Wed Aug 12 15:26:37 UTC 2015
+Apr 27 18:30:59 blob kernel: root@releng1.nyi.freebsd.org:/usr/obj/usr/src/sys/GENERIC amd64
+Apr 27 18:30:59 blob kernel: FreeBSD clang version 3.4.1 (tags/RELEASE_34/dot1-final 208032) 20140512
+Apr 27 18:30:59 blob kernel: CPU: Intel(R) Core(TM) i7-4770HQ CPU @ 2.20GHz (2194.98-MHz K8-class CPU)
+Apr 27 18:30:59 blob kernel: Origin="GenuineIntel"  Id=0x40661  Family=0x6  Model=0x46  Stepping=1
+Apr 27 18:30:59 blob kernel: Features=0xbfe3fbff<FPU,VME,DE,PSE,TSC,MSR,PAE,MCE,CX8,APIC,SEP,MTRR,PGE,MCA,CMOV,PAT,PSE36,DTS,ACPI,MMX,FXSR,SSE,SSE2,SS,HTT,TM,PBE>
+Apr 27 18:30:59 blob kernel: Features2=0xf6c0fa17<SSE3,PCLMULQDQ,DTES64,DS_CPL,SSSE3,<b11>,FMA,CX16,xTPR,PDCM,MOVBE,POPCNT,AESNI,XSAVE,AVX,F16C,RDRAND,HV>
+Apr 27 18:30:59 blob kernel: AMD Features=0x20100800<SYSCALL,NX,LM>
+Apr 27 18:30:59 blob kernel: AMD Features2=0x1<LAHF>
+Apr 27 18:30:59 blob kernel: Structured Extended Features=0x272a<TSCADJ,BMI1,AVX2,BMI2,ERMS,INVPCID,NFPUSG>
+Apr 27 18:30:59 blob kernel: XSAVE Features=0x1<XSAVEOPT>
+Apr 27 18:30:59 blob kernel: real memory  = 4294967296 (4096 MB)
+Apr 27 18:30:59 blob kernel: avail memory = 4103499776 (3913 MB)
+Apr 27 18:30:59 blob kernel: Event timer "LAPIC" quality 400
+Apr 27 18:30:59 blob kernel: ACPI APIC Table: <Veertu BXPCAPIC>
+Apr 27 18:30:59 blob kernel: FreeBSD/SMP: Multiprocessor System Detected: 2 CPUs
+Apr 27 18:30:59 blob kernel: FreeBSD/SMP: 1 package(s) x 1 core(s) x 2 HTT threads
+Apr 27 18:30:59 blob kernel: cpu0 (BSP): APIC ID:  0
+Apr 27 18:30:59 blob kernel: cpu1 (AP/HT): APIC ID:  1
+Apr 27 18:30:59 blob kernel: ioapic0 <Version 1.1> irqs 0-23 on motherboard
+Apr 27 18:30:59 blob kernel: random: <Software, Yarrow> initialized
+Apr 27 18:30:59 blob kernel: kbd1 at kbdmux0
+Apr 27 18:30:59 blob kernel: acpi0: <Veertu BXPCRSDT> on motherboard
+Apr 27 18:30:59 blob kernel: acpi0: Power Button (fixed)
+Apr 27 18:30:59 blob kernel: cpu0: <ACPI CPU> on acpi0
+Apr 27 18:30:59 blob kernel: cpu1: <ACPI CPU> on acpi0
+Apr 27 18:30:59 blob kernel: atrtc0: <AT realtime clock> port 0x70-0x71,0x72-0x77 irq 8 on acpi0
+Apr 27 18:30:59 blob kernel: Event timer "RTC" frequency 32768 Hz quality 0
+Apr 27 18:30:59 blob kernel: Timecounter "ACPI-fast" frequency 3579545 Hz quality 900
+Apr 27 18:30:59 blob kernel: acpi_timer0: <24-bit timer at 3.579545MHz> port 0xb008-0xb00b on acpi0
+Apr 27 18:30:59 blob kernel: pcib0: <ACPI Host-PCI bridge> port 0xcf8-0xcff on acpi0
+Apr 27 18:30:59 blob kernel: pci0: <ACPI PCI bus> on pcib0
+Apr 27 18:30:59 blob kernel: isab0: <PCI-ISA bridge> at device 1.0 on pci0
+Apr 27 18:30:59 blob kernel: isa0: <ISA bus> on isab0
+Apr 27 18:30:59 blob kernel: atapci0: <Intel PIIX3 WDMA2 controller> port 0x1f0-0x1f7,0x3f6,0x170-0x177,0x376,0xc060-0xc06f at device 1.1 on pci0
+Apr 27 18:30:59 blob kernel: ata0: <ATA channel> at channel 0 on atapci0
+Apr 27 18:30:59 blob kernel: ata1: <ATA channel> at channel 1 on atapci0
+Apr 27 18:30:59 blob kernel: uhci0: <Intel 82371SB (PIIX3) USB controller> port 0xc040-0xc05f irq 11 at device 1.2 on pci0
+Apr 27 18:30:59 blob kernel: usbus0: controller did not stop
+Apr 27 18:30:59 blob kernel: usbus0 on uhci0
+Apr 27 18:30:59 blob kernel: pci0: <bridge> at device 1.3 (no driver attached)
+Apr 27 18:30:59 blob kernel: vgapci0: <VGA-compatible display> port 0xc070-0xc07f mem 0xf8000000-0xfbffffff,0xfc000000-0xfc00ffff at device 2.0 on pci0
+Apr 27 18:30:59 blob kernel: vgapci0: Boot video device
+Apr 27 18:30:59 blob kernel: em0: <Intel(R) PRO/1000 Legacy Network Connection 1.0.6> port 0xc000-0xc03f mem 0xfebc0000-0xfebdffff irq 11 at device 3.0 on pci0
+Apr 27 18:30:59 blob kernel: em0: Ethernet address: 76:6d:78:0b:46:d3
+Apr 27 18:30:59 blob kernel: ehci0: <Intel 82801DB/L/M (ICH4) USB 2.0 controller> mem 0xfebf0000-0xfebf0fff irq 11 at device 4.0 on pci0
+Apr 27 18:30:59 blob kernel: usbus1: EHCI version 1.0
+Apr 27 18:30:59 blob kernel: usbus1 on ehci0
+Apr 27 18:30:59 blob kernel: atkbdc0: <Keyboard controller (i8042)> port 0x60,0x64 irq 1 on acpi0
+Apr 27 18:30:59 blob kernel: atkbd0: <AT Keyboard> irq 1 on atkbdc0
+Apr 27 18:30:59 blob kernel: kbd0 at atkbd0
+Apr 27 18:30:59 blob kernel: atkbd0: [GIANT-LOCKED]
+Apr 27 18:30:59 blob kernel: psm0: <PS/2 Mouse> irq 12 on atkbdc0
+Apr 27 18:30:59 blob kernel: psm0: [GIANT-LOCKED]
+Apr 27 18:30:59 blob kernel: psm0: model IntelliMouse Explorer, device ID 4
+Apr 27 18:30:59 blob kernel: fdc0: <floppy drive controller> port 0x3f2-0x3f5,0x3f7 irq 6 drq 2 on acpi0
+Apr 27 18:30:59 blob kernel: fdc0: does not respond
+Apr 27 18:30:59 blob kernel: device_attach: fdc0 attach returned 6
+Apr 27 18:30:59 blob kernel: orm0: <ISA Option ROM> at iomem 0xee000-0xeffff on isa0
+Apr 27 18:30:59 blob kernel: sc0: <System console> at flags 0x100 on isa0
+Apr 27 18:30:59 blob kernel: sc0: VGA <16 virtual consoles, flags=0x300>
+Apr 27 18:30:59 blob kernel: vga0: <Generic ISA VGA> at port 0x3c0-0x3df iomem 0xa0000-0xbffff on isa0
+Apr 27 18:30:59 blob kernel: attimer0: <AT timer> at port 0x40 on isa0
+Apr 27 18:30:59 blob kernel: Timecounter "i8254" frequency 1193182 Hz quality 0
+Apr 27 18:30:59 blob kernel: Event timer "i8254" frequency 1193182 Hz quality 100
+Apr 27 18:30:59 blob kernel: fdc0: No FDOUT register!
+Apr 27 18:30:59 blob kernel: ppc0: cannot reserve I/O port range
+Apr 27 18:30:59 blob kernel: Timecounters tick every 1.000 msec
+Apr 27 18:30:59 blob kernel: usbus0: 12Mbps Full Speed USB v1.0
+Apr 27 18:30:59 blob kernel: usbus1: 480Mbps High Speed USB v2.0
+Apr 27 18:30:59 blob kernel: ugen0.1: <Intel> at usbus0
+Apr 27 18:30:59 blob kernel: uhub0: <Intel UHCI root HUB, class 9/0, rev 1.00/1.00, addr 1> on usbus0
+Apr 27 18:30:59 blob kernel: ugen1.1: <Intel> at usbus1
+Apr 27 18:30:59 blob kernel: uhub1: <Intel EHCI root HUB, class 9/0, rev 2.00/1.00, addr 1> on usbus1
+Apr 27 18:30:59 blob kernel: random: unblocking device.
+Apr 27 18:30:59 blob kernel: ada0 at ata0 bus 0 scbus0 target 0 lun 0
+Apr 27 18:30:59 blob kernel: cd0 at ata0 bus 0 scbus0 target 1 lun 0
+Apr 27 18:30:59 blob kernel: cd0: <Veertu DVD-ROM 1.0> Removable CD-ROM SCSI device
+Apr 27 18:30:59 blob kernel: cd0: Serial Number QM00002
+Apr 27 18:30:59 blob kernel: cd0: 16.700MB/s transfers (WDMA2, ATAPI 12bytes, PIO 65534bytes)
+Apr 27 18:30:59 blob kernel: cd0: cd present [118134 x 2048 byte records]
+Apr 27 18:30:59 blob kernel: ada0: <HARDDISK 1.0> ATA-7 device
+Apr 27 18:30:59 blob kernel: ada0: Serial Number QM00001
+Apr 27 18:30:59 blob kernel: ada0: 16.700MB/s transfers (WDMA2, PIO 8192bytes)
+Apr 27 18:30:59 blob kernel: ada0: 20480MB (41943040 512 byte sectors: 16H 63S/T 16383C)
+Apr 27 18:30:59 blob kernel: ada0: Previously was known as ad0
+Apr 27 18:30:59 blob kernel: uhub0: 2 ports with 2 removable, self powered
+Apr 27 18:30:59 blob kernel: SMP: AP CPU #1 Launched!
+Apr 27 18:30:59 blob kernel: Root mount waiting for: usbus1 usbus0
+Apr 27 18:30:59 blob kernel: ugen0.2: <Veertu> at usbus0
+Apr 27 18:30:59 blob kernel: Root mount waiting for: usbus1
+Apr 27 18:30:59 blob kernel: uhub1: 6 ports with 6 removable, self powered
+Apr 27 18:30:59 blob kernel: Trying to mount root from ufs:/dev/ada0p2 [rw]...
+Apr 27 18:30:59 blob kernel: uaudio0: <Audio Device> on usbus0
+Apr 27 18:30:59 blob kernel: uaudio0: Play: 48000 Hz, 2 ch, 16-bit S-LE PCM format, 2x8ms buffer.
+Apr 27 18:30:59 blob kernel: uaudio0: Record: 48000 Hz, 1 ch, 16-bit S-LE PCM format, 2x8ms buffer.
+Apr 27 18:30:59 blob kernel: uaudio0: No MIDI sequencer.
+Apr 27 18:30:59 blob kernel: pcm0: <USB audio> on uaudio0
+Apr 27 18:30:59 blob kernel: uaudio0: No HID volume keys found.
+Apr 27 18:31:00 blob ntpd[597]: ntpd 4.2.8p3-a (1): Starting
+Apr 27 18:32:14 blob login: ROOT LOGIN (root) ON ttyv0
+Apr 27 18:38:57 blob unbound: [725:0] notice: init module 0: validator
+Apr 27 18:38:57 blob unbound: [725:0] notice: init module 1: iterator
+Apr 27 18:39:28 blob pkg-static: pkg-1.7.2 installed
+Apr 27 18:45:38 blob pkg: indexinfo-0.2.4 installed
+Apr 27 18:45:38 blob pkg: libxml2-2.9.3 installed
+Apr 27 18:45:38 blob pkg: gettext-runtime-0.19.7 installed
+Apr 27 18:45:38 blob pkg: sqlite3-3.11.1 installed
+Apr 27 18:45:39 blob pkg: aria2-1.21.0 installed
+Apr 27 18:47:02 blob pkg: ca_root_nss-3.22.2 installed
+Apr 27 19:35:00 blob pkg: p7zip-15.14 installed
+Apr 27 19:46:02 blob pkg: perl5-5.20.3_8 installed
+Apr 27 19:46:02 blob pkg: p5-Socket-2.021 installed
+Apr 27 19:46:02 blob pkg: p5-Net-SSLeay-1.72 installed
+Apr 27 19:46:02 blob pkg: p5-IO-Socket-IP-0.37 installed
+Apr 27 19:46:02 blob pkg: p5-Mozilla-CA-20160104 installed
+Apr 27 19:46:02 blob pkg: libffi-3.2.1 installed
+Apr 27 19:46:02 blob pkg: p5-Digest-HMAC-1.03_1 installed
+Apr 27 19:46:02 blob pkg: p5-GSSAPI-0.28_1 installed
+Apr 27 19:46:02 blob pkg: p5-IO-Socket-SSL-2.024 installed
+Apr 27 19:46:02 blob pkg: expat-2.1.0_3 installed
+Apr 27 19:46:05 blob pkg: python27-2.7.11_1 installed
+Apr 27 19:46:05 blob pkg: p5-Error-0.17024 installed
+Apr 27 19:46:05 blob pkg: cvsps-2.1_1 installed
+Apr 27 19:46:05 blob pkg: p5-Authen-SASL-2.16_1 installed
+Apr 27 19:46:05 blob pkg: curl-7.48.0_1 installed
+Apr 27 19:46:05 blob pkg: p5-Net-SMTP-SSL-1.03 installed
+Apr 27 19:46:06 blob pkg: libevent2-2.0.22_1 installed
+Apr 27 19:46:06 blob pkg: git-2.7.4_1 installed
+Apr 27 19:46:06 blob pkg: tmux-2.1_1 installed
+Apr 27 19:46:06 blob pkg: rsync-3.1.2_1 installed

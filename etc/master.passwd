@@ -1,6 +1,6 @@
 # $FreeBSD: releng/10.2/etc/master.passwd 256366 2013-10-12 06:08:18Z rpaulo $
 #
-root:$6$9YPY6T9vqo9BV9XT$gthxoD/gklvAZRGqhTrYaFRZg/YMWKvD00SGSIDKVRjt/adHpnMuG3uzNtgG5uss5Tp2AbIRkijMBVFKExhxL.:0:0::0:0:Charlie &:/root:/bin/csh
+root:$6$yNcKnugJ8IdVjyXU$sFcoZLozItEwA1v80tbw5CyzOrSC982QzXdevXtBXzJxNrOwyIuBK36EBkbm.Q07kFuKt8GyXdgo5gRpkFMtD0:0:0::0:0:Charlie &:/root:/bin/csh
 toor:*:0:0::0:0:Bourne-again Superuser:/root:
 daemon:*:1:1::0:0:Owner of many system processes:/root:/usr/sbin/nologin
 operator:*:2:5::0:0:System &:/:/usr/sbin/nologin
@@ -24,8 +24,5 @@ auditdistd:*:78:77::0:0:Auditdistd unprivileged user:/var/empty:/usr/sbin/nologi
 www:*:80:80::0:0:World Wide Web Owner:/nonexistent:/usr/sbin/nologin
 hast:*:845:845::0:0:HAST unprivileged user:/var/empty:/usr/sbin/nologin
 nobody:*:65534:65534::0:0:Unprivileged user:/nonexistent:/usr/sbin/nologin
-messagebus:*:556:556::0:0:D-BUS Daemon User:/nonexistent:/usr/sbin/nologin
-avahi:*:558:558::0:0:Avahi Daemon User:/nonexistent:/usr/sbin/nologin
-avahi-autoipd:*:588:588::0:0:Avahi Autoipd Daemon user:/nonexistent:/usr/sbin/nologin
-freebsd:$6$Qt/svpc3PBw86kGj$XrzQ.uxWDO3ZkoLOD60UAKCts8jO1EqGKg2sHgkKNvEYwTmkdLqA0MjDqKZo.XUoynCn5KLFPWoC1eSwlCYEB0:1001:1001::0:0:Created by bsdcloud-init:/home/freebsd:/bin/tcsh
+freebsd:$6$vWriXTz9byvSEy8H$lwYWVFSZEtE0F0Y5B114kub8FYBLl6HPrWqF9cyvb7oZPTm5h0fneLGtqCsG63WEKqkHRgt4JwambMP4RD75e.:1001:1001::0:0:User &:/home/freebsd:/bin/sh
 git_daemon:*:964:964::0:0:git daemon:/nonexistent:/usr/sbin/nologin

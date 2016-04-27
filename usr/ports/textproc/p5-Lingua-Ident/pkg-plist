@@ -1,4 +1,0 @@
-%%SITE_PERL%%/Lingua/Ident.pm
-bin/trainlid
-%%PERL5_MAN3%%/Lingua::Ident.3.gz
-man/man1/trainlid.1.gz
